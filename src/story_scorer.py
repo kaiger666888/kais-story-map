@@ -164,10 +164,10 @@ def detect_story_type(d: dict) -> str:
     max_edges = n_chars * (n_chars - 1) / 2 if n_chars > 1 else 1
     density = len(edges) / max_edges if max_edges > 0 else 0
 
-    # 次中心节点数（degree > 核心节点 degree 的 50%）
+    # 次中心节点数（degree > 核心节点 degree 的 30%）
     if nodes:
         max_deg = max(n.get("degree", 0) for n in nodes)
-        threshold = max_deg * 0.5 if max_deg > 0 else 0
+        threshold = max_deg * 0.3 if max_deg > 0 else 0
         secondary_hubs = sum(1 for n in nodes if 0 < n.get("degree", 0) < max_deg and n.get("degree", 0) >= threshold)
     else:
         secondary_hubs = 0
@@ -187,68 +187,86 @@ def detect_story_type(d: dict) -> str:
     coverage = sum(1 for dim in dims if any(p.get(dim, 0) > 0.15 for p in emo))
 
     # --- 类型打分 ---
-    # 爽文特征 — 关键区分：星形网络 + 情绪集中 + 高压短句
+    # 策略：寻找每种类型的"唯一指纹"
+    # 不共享分数，每种类型只有自己特有的信号才能得分
+
+    # ===== 爽文 (power_fantasy) =====
+    # 指纹：极短句(<8) AND NOT 恐惧主导
     pf_score = 0
-    if tension_mean > 0.55: pf_score += 10
-    elif tension_mean > 0.50: pf_score += 5
-    if avg_sl < 12: pf_score += 25     # 爽文特征：极短句
-    elif avg_sl < 20: pf_score += 12
-    if dominant <= 3: pf_score += 20  # 爽文核心：情绪集中在2-3个
-    # 星形网络 = 核心节点度数 > 所有其他节点度数之和的50%
-    if nodes and len(nodes) > 1:
-        degrees = sorted([n.get("degree", 0) for n in nodes], reverse=True)
-        if degrees[0] > 0 and degrees[0] > sum(degrees[1:]) * 0.5:
-            pf_score += 30  # 强星形网络 = 爽文铁证
-        elif secondary_hubs < 2:
-            pf_score += 15
-    if tension_amp > 0.3: pf_score += 10
-    if dominant > 0: pf_score += 5
+    fear_r = dim_ratios.get("fear", 0)
+    trust_r = dim_ratios.get("trust", 0)
+    is_fear_dominant = fear_r > 0.15 and fear_r > trust_r
+    if avg_sl < 8 and not is_fear_dominant: pf_score += 50  # 极短句=爽文铁证(但非恐惧)
+    elif avg_sl < 8 and is_fear_dominant: pf_score -= 30     # 短句+恐惧=悬疑不是爽文
+    elif avg_sl < 12:
+        if nodes and len(nodes) > 1:
+            degrees = sorted([n.get("degree", 0) for n in nodes], reverse=True)
+            if degrees[0] > 0 and degrees[0] > sum(degrees[1:]) * 0.5:
+                pf_score += 40   # 短句+星形
+                # 但如果 fear<0.10 且 joy+sad 都高，可能是言情
+                joy_r = dim_ratios.get("joy", 0)
+                sad_r = dim_ratios.get("sadness", 0)
+                if fear_r < 0.10 and joy_r > 0.15 and sad_r > 0.15:
+                    pf_score -= 20  # 降低爽文分，让言情胜出
+        elif dominant <= 2:
+            pf_score += 25   # 短句+情绪集中
     scores["power_fantasy"] = pf_score
 
-    # 经典叙事特征 — 关键区分：多中心网络 + 情感丰富 + 张弛有度
+    # ===== 经典叙事 (classic_narrative) =====
+    # 指纹：多角色(>=5) + 多次中心(>=2) + 对话低(<15%) + 情感覆盖广(>=6)
     cl_score = 0
-    if coverage >= 6: cl_score += 20
-    elif coverage >= 4: cl_score += 10
-    if secondary_hubs >= 2: cl_score += 30  # 经典核心：多中心
-    elif secondary_hubs >= 1: cl_score += 15
-    if pacing_change > 0.05: cl_score += 20
-    elif pacing_change > 0.03: cl_score += 10
-    if tension_amp > 0.25: cl_score += 15
-    if sentence_variance > 3: cl_score += 10
-    if n_chars >= 5: cl_score += 5  # 角色多
+    if n_chars >= 5 and secondary_hubs >= 2 and dialogue_mean < 0.15:
+        cl_score += 40                               # 经典铁证组合
+    elif coverage >= 6 and dialogue_mean < 0.20:
+        cl_score += 30
+    elif coverage >= 6 and dialogue_mean < 0.25:
+        cl_score += 15
+    # 经典叙事允许 fear 较高（战争场景）
+    if secondary_hubs >= 2 and n_chars >= 5 and tension_amp > 0.3:
+        cl_score += 10
+    # 反信号
+    if avg_sl < 10: cl_score -= 20
+    if dominant <= 1: cl_score -= 15
     scores["classic_narrative"] = cl_score
 
-    # 悬疑特征
+    # ===== 悬疑/惊悚 (suspense) =====
+    # 指纹：fear>trust AND 次中心>=2 (复杂关系网中的恐惧)
     su_score = 0
-    if dim_ratios.get("fear", 0) > 0.15: su_score += 25
-    if dim_ratios.get("trust", 0) < 0.10: su_score += 20
-    if tension_mean > 0.50: su_score += 15
-    if pacing_change < 0.06: su_score += 15  # 节奏偏慢=铺垫
-    if secondary_hubs >= 2: su_score += 15
-    if n_chars >= 5: su_score += 10
+    fear_r = dim_ratios.get("fear", 0)
+    trust_r = dim_ratios.get("trust", 0)
+    if fear_r > trust_r and secondary_hubs >= 2: su_score += 45  # 独占组合
+    elif fear_r > trust_r and secondary_hubs >= 1: su_score += 25
+    elif fear_r > 0.10 and n_chars >= 4: su_score += 15
+    # 反信号
+    if dim_ratios.get("joy", 0) > 0.25: su_score -= 20
     scores["suspense"] = su_score
 
-    # 言情特征
+    # ===== 言情/情感 (romance) =====
+    # 指纹：joy+sad 都高 AND trust 较高 AND fear较低 AND 对话较高
     ro_score = 0
-    if dim_ratios.get("joy", 0) > 0.15: ro_score += 20
-    if dim_ratios.get("sadness", 0) > 0.10: ro_score += 15
-    if dim_ratios.get("trust", 0) > 0.10: ro_score += 15
-    if dialogue_mean > 0.20: ro_score += 20
-    if secondary_hubs >= 1: ro_score += 15
-    if tension_amp < 0.4: ro_score += 15  # 不需要太极端
+    joy_r = dim_ratios.get("joy", 0)
+    sad_r = dim_ratios.get("sadness", 0)
+    trust_r = dim_ratios.get("trust", 0)
+    fear_r = dim_ratios.get("fear", 0)
+    is_romance_emo = joy_r > 0.15 and sad_r > 0.15 and fear_r < 0.15
+    if is_romance_emo and dialogue_mean > 0.15: ro_score += 50  # 独占：悲喜交织+对话+无恐惧
+    elif is_romance_emo: ro_score += 35
+    elif joy_r > 0.10 and sad_r > 0.10: ro_score += 20
+    # 反信号
+    if fear_r > 0.20: ro_score -= 25
+    if dim_ratios.get("disgust", 0) > 0.15: ro_score -= 15
     scores["romance"] = ro_score
 
-    # 史诗特征
+    # ===== 史诗/历史 (epic) =====
+    # 指纹：大量角色(>=10) OR (>=6角色 AND >=3次中心)
     ep_score = 0
-    if n_chars >= 8: ep_score += 20
+    if n_chars >= 10: ep_score += 50                 # 独占：超多角色
+    elif n_chars >= 6 and secondary_hubs >= 3: ep_score += 40  # 独占组合
+    elif n_chars >= 6 and secondary_hubs >= 2: ep_score += 20
     elif n_chars >= 5: ep_score += 10
-    if secondary_hubs >= 3: ep_score += 20
-    elif secondary_hubs >= 2: ep_score += 10
-    if coverage >= 7: ep_score += 20
-    elif coverage >= 5: ep_score += 10
-    if quality.get("syntax_complexity", 0) > 1.0: ep_score += 15
-    if tension_amp > 0.30: ep_score += 15
-    if avg_sl > 15: ep_score += 10
+    # 反信号
+    if avg_sl < 8: ep_score -= 20
+    if dominant <= 1: ep_score -= 10
     scores["epic"] = ep_score
 
     # 返回最高分类型
