@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story Map Analysis Report</title>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://d3js.org/d3-force.v3.min.js"></script>
+<style>
+:root {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-card-hover: #1a2744;
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-muted: #6c6c88;
+  --accent: #6c5ce7;
+  --accent-light: #a29bfe;
+  --success: #00cec9;
+  --warning: #fdcb6e;
+  --danger: #ff7675;
+  --info: #74b9ff;
+  --border: #2a2a4a;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+  border-radius: 16px;
+  padding: 30px 40px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.header h1 {
+  font-size: 28px;
+  background: linear-gradient(135deg, var(--accent-light), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+.header .meta {
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.header .meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Grid Layout */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.grid-full {
+  margin-bottom: 24px;
+}
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-header h2 {
+  font-size: 18px;
+  color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-header h2 .icon { font-size: 22px; }
+.card-body { padding: 20px 24px; }
+
+/* Chart containers */
+.chart-container {
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+}
+
+/* Network graph */
+#network-graph {
+  width: 100%;
+  height: 450px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+}
+#network-graph svg { width: 100%; height: 100%; }
+
+/* Character table */
+.char-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+.char-table th, .char-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.char-table th {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.char-table tr:hover { background: var(--bg-card-hover); }
+
+/* Quality metrics */
+.quality-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+.quality-item {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.quality-item .value {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-light), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.quality-item .label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.grade-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+.grade-A { background: linear-gradient(135deg, #00b894, #00cec9); color: #fff; }
+.grade-B { background: linear-gradient(135deg, #0984e3, #74b9ff); color: #fff; }
+.grade-C { background: linear-gradient(135deg, #fdcb6e, #f39c12); color: #1a1a2e; }
+.grade-D { background: linear-gradient(135deg, #ff7675, #d63031); color: #fff; }
+
+/* Advice cards */
+.advice-list { display: flex; flex-direction: column; gap: 16px; }
+.advice-card {
+  border-radius: 12px;
+  padding: 20px 24px;
+  border-left: 4px solid;
+  background: var(--bg-secondary);
+}
+.advice-card.critical {
+  border-color: var(--danger);
+  background: linear-gradient(90deg, rgba(255,118,117,0.08), var(--bg-secondary));
+}
+.advice-card.warning {
+  border-color: var(--warning);
+  background: linear-gradient(90deg, rgba(253,203,110,0.08), var(--bg-secondary));
+}
+.advice-card.info {
+  border-color: var(--info);
+  background: linear-gradient(90deg, rgba(116,185,255,0.08), var(--bg-secondary));
+}
+.advice-card .advice-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.advice-card .dimension-tag {
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background: rgba(108,92,231,0.2);
+  color: var(--accent-light);
+  font-weight: 600;
+}
+.advice-card .severity-badge {
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.severity-badge.critical { background: rgba(255,118,117,0.2); color: var(--danger); }
+.severity-badge.warning { background: rgba(253,203,110,0.2); color: var(--warning); }
+.severity-badge.info { background: rgba(116,185,255,0.2); color: var(--info); }
+.advice-card .advice-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.advice-card .advice-detail {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+.advice-card .advice-suggestion {
+  color: var(--success);
+  font-size: 14px;
+  padding: 10px 14px;
+  background: rgba(0,206,201,0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(0,206,201,0.15);
+}
+.advice-card .advice-suggestion::before {
+  content: "💡 ";
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+.footer .export-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.export-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.export-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Tooltip for network */
+.network-tooltip {
+  position: absolute;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+.network-tooltip.visible { opacity: 1; }
+.network-tooltip .tip-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent-light);
+  margin-bottom: 6px;
+}
+.network-tooltip .tip-info {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Arc shape badge */
+.arc-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff;
+}
+.confidence-bar {
+  width: 120px;
+  height: 6px;
+  background: var(--bg-primary);
+  border-radius: 3px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.confidence-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  transition: width 0.5s;
+}
+
+/* Dominant emotions */
+.emotion-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.emotion-tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>📖 Story Map Analysis</h1>
+  <div class="meta">
+    <span>📄 {{ report.source_file or 'Unknown' }}</span>
+    <span>🌐 {{ report.language.value.upper() }}</span>
+    <span>📊 {{ report.total_segments }} segments</span>
+    <span>📝 {{ report.total_words }} words</span>
+    <span>🕐 {{ generated_at }}</span>
+  </div>
+</div>
+
+<!-- ①② 叙事弧线 + 情感深度 -->
+<div class="grid-2">
+  <!-- 叙事弧线 -->
+  <div class="card">
+    <div class="card-header">
+      <h2><span class="icon">📈</span> Narrative Arc</h2>
+      <div>
+        <span class="arc-badge">{{ report.narrative_arc.arc_shape.value|replace('_', ' ')|title }}</span>
+        <div class="confidence-bar"><div class="confidence-fill" style="width:{{ (report.narrative_arc.shape_confidence * 100)|round }}%"></div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="arc-chart" class="chart-container"></div>
+    </div>
+  </div>
+
+  <!-- 情感深度 -->
+  <div class="card">
+    <div class="card-header">
+      <h2><span class="icon">🎭</span> Emotional Depth</h2>
+    </div>
+    <div class="card-body">
+      <div id="emotion-chart" class="chart-container"></div>
+      <div id="emotion-tags" class="emotion-tags"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ③ 角色网络 -->
+<div class="grid-full">
+  <div class="card">
+    <div class="card-header">
+      <h2><span class="icon">🕸️</span> Character Network</h2>
+      <span style="color:var(--text-muted);font-size:13px">{{ report.character_network.nodes|length }} characters</span>
+    </div>
+    <div class="card-body">
+      {% if report.character_network.nodes|length > 0 %}
+      <div id="network-graph"></div>
+      <div class="network-tooltip" id="network-tooltip">
+        <div class="tip-name"></div>
+        <div class="tip-info"></div>
+      </div>
+      <table class="char-table">
+        <thead>
+          <tr><th>#</th><th>Name</th><th>Mentions</th><th>Centrality</th><th>Top Connections</th></tr>
+        </thead>
+        <tbody>
+        {% for node in report.character_network.nodes[:20] %}
+          {% set connections = [] %}
+          {% for e in report.character_network.edges %}
+            {% if e.source == node.name or e.target == node.name %}
+              {% set conn = e.target if e.source == node.name else e.source %}
+              {% if connections|length < 5 %}{% if connections.append(conn) %}{% endif %}{% endif %}
+            {% endif %}
+          {% endfor %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td style="font-weight:600">{{ node.name }}</td>
+            <td>{{ node.mentions }}</td>
+            <td>{{ "%.4f"|format(node.centrality) }}</td>
+            <td style="color:var(--text-secondary)">{{ connections|join(', ') }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <div class="empty-state">No characters detected. Try specifying characters with --characters flag.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- ④⑤ 节奏张力 + 文本质量 -->
+<div class="grid-2">
+  <!-- 节奏张力 -->
+  <div class="card">
+    <div class="card-header">
+      <h2><span class="icon">⚡</span> Pacing & Tension</h2>
+    </div>
+    <div class="card-body">
+      <div id="pacing-chart" class="chart-container"></div>
+    </div>
+  </div>
+
+  <!-- 文本质量 -->
+  <div class="card">
+    <div class="card-header">
+      <h2><span class="icon">✨</span> Text Quality</h2>
+    </div>
+    <div class="card-body">
+      <div id="quality-radar" class="chart-container"></div>
+      <div class="quality-grid" style="margin-top:16px">
+        <div class="quality-item">
+          <div class="value">{{ "%.3f"|format(report.text_quality.ttr) }}</div>
+          <div class="label">TTR</div>
+        </div>
+        <div class="quality-item">
+          <div class="value">{{ "%.1f"|format(report.text_quality.avg_sentence_length) }}</div>
+          <div class="label">Avg Sent Len</div>
+        </div>
+        <div class="quality-item">
+          <div class="value">{{ "%.2f"|format(report.text_quality.syntax_complexity) }}</div>
+          <div class="label">Syntax Cplx</div>
+        </div>
+        <div class="quality-item">
+          <div class="value">{{ "%.3f"|format(report.text_quality.vocabulary_richness) }}</div>
+          <div class="label">Vocab Rich</div>
+        </div>
+        <div class="quality-item">
+          <div class="value">{{ "%.1f"|format(report.text_quality.readability_score) }}</div>
+          <div class="label">Readability</div>
+        </div>
+        <div class="quality-item">
+          <div class="value"><span class="grade-badge grade-{{ report.text_quality.grade }}">{{ report.text_quality.grade }}</span></div>
+          <div class="label">Grade</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ 编剧建议 -->
+<div class="grid-full">
+  <div class="card">
+    <div class="card-header">
+      <h2><span class="icon">🎬</span> Screenwriter Advice</h2>
+      <span style="color:var(--text-muted);font-size:13px">{{ report.advice|length }} items</span>
+    </div>
+    <div class="card-body">
+      {% if report.advice|length > 0 %}
+      <div class="advice-list">
+        {% for item in report.advice %}
+        <div class="advice-card {{ item.severity }}">
+          <div class="advice-header">
+            <span class="dimension-tag">{{ item.dimension }}</span>
+            <span class="severity-badge {{ item.severity }}">{{ item.severity }}</span>
+          </div>
+          <div class="advice-title">{{ item.title }}</div>
+          <div class="advice-detail">{{ item.detail }}</div>
+          <div class="advice-suggestion">{{ item.suggestion }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state">🎉 No issues detected! The text looks great.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="export-btns">
+    <button class="export-btn" onclick="exportJSON()">📥 Download JSON</button>
+    <button class="export-btn" onclick="exportCSV()">📥 Download CSV (combined)</button>
+  </div>
+  <div>kais-story-map · Generated at {{ generated_at }}</div>
+</div>
+
+</div>
+
+<script>
+// Embed report data
+const REPORT_DATA = {{ report_data|safe }};
+
+// ========== Plotly Charts ==========
+
+// Common dark theme config
+const darkLayout = {
+  paper_bgcolor: 'transparent',
+  plot_bgcolor: 'transparent',
+  font: { color: '#a0a0b8', family: 'Segoe UI, sans-serif', size: 12 },
+  margin: { l: 50, r: 20, t: 30, b: 40 },
+  xaxis: { gridcolor: '#2a2a4a', zerolinecolor: '#2a2a4a' },
+  yaxis: { gridcolor: '#2a2a4a', zerolinecolor: '#2a2a4a' },
+  legend: { bgcolor: 'transparent', font: { color: '#a0a0b8', size: 11 } },
+  hoverlabel: { bgcolor: '#16213e', font: { color: '#e8e8f0' } },
+};
+const darkConfig = { displayModeBar: false, responsive: true };
+
+// ① Narrative Arc Chart
+(function() {
+  const arc = REPORT_DATA.narrative_arc;
+  const segments = arc.points.map(p => p.segment);
+  const scores = arc.points.map(p => p.score);
+
+  const trace = {
+    x: segments,
+    y: scores,
+    type: 'scatter',
+    mode: 'lines+markers',
+    name: 'Sentiment',
+    line: { color: '#a29bfe', width: 3, shape: 'spline' },
+    marker: { size: 5, color: '#a29bfe' },
+    fill: 'tozeroy',
+    fillcolor: 'rgba(162,155,254,0.1)',
+  };
+
+  // Template lines
+  const templates = {
+    'rags_to_riches': { y: [0.2,0.15,0.1,0.15,0.3,0.45,0.55,0.7,0.85,0.95], color: '#00cec9' },
+    'man_in_hole': { y: [0.6,0.5,0.3,0.1,0.05,0.1,0.3,0.5,0.7,0.85], color: '#fdcb6e' },
+    'icharus': { y: [0.1,0.3,0.55,0.75,0.9,0.95,0.8,0.5,0.3,0.15], color: '#ff7675' },
+  };
+
+  const traces = [trace];
+  const templateX = [];
+  for (let i = 0; i < 10; i++) templateX.push(i * (segments.length - 1) / 9);
+
+  for (const [name, tpl] of Object.entries(templates)) {
+    traces.push({
+      x: templateX,
+      y: tpl.y.map(v => 2 * v - 1),
+      type: 'scatter',
+      mode: 'lines',
+      name: name.replace(/_/g, ' '),
+      line: { color: tpl.color, width: 1.5, dash: 'dash', shape: 'spline' },
+      opacity: 0.5,
+    });
+  }
+
+  Plotly.newPlot('arc-chart', traces, {
+    ...darkLayout,
+    xaxis: { ...darkLayout.xaxis, title: 'Segment' },
+    yaxis: { ...darkLayout.yaxis, title: 'Sentiment', range: [-1.1, 1.1] },
+    title: { text: `Shape: ${arc.shape.replace(/_/g, ' ')} (${(arc.confidence * 100).toFixed(0)}%)`, font: { size: 13, color: '#a29bfe' } },
+  }, darkConfig);
+})();
+
+// ② Emotion Depth Chart
+(function() {
+  const emotions = REPORT_DATA.emotions;
+  const segments = emotions.map(e => e.segment);
+  const dims = ['anger', 'anticipation', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'trust'];
+  const colors = {
+    anger: '#e74c3c', anticipation: '#f39c12', disgust: '#9b59b6', fear: '#2c3e50',
+    joy: '#27ae60', sadness: '#3498db', surprise: '#e67e22', trust: '#1abc9c',
+  };
+
+  const traces = dims.map(dim => ({
+    x: segments,
+    y: emotions.map(e => e[dim] || 0),
+    type: 'scatter',
+    mode: 'lines',
+    name: dim.charAt(0).toUpperCase() + dim.slice(1),
+    stackgroup: 'one',
+    line: { color: colors[dim], width: 0 },
+    fillcolor: colors[dim] + '88',
+  }));
+
+  Plotly.newPlot('emotion-chart', traces, {
+    ...darkLayout,
+    xaxis: { ...darkLayout.xaxis, title: 'Segment' },
+    yaxis: { ...darkLayout.yaxis, title: 'Emotion Intensity' },
+  }, darkConfig);
+
+  // Dominant emotion tags
+  const dimCounts = {};
+  dims.forEach(d => dimCounts[d] = 0);
+  emotions.forEach(e => {
+    let maxDim = dims[0], maxVal = 0;
+    dims.forEach(d => { if ((e[d] || 0) > maxVal) { maxVal = e[d]; maxDim = d; } });
+    dimCounts[maxDim]++;
+  });
+  const sorted = Object.entries(dimCounts).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  const tagsEl = document.getElementById('emotion-tags');
+  sorted.forEach(([dim, count]) => {
+    const pct = ((count / emotions.length) * 100).toFixed(0);
+    tagsEl.innerHTML += `<span class="emotion-tag" style="background:${colors[dim]}22;color:${colors[dim]}">${dim} ${pct}%</span>`;
+  });
+})();
+
+// ④ Pacing Chart (dual Y-axis)
+(function() {
+  const pacing = REPORT_DATA.pacing;
+  const segments = pacing.map(p => p.segment);
+  const sentLen = pacing.map(p => p.avg_sentence_length);
+  const dialogue = pacing.map(p => p.dialogue_ratio * 100);
+  const description = pacing.map(p => p.description_ratio * 100);
+  const tension = pacing.map(p => p.tension * 100);
+
+  Plotly.newPlot('pacing-chart', [
+    {
+      x: segments, y: sentLen, type: 'bar', name: 'Avg Sent Length',
+      marker: { color: 'rgba(162,155,254,0.4)' },
+      yaxis: 'y',
+    },
+    {
+      x: segments, y: dialogue, type: 'scatter', mode: 'lines',
+      name: 'Dialogue %', line: { color: '#00cec9', width: 2 }, yaxis: 'y2',
+    },
+    {
+      x: segments, y: description, type: 'scatter', mode: 'lines',
+      name: 'Description %', line: { color: '#fdcb6e', width: 2 }, yaxis: 'y2',
+    },
+    {
+      x: segments, y: tension, type: 'scatter', mode: 'lines',
+      name: 'Tension', line: { color: '#ff7675', width: 2, dash: 'dot' }, yaxis: 'y2',
+    },
+  ], {
+    ...darkLayout,
+    xaxis: { ...darkLayout.xaxis, title: 'Segment' },
+    yaxis: { ...darkLayout.yaxis, title: 'Avg Sentence Length', side: 'left' },
+    yaxis2: { ...darkLayout.yaxis, title: 'Ratio (%)', side: 'right', overlaying: 'y', gridcolor: 'transparent' },
+    barmode: 'group',
+    legend: { ...darkLayout.legend, orientation: 'h', y: -0.15 },
+  }, darkConfig);
+})();
+
+// ⑤ Quality Radar Chart
+(function() {
+  const q = REPORT_DATA.quality;
+  Plotly.newPlot('quality-radar', [{
+    type: 'scatterpolar',
+    r: [
+      Math.min(q.ttr / 0.6, 1) * 100,
+      Math.min(q.avg_sentence_length / 30, 1) * 100,
+      Math.min(q.syntax_complexity / 5, 1) * 100,
+      q.vocabulary_richness * 100,
+      q.readability_score,
+    ],
+    theta: ['TTR', 'Sent Length', 'Syntax', 'Vocab', 'Readability'],
+    fill: 'toself',
+    fillcolor: 'rgba(108,92,231,0.2)',
+    line: { color: '#a29bfe', width: 2 },
+    marker: { color: '#a29bfe', size: 6 },
+  }], {
+    polar: {
+      radialaxis: { visible: true, range: [0, 100], gridcolor: '#2a2a4a', tickfont: { color: '#6c6c88' } },
+      angularaxis: { gridcolor: '#2a2a4a', tickfont: { color: '#a0a0b8' } },
+      bgcolor: 'transparent',
+    },
+    paper_bgcolor: 'transparent',
+    font: { color: '#a0a0b8', size: 12 },
+    margin: { l: 40, r: 40, t: 20, b: 20 },
+    showlegend: false,
+  }, { displayModeBar: false, responsive: true });
+})();
+
+// ========== D3 Force Network ==========
+(function() {
+  const container = document.getElementById('network-graph');
+  if (!container || !REPORT_DATA.characters || !REPORT_DATA.characters.nodes.length) return;
+
+  const nodes = REPORT_DATA.characters.nodes;
+  const edges = REPORT_DATA.characters.edges;
+  const width = container.clientWidth;
+  const height = container.clientHeight || 450;
+
+  const svg = d3.select('#network-graph').append('svg')
+    .attr('width', width).attr('height', height);
+
+  const simulation = d3.forceSimulation()
+    .force('link', d3.forceLink().id(d => d.name).distance(80))
+    .force('charge', d3.forceManyBody().strength(-200))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide().radius(d => Math.sqrt(d.mentions) * 3 + 10));
+
+  const link = svg.append('g').selectAll('line')
+    .data(edges).join('line')
+    .attr('stroke', '#2a2a4a')
+    .attr('stroke-width', d => Math.min(d.weight, 8))
+    .attr('stroke-opacity', 0.6);
+
+  const node = svg.append('g').selectAll('circle')
+    .data(nodes).join('circle')
+    .attr('r', d => Math.sqrt(d.mentions) * 2 + 6)
+    .attr('fill', d => {
+      const hue = d.centrality * 240;
+      return `hsl(${hue}, 70%, 60%)`;
+    })
+    .attr('stroke', '#fff')
+    .attr('stroke-width', 1.5)
+    .attr('cursor', 'grab')
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+      .on('end', (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  const label = svg.append('g').selectAll('text')
+    .data(nodes).join('text')
+    .text(d => d.name)
+    .attr('font-size', 11)
+    .attr('fill', '#e8e8f0')
+    .attr('text-anchor', 'middle')
+    .attr('dy', d => -(Math.sqrt(d.mentions) * 2 + 12))
+    .attr('pointer-events', 'none');
+
+  const tooltip = document.getElementById('network-tooltip');
+
+  node.on('mouseover', (e, d) => {
+    const conns = edges.filter(ed => ed.source === d.name || ed.target === d.name)
+      .map(ed => ed.source === d.name ? ed.target : ed.source)
+      .slice(0, 5);
+    tooltip.querySelector('.tip-name').textContent = d.name;
+    tooltip.querySelector('.tip-info').innerHTML =
+      `Mentions: ${d.mentions}<br>Centrality: ${d.centrality.toFixed(4)}<br>Connections: ${conns.join(', ')}`;
+    tooltip.classList.add('visible');
+  }).on('mousemove', (e) => {
+    tooltip.style.left = (e.offsetX + 15) + 'px';
+    tooltip.style.top = (e.offsetY - 10) + 'px';
+  }).on('mouseout', () => {
+    tooltip.classList.remove('visible');
+  });
+
+  simulation.nodes(nodes).on('tick', () => {
+    link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    node.attr('cx', d => d.x).attr('cy', d => d.y);
+    label.attr('x', d => d.x).attr('y', d => d.y);
+  });
+
+  simulation.force('link').links(edges);
+})();
+
+// ========== Export Functions ==========
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(REPORT_DATA, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'storymap-report.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportCSV() {
+  let csv = '';
+
+  // Arc
+  csv += '=== NARRATIVE ARC ===\nsegment,score,positive,negative\n';
+  REPORT_DATA.narrative_arc.points.forEach(p => {
+    csv += `${p.segment},${p.score},${p.positive},${p.negative}\n`;
+  });
+
+  // Pacing
+  csv += '\n=== PACING ===\nsegment,avg_sentence_length,dialogue_ratio,description_ratio,action_density,tension\n';
+  REPORT_DATA.pacing.forEach(p => {
+    csv += `${p.segment},${p.avg_sentence_length},${p.dialogue_ratio},${p.description_ratio},${p.action_density},${p.tension}\n`;
+  });
+
+  // Quality
+  csv += '\n=== QUALITY ===\n';
+  const q = REPORT_DATA.quality;
+  csv += `ttr,avg_sentence_length,syntax_complexity,vocabulary_richness,readability_score,grade\n`;
+  csv += `${q.ttr},${q.avg_sentence_length},${q.syntax_complexity},${q.vocabulary_richness},${q.readability_score},${q.grade}\n`;
+
+  // Advice
+  csv += '\n=== ADVICE ===\ndimension,severity,title\n';
+  REPORT_DATA.advice.forEach(a => {
+    csv += `"${a.dimension}","${a.severity}","${a.title}"\n`;
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'storymap-report.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

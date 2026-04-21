@@ -1,0 +1,4481 @@
+{
+  "快乐": [
+    "joy",
+    "positive"
+  ],
+  "高兴": [
+    "joy",
+    "positive"
+  ],
+  "开心": [
+    "joy",
+    "positive"
+  ],
+  "欢乐": [
+    "joy",
+    "positive"
+  ],
+  "喜悦": [
+    "joy",
+    "positive"
+  ],
+  "幸福": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "愉快": [
+    "joy",
+    "positive"
+  ],
+  "欢快": [
+    "joy",
+    "positive"
+  ],
+  "欣喜": [
+    "joy",
+    "positive"
+  ],
+  "兴奋": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "激动": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "满足": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "满意": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "欣慰": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "舒适": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "温暖": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "温馨": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "甜蜜": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "美好": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "美丽": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "漂亮": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "可爱": [
+    "joy",
+    "positive"
+  ],
+  "精彩": [
+    "joy",
+    "positive"
+  ],
+  "出色": [
+    "joy",
+    "positive"
+  ],
+  "优秀": [
+    "joy",
+    "positive"
+  ],
+  "卓越": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "杰出": [
+    "joy",
+    "positive"
+  ],
+  "完美": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "成功": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "胜利": [
+    "joy",
+    "positive"
+  ],
+  "赢": [
+    "joy",
+    "positive"
+  ],
+  "凯旋": [
+    "joy",
+    "positive"
+  ],
+  "骄傲": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "自豪": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "自信": [
+    "joy",
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "信心": [
+    "trust",
+    "positive"
+  ],
+  "勇敢": [
+    "joy",
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "勇气": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "希望": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "梦想": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "理想": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "憧憬": [
+    "anticipation",
+    "positive"
+  ],
+  "期待": [
+    "anticipation",
+    "positive"
+  ],
+  "渴望": [
+    "anticipation",
+    "positive"
+  ],
+  "盼望": [
+    "anticipation",
+    "positive"
+  ],
+  "感激": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "感恩": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "感谢": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "谢谢": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "爱": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "爱情": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "热爱": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "疼爱": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "宠爱": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "喜欢": [
+    "joy",
+    "positive"
+  ],
+  "喜爱": [
+    "joy",
+    "positive"
+  ],
+  "钟爱": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "珍惜": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "拥抱": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "亲吻": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "微笑": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "笑容": [
+    "joy",
+    "positive"
+  ],
+  "笑": [
+    "joy",
+    "positive"
+  ],
+  "大笑": [
+    "joy",
+    "positive"
+  ],
+  "欢笑": [
+    "joy",
+    "positive"
+  ],
+  "嬉笑": [
+    "joy",
+    "positive"
+  ],
+  "逗笑": [
+    "joy",
+    "positive"
+  ],
+  "有趣": [
+    "joy",
+    "positive"
+  ],
+  "幽默": [
+    "joy",
+    "positive"
+  ],
+  "滑稽": [
+    "joy",
+    "positive"
+  ],
+  "庆祝": [
+    "joy",
+    "positive"
+  ],
+  "欢庆": [
+    "joy",
+    "positive"
+  ],
+  "节日": [
+    "joy",
+    "positive"
+  ],
+  "假日": [
+    "joy",
+    "positive"
+  ],
+  "祝福": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "平安": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "安宁": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "平静": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "祥和": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "和谐": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "和睦": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "友善": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "友好": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "善良": [
+    "trust",
+    "positive"
+  ],
+  "仁慈": [
+    "trust",
+    "positive"
+  ],
+  "慈悲": [
+    "trust",
+    "positive"
+  ],
+  "宽容": [
+    "trust",
+    "positive"
+  ],
+  "原谅": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "宽恕": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "温柔": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "体贴": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "关怀": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "关心": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "照顾": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "呵护": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "陪伴": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "朋友": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "友谊": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "友情": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "忠诚": [
+    "trust",
+    "positive"
+  ],
+  "信任": [
+    "trust",
+    "positive"
+  ],
+  "诚实": [
+    "trust",
+    "positive"
+  ],
+  "真诚": [
+    "trust",
+    "positive"
+  ],
+  "正直": [
+    "trust",
+    "positive"
+  ],
+  "正义": [
+    "trust",
+    "positive"
+  ],
+  "公平": [
+    "trust",
+    "positive"
+  ],
+  "公正": [
+    "trust",
+    "positive"
+  ],
+  "尊重": [
+    "trust",
+    "positive"
+  ],
+  "尊敬": [
+    "trust",
+    "positive"
+  ],
+  "敬佩": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "崇拜": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "羡慕": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "欣赏": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "赞美": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "夸奖": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "鼓励": [
+    "joy",
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "鼓舞": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "激励": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "振奋": [
+    "joy",
+    "positive"
+  ],
+  "光明": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "阳光": [
+    "joy",
+    "positive"
+  ],
+  "灿烂": [
+    "joy",
+    "positive"
+  ],
+  "辉煌": [
+    "joy",
+    "positive"
+  ],
+  "荣耀": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "光荣": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "自由": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "解放": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "独立": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "自主": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "智慧": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "聪明": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "才华": [
+    "joy",
+    "positive"
+  ],
+  "天赋": [
+    "joy",
+    "positive"
+  ],
+  "创意": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "创造": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "创新": [
+    "anticipation",
+    "positive"
+  ],
+  "奇迹": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "神奇": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "奇妙": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "宝贵": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "珍贵": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "价值": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "财富": [
+    "joy",
+    "positive"
+  ],
+  "富有": [
+    "joy",
+    "positive"
+  ],
+  "丰富": [
+    "joy",
+    "positive"
+  ],
+  "繁荣": [
+    "joy",
+    "positive"
+  ],
+  "昌盛": [
+    "joy",
+    "positive"
+  ],
+  "兴旺": [
+    "joy",
+    "positive"
+  ],
+  "发达": [
+    "joy",
+    "positive"
+  ],
+  "成长": [
+    "anticipation",
+    "positive"
+  ],
+  "进步": [
+    "anticipation",
+    "positive"
+  ],
+  "发展": [
+    "anticipation",
+    "positive"
+  ],
+  "提升": [
+    "anticipation",
+    "positive"
+  ],
+  "改善": [
+    "anticipation",
+    "positive"
+  ],
+  "幸运": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "福气": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "恩赐": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "恩惠": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "恩典": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "恩情": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "报答": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "回报": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "奉献": [
+    "trust",
+    "positive"
+  ],
+  "无私": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "慷慨": [
+    "trust",
+    "positive"
+  ],
+  "大方": [
+    "trust",
+    "positive"
+  ],
+  "团结": [
+    "trust",
+    "positive"
+  ],
+  "统一": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "齐心": [
+    "trust",
+    "positive"
+  ],
+  "合作": [
+    "trust",
+    "positive"
+  ],
+  "协作": [
+    "trust",
+    "positive"
+  ],
+  "互助": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "帮助": [
+    "trust",
+    "positive"
+  ],
+  "援助": [
+    "trust",
+    "positive"
+  ],
+  "支持": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "保护": [
+    "trust",
+    "positive"
+  ],
+  "守护": [
+    "trust",
+    "positive"
+  ],
+  "保卫": [
+    "trust",
+    "positive"
+  ],
+  "捍卫": [
+    "trust",
+    "positive"
+  ],
+  "安全": [
+    "trust",
+    "positive"
+  ],
+  "和平": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "太平": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "宁静": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "安逸": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "悠闲": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "闲适": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "享受": [
+    "joy",
+    "positive"
+  ],
+  "欢呼": [
+    "joy",
+    "positive"
+  ],
+  "喝彩": [
+    "joy",
+    "positive"
+  ],
+  "鼓掌": [
+    "joy",
+    "positive"
+  ],
+  "赞叹": [
+    "joy",
+    "positive"
+  ],
+  "惊呼": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "舒畅": [
+    "joy",
+    "positive"
+  ],
+  "畅快": [
+    "joy",
+    "positive"
+  ],
+  "惬意": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "安稳": [
+    "trust",
+    "positive"
+  ],
+  "踏实": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "放心": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "安心": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "放松": [
+    "joy",
+    "positive"
+  ],
+  "轻松": [
+    "joy",
+    "positive"
+  ],
+  "自在": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "坦然": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "豁达": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "开朗": [
+    "joy",
+    "positive"
+  ],
+  "乐观": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "积极": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "向上": [
+    "anticipation",
+    "positive"
+  ],
+  "生机": [
+    "joy",
+    "positive"
+  ],
+  "活力": [
+    "joy",
+    "positive"
+  ],
+  "朝气": [
+    "joy",
+    "positive"
+  ],
+  "蓬勃": [
+    "joy",
+    "positive"
+  ],
+  "美妙": [
+    "joy",
+    "positive"
+  ],
+  "绝妙": [
+    "joy",
+    "positive"
+  ],
+  "绝佳": [
+    "joy",
+    "positive"
+  ],
+  "上乘": [
+    "joy",
+    "positive"
+  ],
+  "一流": [
+    "joy",
+    "positive"
+  ],
+  "顶级": [
+    "joy",
+    "positive"
+  ],
+  "至尊": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "无上": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "至高": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "悲伤": [
+    "sadness",
+    "negative"
+  ],
+  "伤心": [
+    "sadness",
+    "negative"
+  ],
+  "难过": [
+    "sadness",
+    "negative"
+  ],
+  "痛苦": [
+    "sadness",
+    "negative"
+  ],
+  "痛": [
+    "sadness",
+    "negative"
+  ],
+  "苦": [
+    "sadness",
+    "negative"
+  ],
+  "苦涩": [
+    "sadness",
+    "negative"
+  ],
+  "凄凉": [
+    "sadness",
+    "negative"
+  ],
+  "凄惨": [
+    "sadness",
+    "negative"
+  ],
+  "悲惨": [
+    "sadness",
+    "negative"
+  ],
+  "悲哀": [
+    "sadness",
+    "negative"
+  ],
+  "哀伤": [
+    "sadness",
+    "negative"
+  ],
+  "哀愁": [
+    "sadness",
+    "negative"
+  ],
+  "忧伤": [
+    "sadness",
+    "negative"
+  ],
+  "忧愁": [
+    "sadness",
+    "negative"
+  ],
+  "忧虑": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "忧闷": [
+    "sadness",
+    "negative"
+  ],
+  "郁闷": [
+    "sadness",
+    "negative"
+  ],
+  "抑郁": [
+    "sadness",
+    "negative"
+  ],
+  "消沉": [
+    "sadness",
+    "negative"
+  ],
+  "沮丧": [
+    "sadness",
+    "negative"
+  ],
+  "颓废": [
+    "sadness",
+    "negative"
+  ],
+  "绝望": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "无望": [
+    "sadness",
+    "negative"
+  ],
+  "失望": [
+    "sadness",
+    "negative"
+  ],
+  "失落": [
+    "sadness",
+    "negative"
+  ],
+  "落寞": [
+    "sadness",
+    "negative"
+  ],
+  "孤独": [
+    "sadness",
+    "negative"
+  ],
+  "寂寞": [
+    "sadness",
+    "negative"
+  ],
+  "孤单": [
+    "sadness",
+    "negative"
+  ],
+  "孤零零": [
+    "sadness",
+    "negative"
+  ],
+  "形影相吊": [
+    "sadness",
+    "negative"
+  ],
+  "形单影只": [
+    "sadness",
+    "negative"
+  ],
+  "茕茕孑立": [
+    "sadness",
+    "negative"
+  ],
+  "独自": [
+    "sadness",
+    "negative"
+  ],
+  "无助": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "无力": [
+    "sadness",
+    "negative"
+  ],
+  "无奈": [
+    "sadness",
+    "negative"
+  ],
+  "无能为力": [
+    "sadness",
+    "negative"
+  ],
+  "哭": [
+    "sadness",
+    "negative"
+  ],
+  "哭泣": [
+    "sadness",
+    "negative"
+  ],
+  "流泪": [
+    "sadness",
+    "negative"
+  ],
+  "泪": [
+    "sadness",
+    "negative"
+  ],
+  "泪水": [
+    "sadness",
+    "negative"
+  ],
+  "眼泪": [
+    "sadness",
+    "negative"
+  ],
+  "泪流满面": [
+    "sadness",
+    "negative"
+  ],
+  "嚎哭": [
+    "sadness",
+    "negative"
+  ],
+  "嚎啕": [
+    "sadness",
+    "negative"
+  ],
+  "痛哭": [
+    "sadness",
+    "negative"
+  ],
+  "抽泣": [
+    "sadness",
+    "negative"
+  ],
+  "啜泣": [
+    "sadness",
+    "negative"
+  ],
+  "呜咽": [
+    "sadness",
+    "negative"
+  ],
+  "哽咽": [
+    "sadness",
+    "negative"
+  ],
+  "心碎": [
+    "sadness",
+    "negative"
+  ],
+  "碎裂": [
+    "sadness",
+    "negative"
+  ],
+  "破碎": [
+    "sadness",
+    "negative"
+  ],
+  "心寒": [
+    "sadness",
+    "negative"
+  ],
+  "心酸": [
+    "sadness",
+    "negative"
+  ],
+  "寒心": [
+    "sadness",
+    "negative"
+  ],
+  "心凉": [
+    "sadness",
+    "negative"
+  ],
+  "凉意": [
+    "sadness",
+    "negative"
+  ],
+  "冷酷": [
+    "sadness",
+    "negative"
+  ],
+  "冷冰冰": [
+    "sadness",
+    "negative"
+  ],
+  "冷漠": [
+    "sadness",
+    "negative"
+  ],
+  "冷淡": [
+    "sadness",
+    "negative"
+  ],
+  "凄冷": [
+    "sadness",
+    "negative"
+  ],
+  "寒冷": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "冰冷": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "黑暗": [
+    "fear",
+    "negative"
+  ],
+  "阴暗": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "阴影": [
+    "fear",
+    "negative"
+  ],
+  "阴霾": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "迷雾": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "悔恨": [
+    "sadness",
+    "negative"
+  ],
+  "后悔": [
+    "sadness",
+    "negative"
+  ],
+  "懊悔": [
+    "sadness",
+    "negative"
+  ],
+  "遗憾": [
+    "sadness",
+    "negative"
+  ],
+  "愧疚": [
+    "sadness",
+    "negative"
+  ],
+  "内疚": [
+    "sadness",
+    "negative"
+  ],
+  "自责": [
+    "sadness",
+    "negative"
+  ],
+  "忏悔": [
+    "sadness",
+    "negative"
+  ],
+  "负罪": [
+    "sadness",
+    "negative"
+  ],
+  "罪恶": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "罪过": [
+    "sadness",
+    "negative"
+  ],
+  "犯错": [
+    "sadness",
+    "negative"
+  ],
+  "过失": [
+    "sadness",
+    "negative"
+  ],
+  "过错": [
+    "sadness",
+    "negative"
+  ],
+  "失误": [
+    "sadness",
+    "negative"
+  ],
+  "失败": [
+    "sadness",
+    "negative"
+  ],
+  "挫折": [
+    "sadness",
+    "negative"
+  ],
+  "挫败": [
+    "sadness",
+    "negative"
+  ],
+  "受挫": [
+    "sadness",
+    "negative"
+  ],
+  "受打击": [
+    "sadness",
+    "negative"
+  ],
+  "被打败": [
+    "sadness",
+    "negative"
+  ],
+  "战败": [
+    "sadness",
+    "negative"
+  ],
+  "落败": [
+    "sadness",
+    "negative"
+  ],
+  "输": [
+    "sadness",
+    "negative"
+  ],
+  "输掉": [
+    "sadness",
+    "negative"
+  ],
+  "损失": [
+    "sadness",
+    "negative"
+  ],
+  "丧失": [
+    "sadness",
+    "negative"
+  ],
+  "失去": [
+    "sadness",
+    "negative"
+  ],
+  "遗失": [
+    "sadness",
+    "negative"
+  ],
+  "失踪": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "离开": [
+    "sadness",
+    "negative"
+  ],
+  "离去": [
+    "sadness",
+    "negative"
+  ],
+  "离别": [
+    "sadness",
+    "negative"
+  ],
+  "分离": [
+    "sadness",
+    "negative"
+  ],
+  "分别": [
+    "sadness",
+    "negative"
+  ],
+  "告别": [
+    "sadness",
+    "negative"
+  ],
+  "再见": [
+    "sadness",
+    "negative"
+  ],
+  "永别": [
+    "sadness",
+    "negative"
+  ],
+  "诀别": [
+    "sadness",
+    "negative"
+  ],
+  "分手": [
+    "sadness",
+    "negative"
+  ],
+  "离散": [
+    "sadness",
+    "negative"
+  ],
+  "流散": [
+    "sadness",
+    "negative"
+  ],
+  "漂泊": [
+    "sadness",
+    "negative"
+  ],
+  "流浪": [
+    "sadness",
+    "negative"
+  ],
+  "流亡": [
+    "sadness",
+    "negative"
+  ],
+  "逃亡": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "逃难": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "避难": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "流离失所": [
+    "sadness",
+    "negative"
+  ],
+  "无家可归": [
+    "sadness",
+    "negative"
+  ],
+  "抛弃": [
+    "sadness",
+    "negative"
+  ],
+  "丢弃": [
+    "sadness",
+    "negative"
+  ],
+  "遗弃": [
+    "sadness",
+    "negative"
+  ],
+  "放弃": [
+    "sadness",
+    "negative"
+  ],
+  "背叛": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "出卖": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "欺骗": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "诈骗": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "谎言": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "虚伪": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "虚假": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "伪装": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "辜负": [
+    "sadness",
+    "negative"
+  ],
+  "伤害": [
+    "sadness",
+    "negative"
+  ],
+  "受伤": [
+    "sadness",
+    "negative"
+  ],
+  "受害": [
+    "sadness",
+    "negative"
+  ],
+  "受苦": [
+    "sadness",
+    "negative"
+  ],
+  "苦难": [
+    "sadness",
+    "negative"
+  ],
+  "煎熬": [
+    "sadness",
+    "negative"
+  ],
+  "折磨": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "痛楚": [
+    "sadness",
+    "negative"
+  ],
+  "病痛": [
+    "sadness",
+    "negative"
+  ],
+  "病": [
+    "sadness",
+    "negative"
+  ],
+  "疾病": [
+    "sadness",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "患病": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "残疾": [
+    "disgust",
+    "negative"
+  ],
+  "伤残": [
+    "sadness",
+    "negative"
+  ],
+  "死亡": [
+    "fear",
+    "negative"
+  ],
+  "死": [
+    "fear",
+    "negative"
+  ],
+  "去世": [
+    "sadness",
+    "negative"
+  ],
+  "逝世": [
+    "sadness",
+    "negative"
+  ],
+  "丧命": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "丧生": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "丧": [
+    "sadness",
+    "negative"
+  ],
+  "丧父": [
+    "sadness",
+    "negative"
+  ],
+  "丧母": [
+    "sadness",
+    "negative"
+  ],
+  "丧子": [
+    "sadness",
+    "negative"
+  ],
+  "丧偶": [
+    "sadness",
+    "negative"
+  ],
+  "寡妇": [
+    "sadness",
+    "negative"
+  ],
+  "孤儿": [
+    "sadness",
+    "negative"
+  ],
+  "悲剧": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "惨剧": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "灾难": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "灾祸": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "祸害": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "祸患": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "不幸": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "倒霉": [
+    "sadness",
+    "negative"
+  ],
+  "厄运": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "劫难": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "磨难": [
+    "sadness",
+    "negative"
+  ],
+  "考验": [
+    "sadness",
+    "anticipation",
+    "negative"
+  ],
+  "困苦": [
+    "sadness",
+    "negative"
+  ],
+  "贫困": [
+    "sadness",
+    "negative"
+  ],
+  "贫穷": [
+    "sadness",
+    "negative"
+  ],
+  "穷": [
+    "sadness",
+    "negative"
+  ],
+  "贫苦": [
+    "sadness",
+    "negative"
+  ],
+  "贫寒": [
+    "sadness",
+    "negative"
+  ],
+  "寒酸": [
+    "sadness",
+    "negative"
+  ],
+  "拮据": [
+    "sadness",
+    "negative"
+  ],
+  "破产": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "负债": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "债务": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "亏欠": [
+    "sadness",
+    "negative"
+  ],
+  "空虚": [
+    "sadness",
+    "negative"
+  ],
+  "空洞": [
+    "sadness",
+    "negative"
+  ],
+  "虚无": [
+    "sadness",
+    "negative"
+  ],
+  "无意义": [
+    "sadness",
+    "negative"
+  ],
+  "没有意义": [
+    "sadness",
+    "negative"
+  ],
+  "荒废": [
+    "sadness",
+    "negative"
+  ],
+  "荒芜": [
+    "sadness",
+    "negative"
+  ],
+  "荒凉": [
+    "sadness",
+    "negative"
+  ],
+  "凋零": [
+    "sadness",
+    "negative"
+  ],
+  "枯萎": [
+    "sadness",
+    "negative"
+  ],
+  "衰败": [
+    "sadness",
+    "negative"
+  ],
+  "衰退": [
+    "sadness",
+    "negative"
+  ],
+  "没落": [
+    "sadness",
+    "negative"
+  ],
+  "衰落": [
+    "sadness",
+    "negative"
+  ],
+  "毁灭": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "毁坏": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "摧毁": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "残破": [
+    "sadness",
+    "negative"
+  ],
+  "破败": [
+    "sadness",
+    "negative"
+  ],
+  "废墟": [
+    "sadness",
+    "negative"
+  ],
+  "瓦砾": [
+    "sadness",
+    "negative"
+  ],
+  "愤怒": [
+    "anger",
+    "negative"
+  ],
+  "怒": [
+    "anger",
+    "negative"
+  ],
+  "生气": [
+    "anger",
+    "negative"
+  ],
+  "气愤": [
+    "anger",
+    "negative"
+  ],
+  "恼怒": [
+    "anger",
+    "negative"
+  ],
+  "恼火": [
+    "anger",
+    "negative"
+  ],
+  "暴怒": [
+    "anger",
+    "negative"
+  ],
+  "狂怒": [
+    "anger",
+    "negative"
+  ],
+  "发怒": [
+    "anger",
+    "negative"
+  ],
+  "大怒": [
+    "anger",
+    "negative"
+  ],
+  "震怒": [
+    "anger",
+    "negative"
+  ],
+  "激怒": [
+    "anger",
+    "negative"
+  ],
+  "惹怒": [
+    "anger",
+    "negative"
+  ],
+  "触怒": [
+    "anger",
+    "negative"
+  ],
+  "冒犯": [
+    "anger",
+    "negative"
+  ],
+  "得罪": [
+    "anger",
+    "negative"
+  ],
+  "仇恨": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "恨": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "痛恨": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "憎恨": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "怨恨": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "嫉妒": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "嫉恨": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "眼红": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "义愤": [
+    "anger",
+    "negative"
+  ],
+  "愤慨": [
+    "anger",
+    "negative"
+  ],
+  "愤恨": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "愤愤": [
+    "anger",
+    "negative"
+  ],
+  "不平": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "不满": [
+    "anger",
+    "negative"
+  ],
+  "抱怨": [
+    "anger",
+    "negative"
+  ],
+  "埋怨": [
+    "anger",
+    "negative"
+  ],
+  "责备": [
+    "anger",
+    "negative"
+  ],
+  "指责": [
+    "anger",
+    "negative"
+  ],
+  "谴责": [
+    "anger",
+    "negative"
+  ],
+  "批评": [
+    "anger",
+    "negative"
+  ],
+  "抨击": [
+    "anger",
+    "negative"
+  ],
+  "攻击": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "打击": [
+    "anger",
+    "negative"
+  ],
+  "报复": [
+    "anger",
+    "negative"
+  ],
+  "复仇": [
+    "anger",
+    "negative"
+  ],
+  "残忍": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "残酷": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "暴虐": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "暴行": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "暴政": [
+    "anger",
+    "negative"
+  ],
+  "压迫": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "欺凌": [
+    "anger",
+    "negative"
+  ],
+  "欺压": [
+    "anger",
+    "negative"
+  ],
+  "欺负": [
+    "anger",
+    "negative"
+  ],
+  "霸凌": [
+    "anger",
+    "negative"
+  ],
+  "侵害": [
+    "anger",
+    "negative"
+  ],
+  "侵犯": [
+    "anger",
+    "negative"
+  ],
+  "入侵": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "侵略": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "侵占": [
+    "anger",
+    "negative"
+  ],
+  "掠夺": [
+    "anger",
+    "negative"
+  ],
+  "抢劫": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "偷": [
+    "anger",
+    "negative"
+  ],
+  "偷窃": [
+    "anger",
+    "negative"
+  ],
+  "盗窃": [
+    "anger",
+    "negative"
+  ],
+  "盗取": [
+    "anger",
+    "negative"
+  ],
+  "杀": [
+    "fear",
+    "negative"
+  ],
+  "杀戮": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "屠杀": [
+    "anger",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "谋杀": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "暗杀": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "刺杀": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "杀害": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "杀人": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "战争": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "战": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "战斗": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "打仗": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "冲突": [
+    "anger",
+    "negative"
+  ],
+  "斗争": [
+    "anger",
+    "negative"
+  ],
+  "对抗": [
+    "anger",
+    "negative"
+  ],
+  "敌对": [
+    "anger",
+    "negative"
+  ],
+  "对立": [
+    "anger",
+    "negative"
+  ],
+  "矛盾": [
+    "anger",
+    "negative"
+  ],
+  "纷争": [
+    "anger",
+    "negative"
+  ],
+  "争吵": [
+    "anger",
+    "negative"
+  ],
+  "吵架": [
+    "anger",
+    "negative"
+  ],
+  "骂": [
+    "anger",
+    "negative"
+  ],
+  "咒骂": [
+    "anger",
+    "negative"
+  ],
+  "谩骂": [
+    "anger",
+    "negative"
+  ],
+  "辱骂": [
+    "anger",
+    "negative"
+  ],
+  "斥责": [
+    "anger",
+    "negative"
+  ],
+  "训斥": [
+    "anger",
+    "negative"
+  ],
+  "怒骂": [
+    "anger",
+    "negative"
+  ],
+  "怒吼": [
+    "anger",
+    "negative"
+  ],
+  "咆哮": [
+    "anger",
+    "negative"
+  ],
+  "吼叫": [
+    "anger",
+    "negative"
+  ],
+  "尖叫": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "嘶吼": [
+    "anger",
+    "negative"
+  ],
+  "暴跳如雷": [
+    "anger",
+    "negative"
+  ],
+  "怒不可遏": [
+    "anger",
+    "negative"
+  ],
+  "怒气冲冲": [
+    "anger",
+    "negative"
+  ],
+  "火冒三丈": [
+    "anger",
+    "negative"
+  ],
+  "咬牙切齿": [
+    "anger",
+    "negative"
+  ],
+  "狠": [
+    "anger",
+    "negative"
+  ],
+  "狠心": [
+    "anger",
+    "negative"
+  ],
+  "凶狠": [
+    "anger",
+    "negative"
+  ],
+  "凶恶": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "凶残": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "凶暴": [
+    "anger",
+    "negative"
+  ],
+  "恶毒": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "恶": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "邪恶": [
+    "anger",
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "歹毒": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "歹": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "阴险": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "险恶": [
+    "fear",
+    "negative"
+  ],
+  "毒辣": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "歹意": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "恶意": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "歹徒": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "坏人": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "恶人": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "恶棍": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "败类": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "渣滓": [
+    "disgust",
+    "negative"
+  ],
+  "人渣": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "混蛋": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "王八蛋": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "无耻": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "下流": [
+    "disgust",
+    "negative"
+  ],
+  "卑鄙": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "卑劣": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "下贱": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "低贱": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "鄙视": [
+    "disgust",
+    "negative"
+  ],
+  "轻视": [
+    "anger",
+    "negative"
+  ],
+  "蔑视": [
+    "disgust",
+    "negative"
+  ],
+  "藐视": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "唾弃": [
+    "disgust",
+    "negative"
+  ],
+  "嫌弃": [
+    "disgust",
+    "negative"
+  ],
+  "厌恶": [
+    "disgust",
+    "negative"
+  ],
+  "讨厌": [
+    "disgust",
+    "negative"
+  ],
+  "憎恶": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "反感": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "排斥": [
+    "anger",
+    "negative"
+  ],
+  "抵制": [
+    "anger",
+    "negative"
+  ],
+  "抗拒": [
+    "anger",
+    "negative"
+  ],
+  "反叛": [
+    "anger",
+    "negative"
+  ],
+  "叛逆": [
+    "anger",
+    "negative"
+  ],
+  "造反": [
+    "anger",
+    "negative"
+  ],
+  "革命": [
+    "anger",
+    "anticipation",
+    "negative"
+  ],
+  "暴动": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "暴乱": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "骚乱": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "叛乱": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "兵变": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "武力": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "暴力": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "威胁": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "恐吓": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "威吓": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "逼迫": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "强迫": [
+    "anger",
+    "negative"
+  ],
+  "强制": [
+    "anger",
+    "negative"
+  ],
+  "野蛮": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "粗暴": [
+    "anger",
+    "negative"
+  ],
+  "粗鲁": [
+    "anger",
+    "negative"
+  ],
+  "鲁莽": [
+    "anger",
+    "negative"
+  ],
+  "冲动": [
+    "anger",
+    "negative"
+  ],
+  "莽撞": [
+    "anger",
+    "negative"
+  ],
+  "害怕": [
+    "fear",
+    "negative"
+  ],
+  "恐惧": [
+    "fear",
+    "negative"
+  ],
+  "畏惧": [
+    "fear",
+    "negative"
+  ],
+  "惧怕": [
+    "fear",
+    "negative"
+  ],
+  "恐怖": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "惊恐": [
+    "fear",
+    "negative"
+  ],
+  "恐慌": [
+    "fear",
+    "negative"
+  ],
+  "惊慌": [
+    "fear",
+    "negative"
+  ],
+  "慌张": [
+    "fear",
+    "negative"
+  ],
+  "慌乱": [
+    "fear",
+    "negative"
+  ],
+  "慌忙": [
+    "fear",
+    "negative"
+  ],
+  "紧张": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "不安": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "焦虑": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "焦急": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "担忧": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "担心": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "忧心": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "忧心忡忡": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "提心吊胆": [
+    "fear",
+    "negative"
+  ],
+  "心惊胆战": [
+    "fear",
+    "negative"
+  ],
+  "胆战心惊": [
+    "fear",
+    "negative"
+  ],
+  "惊心动魄": [
+    "fear",
+    "surprise",
+    "negative"
+  ],
+  "触目惊心": [
+    "fear",
+    "negative"
+  ],
+  "毛骨悚然": [
+    "fear",
+    "negative"
+  ],
+  "不寒而栗": [
+    "fear",
+    "negative"
+  ],
+  "战战兢兢": [
+    "fear",
+    "negative"
+  ],
+  "颤栗": [
+    "fear",
+    "negative"
+  ],
+  "颤抖": [
+    "fear",
+    "negative"
+  ],
+  "发抖": [
+    "fear",
+    "negative"
+  ],
+  "哆嗦": [
+    "fear",
+    "negative"
+  ],
+  "打颤": [
+    "fear",
+    "negative"
+  ],
+  "打哆嗦": [
+    "fear",
+    "negative"
+  ],
+  "惊吓": [
+    "fear",
+    "negative"
+  ],
+  "吓": [
+    "fear",
+    "negative"
+  ],
+  "吓人": [
+    "fear",
+    "negative"
+  ],
+  "吓坏了": [
+    "fear",
+    "negative"
+  ],
+  "吓一跳": [
+    "fear",
+    "surprise",
+    "negative"
+  ],
+  "震惊": [
+    "surprise",
+    "negative"
+  ],
+  "惊": [
+    "surprise",
+    "negative"
+  ],
+  "惊骇": [
+    "fear",
+    "negative"
+  ],
+  "骇人": [
+    "fear",
+    "negative"
+  ],
+  "可怕": [
+    "fear",
+    "negative"
+  ],
+  "危险": [
+    "fear",
+    "negative"
+  ],
+  "凶险": [
+    "fear",
+    "negative"
+  ],
+  "致命": [
+    "fear",
+    "negative"
+  ],
+  "血": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "血腥": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "流血": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "鬼": [
+    "fear",
+    "negative"
+  ],
+  "鬼魂": [
+    "fear",
+    "negative"
+  ],
+  "幽灵": [
+    "fear",
+    "negative"
+  ],
+  "妖": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "魔鬼": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "恶魔": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "怪物": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "怪兽": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "妖魔": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "邪灵": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "噩梦": [
+    "fear",
+    "negative"
+  ],
+  "恶梦": [
+    "fear",
+    "negative"
+  ],
+  "梦魇": [
+    "fear",
+    "negative"
+  ],
+  "深渊": [
+    "fear",
+    "negative"
+  ],
+  "悬崖": [
+    "fear",
+    "negative"
+  ],
+  "陷阱": [
+    "fear",
+    "negative"
+  ],
+  "牢笼": [
+    "fear",
+    "negative"
+  ],
+  "囚笼": [
+    "fear",
+    "negative"
+  ],
+  "监狱": [
+    "fear",
+    "negative"
+  ],
+  "牢狱": [
+    "fear",
+    "negative"
+  ],
+  "囚禁": [
+    "fear",
+    "negative"
+  ],
+  "束缚": [
+    "fear",
+    "negative"
+  ],
+  "枷锁": [
+    "fear",
+    "negative"
+  ],
+  "铁链": [
+    "fear",
+    "negative"
+  ],
+  "锁链": [
+    "fear",
+    "negative"
+  ],
+  "困住": [
+    "fear",
+    "negative"
+  ],
+  "被困": [
+    "fear",
+    "negative"
+  ],
+  "包围": [
+    "fear",
+    "negative"
+  ],
+  "追": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "追杀": [
+    "fear",
+    "negative"
+  ],
+  "追捕": [
+    "fear",
+    "negative"
+  ],
+  "追赶": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "逃跑": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "逃": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "躲避": [
+    "fear",
+    "negative"
+  ],
+  "躲藏": [
+    "fear",
+    "negative"
+  ],
+  "藏": [
+    "fear",
+    "negative"
+  ],
+  "隐藏": [
+    "fear",
+    "negative"
+  ],
+  "潜伏": [
+    "fear",
+    "negative"
+  ],
+  "潜行": [
+    "fear",
+    "negative"
+  ],
+  "偷袭": [
+    "fear",
+    "negative"
+  ],
+  "暗算": [
+    "fear",
+    "negative"
+  ],
+  "阴谋": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "算计": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "陷害": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "诬陷": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "栽赃": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "嫁祸": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "迫害": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "强权": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "专制": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "独裁": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "暴君": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "灾": [
+    "fear",
+    "negative"
+  ],
+  "灾变": [
+    "fear",
+    "negative"
+  ],
+  "天灾": [
+    "fear",
+    "negative"
+  ],
+  "人祸": [
+    "fear",
+    "negative"
+  ],
+  "瘟疫": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "传染病": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "饥荒": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "干旱": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "洪水": [
+    "fear",
+    "negative"
+  ],
+  "火灾": [
+    "fear",
+    "negative"
+  ],
+  "地震": [
+    "fear",
+    "negative"
+  ],
+  "海啸": [
+    "fear",
+    "negative"
+  ],
+  "风暴": [
+    "fear",
+    "negative"
+  ],
+  "暴风雨": [
+    "fear",
+    "negative"
+  ],
+  "雷暴": [
+    "fear",
+    "negative"
+  ],
+  "雷电": [
+    "fear",
+    "negative"
+  ],
+  "毒": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "毒药": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "有毒": [
+    "disgust",
+    "negative"
+  ],
+  "剧毒": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "风险": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "隐患": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "恶心": [
+    "disgust",
+    "negative"
+  ],
+  "呕吐": [
+    "disgust",
+    "negative"
+  ],
+  "想吐": [
+    "disgust",
+    "negative"
+  ],
+  "反胃": [
+    "disgust",
+    "negative"
+  ],
+  "作呕": [
+    "disgust",
+    "negative"
+  ],
+  "厌": [
+    "disgust",
+    "negative"
+  ],
+  "嫌恶": [
+    "disgust",
+    "negative"
+  ],
+  "鄙弃": [
+    "disgust",
+    "negative"
+  ],
+  "轻蔑": [
+    "disgust",
+    "negative"
+  ],
+  "嗤之以鼻": [
+    "disgust",
+    "negative"
+  ],
+  "不屑": [
+    "disgust",
+    "negative"
+  ],
+  "丑陋": [
+    "disgust",
+    "negative"
+  ],
+  "丑": [
+    "disgust",
+    "negative"
+  ],
+  "难看": [
+    "disgust",
+    "negative"
+  ],
+  "丑恶": [
+    "disgust",
+    "negative"
+  ],
+  "肮脏": [
+    "disgust",
+    "negative"
+  ],
+  "脏": [
+    "disgust",
+    "negative"
+  ],
+  "污秽": [
+    "disgust",
+    "negative"
+  ],
+  "污浊": [
+    "disgust",
+    "negative"
+  ],
+  "泥泞": [
+    "disgust",
+    "negative"
+  ],
+  "污泥": [
+    "disgust",
+    "negative"
+  ],
+  "垃圾": [
+    "disgust",
+    "negative"
+  ],
+  "废物": [
+    "disgust",
+    "negative"
+  ],
+  "废料": [
+    "disgust",
+    "negative"
+  ],
+  "腐烂": [
+    "disgust",
+    "negative"
+  ],
+  "腐": [
+    "disgust",
+    "negative"
+  ],
+  "腐臭": [
+    "disgust",
+    "negative"
+  ],
+  "发臭": [
+    "disgust",
+    "negative"
+  ],
+  "臭": [
+    "disgust",
+    "negative"
+  ],
+  "臭气": [
+    "disgust",
+    "negative"
+  ],
+  "臭味": [
+    "disgust",
+    "negative"
+  ],
+  "恶臭": [
+    "disgust",
+    "negative"
+  ],
+  "腥臭": [
+    "disgust",
+    "negative"
+  ],
+  "腥": [
+    "disgust",
+    "negative"
+  ],
+  "腐肉": [
+    "disgust",
+    "negative"
+  ],
+  "蛆虫": [
+    "disgust",
+    "negative"
+  ],
+  "蠕虫": [
+    "disgust",
+    "negative"
+  ],
+  "虫": [
+    "disgust",
+    "negative"
+  ],
+  "害虫": [
+    "disgust",
+    "negative"
+  ],
+  "蟑螂": [
+    "disgust",
+    "negative"
+  ],
+  "苍蝇": [
+    "disgust",
+    "negative"
+  ],
+  "蚊子": [
+    "disgust",
+    "negative"
+  ],
+  "老鼠": [
+    "disgust",
+    "negative"
+  ],
+  "蛇": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "毒蛇": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "蜘蛛": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "蝎子": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "寄生虫": [
+    "disgust",
+    "negative"
+  ],
+  "吸血虫": [
+    "disgust",
+    "negative"
+  ],
+  "吸血": [
+    "disgust",
+    "negative"
+  ],
+  "腐败": [
+    "disgust",
+    "negative"
+  ],
+  "腐化": [
+    "disgust",
+    "negative"
+  ],
+  "堕落": [
+    "disgust",
+    "sadness",
+    "negative"
+  ],
+  "腐朽": [
+    "disgust",
+    "negative"
+  ],
+  "变质": [
+    "disgust",
+    "negative"
+  ],
+  "污染": [
+    "disgust",
+    "negative"
+  ],
+  "排污": [
+    "disgust",
+    "negative"
+  ],
+  "毒性": [
+    "disgust",
+    "negative"
+  ],
+  "玷污": [
+    "disgust",
+    "negative"
+  ],
+  "亵渎": [
+    "disgust",
+    "anger",
+    "negative"
+  ],
+  "猥亵": [
+    "disgust",
+    "negative"
+  ],
+  "猥琐": [
+    "disgust",
+    "negative"
+  ],
+  "低俗": [
+    "disgust",
+    "negative"
+  ],
+  "粗俗": [
+    "disgust",
+    "negative"
+  ],
+  "庸俗": [
+    "disgust",
+    "negative"
+  ],
+  "俗气": [
+    "disgust",
+    "negative"
+  ],
+  "俗不可耐": [
+    "disgust",
+    "negative"
+  ],
+  "变态": [
+    "disgust",
+    "negative"
+  ],
+  "畸形": [
+    "disgust",
+    "negative"
+  ],
+  "怪异": [
+    "surprise",
+    "negative"
+  ],
+  "怪诞": [
+    "disgust",
+    "negative"
+  ],
+  "诡异": [
+    "surprise",
+    "negative"
+  ],
+  "惊讶": [
+    "surprise",
+    "positive"
+  ],
+  "惊喜": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "吃惊": [
+    "surprise",
+    "negative"
+  ],
+  "震撼": [
+    "surprise",
+    "positive"
+  ],
+  "惊愕": [
+    "surprise",
+    "negative"
+  ],
+  "诧异": [
+    "surprise",
+    "negative"
+  ],
+  "意外": [
+    "surprise",
+    "negative"
+  ],
+  "没想到": [
+    "surprise",
+    "negative"
+  ],
+  "出乎意料": [
+    "surprise",
+    "negative"
+  ],
+  "意想不到": [
+    "surprise",
+    "negative"
+  ],
+  "突然": [
+    "surprise",
+    "negative"
+  ],
+  "忽然": [
+    "surprise",
+    "negative"
+  ],
+  "猛然": [
+    "surprise",
+    "negative"
+  ],
+  "骤然": [
+    "surprise",
+    "negative"
+  ],
+  "突然间": [
+    "surprise",
+    "negative"
+  ],
+  "突如其来": [
+    "surprise",
+    "negative"
+  ],
+  "天哪": [
+    "surprise",
+    "positive"
+  ],
+  "我的天": [
+    "surprise",
+    "positive"
+  ],
+  "天啊": [
+    "surprise",
+    "positive"
+  ],
+  "不可思议": [
+    "surprise",
+    "negative"
+  ],
+  "难以置信": [
+    "surprise",
+    "negative"
+  ],
+  "不敢相信": [
+    "surprise",
+    "negative"
+  ],
+  "匪夷所思": [
+    "surprise",
+    "negative"
+  ],
+  "百思不解": [
+    "surprise",
+    "negative"
+  ],
+  "困惑": [
+    "surprise",
+    "negative"
+  ],
+  "迷惑": [
+    "surprise",
+    "negative"
+  ],
+  "疑惑": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "茫然": [
+    "surprise",
+    "sadness",
+    "negative"
+  ],
+  "目瞪口呆": [
+    "surprise",
+    "negative"
+  ],
+  "瞠目结舌": [
+    "surprise",
+    "negative"
+  ],
+  "哑口无言": [
+    "surprise",
+    "negative"
+  ],
+  "张口结舌": [
+    "surprise",
+    "negative"
+  ],
+  "惊呆": [
+    "surprise",
+    "negative"
+  ],
+  "愣住": [
+    "surprise",
+    "negative"
+  ],
+  "怔住": [
+    "surprise",
+    "negative"
+  ],
+  "呆住": [
+    "surprise",
+    "negative"
+  ],
+  "呆若木鸡": [
+    "surprise",
+    "negative"
+  ],
+  "奇迹般": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "喜出望外": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "大喜过望": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "意外之喜": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "转折": [
+    "surprise",
+    "negative"
+  ],
+  "突变": [
+    "surprise",
+    "negative"
+  ],
+  "巨变": [
+    "surprise",
+    "negative"
+  ],
+  "变化": [
+    "anticipation",
+    "positive"
+  ],
+  "改变": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "变幻": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "变幻莫测": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "发现": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "揭开": [
+    "surprise",
+    "positive"
+  ],
+  "揭露": [
+    "surprise",
+    "negative"
+  ],
+  "暴露": [
+    "surprise",
+    "negative"
+  ],
+  "曝光": [
+    "surprise",
+    "negative"
+  ],
+  "揭秘": [
+    "surprise",
+    "positive"
+  ],
+  "神秘": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "奥秘": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "秘密": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "谜": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "谜团": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "谜底": [
+    "surprise",
+    "positive"
+  ],
+  "奇怪": [
+    "surprise",
+    "negative"
+  ],
+  "古怪": [
+    "surprise",
+    "negative"
+  ],
+  "离奇": [
+    "surprise",
+    "negative"
+  ],
+  "奇特": [
+    "surprise",
+    "negative"
+  ],
+  "特殊": [
+    "surprise",
+    "positive"
+  ],
+  "独特": [
+    "surprise",
+    "positive"
+  ],
+  "非凡": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "出众": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "前所未有": [
+    "surprise",
+    "positive"
+  ],
+  "史无前例": [
+    "surprise",
+    "positive"
+  ],
+  "开天辟地": [
+    "surprise",
+    "positive"
+  ],
+  "惊天动地": [
+    "surprise",
+    "positive"
+  ],
+  "惊天": [
+    "surprise",
+    "positive"
+  ],
+  "惊人": [
+    "surprise",
+    "positive"
+  ],
+  "震撼人心": [
+    "surprise",
+    "positive"
+  ],
+  "叹为观止": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "期望": [
+    "anticipation",
+    "positive"
+  ],
+  "期盼": [
+    "anticipation",
+    "positive"
+  ],
+  "等待": [
+    "anticipation",
+    "positive"
+  ],
+  "等候": [
+    "anticipation",
+    "positive"
+  ],
+  "耐心": [
+    "anticipation",
+    "trust",
+    "positive"
+  ],
+  "不耐烦": [
+    "anticipation",
+    "anger",
+    "negative"
+  ],
+  "急切": [
+    "anticipation",
+    "positive"
+  ],
+  "迫切": [
+    "anticipation",
+    "positive"
+  ],
+  "向往": [
+    "anticipation",
+    "positive"
+  ],
+  "计划": [
+    "anticipation",
+    "positive"
+  ],
+  "规划": [
+    "anticipation",
+    "positive"
+  ],
+  "打算": [
+    "anticipation",
+    "positive"
+  ],
+  "准备": [
+    "anticipation",
+    "positive"
+  ],
+  "预备": [
+    "anticipation",
+    "positive"
+  ],
+  "筹划": [
+    "anticipation",
+    "positive"
+  ],
+  "安排": [
+    "anticipation",
+    "positive"
+  ],
+  "部署": [
+    "anticipation",
+    "positive"
+  ],
+  "战略": [
+    "anticipation",
+    "positive"
+  ],
+  "策略": [
+    "anticipation",
+    "positive"
+  ],
+  "目标": [
+    "anticipation",
+    "positive"
+  ],
+  "方向": [
+    "anticipation",
+    "positive"
+  ],
+  "目的地": [
+    "anticipation",
+    "positive"
+  ],
+  "旅途": [
+    "anticipation",
+    "positive"
+  ],
+  "旅程": [
+    "anticipation",
+    "positive"
+  ],
+  "探险": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "冒险": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "探索": [
+    "anticipation",
+    "positive"
+  ],
+  "发明": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "开始": [
+    "anticipation",
+    "positive"
+  ],
+  "启动": [
+    "anticipation",
+    "positive"
+  ],
+  "出发": [
+    "anticipation",
+    "positive"
+  ],
+  "启程": [
+    "anticipation",
+    "positive"
+  ],
+  "来临": [
+    "anticipation",
+    "positive"
+  ],
+  "即将": [
+    "anticipation",
+    "positive"
+  ],
+  "马上": [
+    "anticipation",
+    "positive"
+  ],
+  "快要": [
+    "anticipation",
+    "positive"
+  ],
+  "即将到来": [
+    "anticipation",
+    "positive"
+  ],
+  "即将发生": [
+    "anticipation",
+    "positive"
+  ],
+  "未来": [
+    "anticipation",
+    "positive"
+  ],
+  "将来": [
+    "anticipation",
+    "positive"
+  ],
+  "明天": [
+    "anticipation",
+    "positive"
+  ],
+  "前途": [
+    "anticipation",
+    "positive"
+  ],
+  "前景": [
+    "anticipation",
+    "positive"
+  ],
+  "远景": [
+    "anticipation",
+    "positive"
+  ],
+  "命运": [
+    "anticipation",
+    "positive"
+  ],
+  "宿命": [
+    "anticipation",
+    "positive"
+  ],
+  "天命": [
+    "anticipation",
+    "positive"
+  ],
+  "注定": [
+    "anticipation",
+    "positive"
+  ],
+  "命中注定": [
+    "anticipation",
+    "positive"
+  ],
+  "机遇": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "机会": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "可能性": [
+    "anticipation",
+    "positive"
+  ],
+  "潜力": [
+    "anticipation",
+    "positive"
+  ],
+  "潜能": [
+    "anticipation",
+    "positive"
+  ],
+  "演变": [
+    "anticipation",
+    "positive"
+  ],
+  "进化": [
+    "anticipation",
+    "positive"
+  ],
+  "改革": [
+    "anticipation",
+    "positive"
+  ],
+  "突破": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "飞跃": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "野心": [
+    "anticipation",
+    "positive"
+  ],
+  "雄心": [
+    "anticipation",
+    "positive"
+  ],
+  "壮志": [
+    "anticipation",
+    "positive"
+  ],
+  "志向": [
+    "anticipation",
+    "positive"
+  ],
+  "抱负": [
+    "anticipation",
+    "positive"
+  ],
+  "雄心壮志": [
+    "anticipation",
+    "positive"
+  ],
+  "奋发": [
+    "anticipation",
+    "positive"
+  ],
+  "努力": [
+    "anticipation",
+    "positive"
+  ],
+  "奋斗": [
+    "anticipation",
+    "positive"
+  ],
+  "拼搏": [
+    "anticipation",
+    "positive"
+  ],
+  "进取": [
+    "anticipation",
+    "positive"
+  ],
+  "追求": [
+    "anticipation",
+    "positive"
+  ],
+  "信赖": [
+    "trust",
+    "positive"
+  ],
+  "相信": [
+    "trust",
+    "positive"
+  ],
+  "信念": [
+    "trust",
+    "positive"
+  ],
+  "信仰": [
+    "trust",
+    "positive"
+  ],
+  "忠心": [
+    "trust",
+    "positive"
+  ],
+  "忠贞": [
+    "trust",
+    "positive"
+  ],
+  "忠义": [
+    "trust",
+    "positive"
+  ],
+  "可靠": [
+    "trust",
+    "positive"
+  ],
+  "可信": [
+    "trust",
+    "positive"
+  ],
+  "值得信赖": [
+    "trust",
+    "positive"
+  ],
+  "老实": [
+    "trust",
+    "positive"
+  ],
+  "真挚": [
+    "trust",
+    "positive"
+  ],
+  "真心": [
+    "trust",
+    "positive"
+  ],
+  "真心实意": [
+    "trust",
+    "positive"
+  ],
+  "坦诚": [
+    "trust",
+    "positive"
+  ],
+  "坦荡": [
+    "trust",
+    "positive"
+  ],
+  "坦率": [
+    "trust",
+    "positive"
+  ],
+  "正派": [
+    "trust",
+    "positive"
+  ],
+  "公道": [
+    "trust",
+    "positive"
+  ],
+  "公允": [
+    "trust",
+    "positive"
+  ],
+  "合理": [
+    "trust",
+    "positive"
+  ],
+  "合规": [
+    "trust",
+    "positive"
+  ],
+  "合法": [
+    "trust",
+    "positive"
+  ],
+  "正当": [
+    "trust",
+    "positive"
+  ],
+  "适当": [
+    "trust",
+    "positive"
+  ],
+  "合适": [
+    "trust",
+    "positive"
+  ],
+  "恰当": [
+    "trust",
+    "positive"
+  ],
+  "妥当": [
+    "trust",
+    "positive"
+  ],
+  "稳妥": [
+    "trust",
+    "positive"
+  ],
+  "保险": [
+    "trust",
+    "positive"
+  ],
+  "护卫": [
+    "trust",
+    "positive"
+  ],
+  "维护": [
+    "trust",
+    "positive"
+  ],
+  "保障": [
+    "trust",
+    "positive"
+  ],
+  "保证": [
+    "trust",
+    "positive"
+  ],
+  "承诺": [
+    "trust",
+    "positive"
+  ],
+  "许诺": [
+    "trust",
+    "positive"
+  ],
+  "答应": [
+    "trust",
+    "positive"
+  ],
+  "诺言": [
+    "trust",
+    "positive"
+  ],
+  "誓言": [
+    "trust",
+    "positive"
+  ],
+  "契约": [
+    "trust",
+    "positive"
+  ],
+  "合同": [
+    "trust",
+    "positive"
+  ],
+  "协议": [
+    "trust",
+    "positive"
+  ],
+  "法律": [
+    "trust",
+    "positive"
+  ],
+  "规则": [
+    "trust",
+    "positive"
+  ],
+  "制度": [
+    "trust",
+    "positive"
+  ],
+  "秩序": [
+    "trust",
+    "positive"
+  ],
+  "规范": [
+    "trust",
+    "positive"
+  ],
+  "标准": [
+    "trust",
+    "positive"
+  ],
+  "原则": [
+    "trust",
+    "positive"
+  ],
+  "底线": [
+    "trust",
+    "positive"
+  ],
+  "道德": [
+    "trust",
+    "positive"
+  ],
+  "品行": [
+    "trust",
+    "positive"
+  ],
+  "品格": [
+    "trust",
+    "positive"
+  ],
+  "美德": [
+    "trust",
+    "positive"
+  ],
+  "善": [
+    "trust",
+    "positive"
+  ],
+  "善行": [
+    "trust",
+    "positive"
+  ],
+  "仁爱": [
+    "trust",
+    "positive"
+  ],
+  "慈爱": [
+    "trust",
+    "positive"
+  ],
+  "慈祥": [
+    "trust",
+    "positive"
+  ],
+  "怜悯": [
+    "trust",
+    "sadness",
+    "positive"
+  ],
+  "同情": [
+    "trust",
+    "sadness",
+    "positive"
+  ],
+  "体谅": [
+    "trust",
+    "positive"
+  ],
+  "理解": [
+    "trust",
+    "positive"
+  ],
+  "包容": [
+    "trust",
+    "positive"
+  ],
+  "大度": [
+    "trust",
+    "positive"
+  ],
+  "贡献": [
+    "trust",
+    "positive"
+  ],
+  "牺牲": [
+    "trust",
+    "sadness",
+    "positive"
+  ],
+  "付出": [
+    "trust",
+    "positive"
+  ],
+  "给予": [
+    "trust",
+    "positive"
+  ],
+  "赠送": [
+    "trust",
+    "positive"
+  ],
+  "分享": [
+    "trust",
+    "positive"
+  ],
+  "支援": [
+    "trust",
+    "positive"
+  ],
+  "协助": [
+    "trust",
+    "positive"
+  ],
+  "配合": [
+    "trust",
+    "positive"
+  ],
+  "凝聚力": [
+    "trust",
+    "positive"
+  ],
+  "家人": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "家": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "母亲": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "父亲": [
+    "trust",
+    "positive"
+  ],
+  "父母": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "孩子": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "子女": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "兄弟": [
+    "trust",
+    "positive"
+  ],
+  "姐妹": [
+    "trust",
+    "positive"
+  ],
+  "亲人": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "亲属": [
+    "trust",
+    "positive"
+  ],
+  "夫妻": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "伴侣": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "配偶": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "师长": [
+    "trust",
+    "positive"
+  ],
+  "老师": [
+    "trust",
+    "positive"
+  ],
+  "导师": [
+    "trust",
+    "positive"
+  ],
+  "引路人": [
+    "trust",
+    "positive"
+  ],
+  "领导": [
+    "trust",
+    "positive"
+  ],
+  "领袖": [
+    "trust",
+    "positive"
+  ],
+  "榜样": [
+    "trust",
+    "positive"
+  ],
+  "模范": [
+    "trust",
+    "positive"
+  ],
+  "典范": [
+    "trust",
+    "positive"
+  ],
+  "楷模": [
+    "trust",
+    "positive"
+  ]
+}

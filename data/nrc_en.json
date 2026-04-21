@@ -1,0 +1,6950 @@
+{
+  "happy": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "happiness": [
+    "joy",
+    "positive"
+  ],
+  "glad": [
+    "joy",
+    "positive"
+  ],
+  "joy": [
+    "joy",
+    "positive"
+  ],
+  "joyful": [
+    "joy",
+    "positive"
+  ],
+  "joyous": [
+    "joy",
+    "positive"
+  ],
+  "cheerful": [
+    "joy",
+    "positive"
+  ],
+  "cheer": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "delighted": [
+    "joy",
+    "positive"
+  ],
+  "delight": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "pleased": [
+    "joy",
+    "positive"
+  ],
+  "pleasure": [
+    "joy",
+    "positive"
+  ],
+  "smile": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "laugh": [
+    "joy",
+    "positive"
+  ],
+  "laughter": [
+    "joy",
+    "positive"
+  ],
+  "laughing": [
+    "joy",
+    "positive"
+  ],
+  "rejoice": [
+    "joy",
+    "positive"
+  ],
+  "rejoicing": [
+    "joy",
+    "positive"
+  ],
+  "merry": [
+    "joy",
+    "positive"
+  ],
+  "mirth": [
+    "joy",
+    "positive"
+  ],
+  "bliss": [
+    "joy",
+    "positive"
+  ],
+  "blissful": [
+    "joy",
+    "positive"
+  ],
+  "ecstatic": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "ecstasy": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "elated": [
+    "joy",
+    "positive"
+  ],
+  "elation": [
+    "joy",
+    "positive"
+  ],
+  "euphoric": [
+    "joy",
+    "positive"
+  ],
+  "euphoria": [
+    "joy",
+    "positive"
+  ],
+  "thrilled": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "thrill": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "excited": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "excitement": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "content": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "contented": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "satisfied": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "satisfaction": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "grateful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "gratitude": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "thankful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "appreciate": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "love": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "loving": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "loved": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "lovely": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "affection": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "affectionate": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "fond": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "fondness": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "adore": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "adoring": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "cherish": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "cherished": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "warm": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "warmth": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "comfort": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "comfortable": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "cozy": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "snug": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "peace": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "peaceful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "calm": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "serene": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "serenity": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "tranquil": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "tranquility": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "gentle": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "kind": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "kindness": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "sweet": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "wonderful": [
+    "joy",
+    "positive"
+  ],
+  "wonderfully": [
+    "joy",
+    "positive"
+  ],
+  "fantastic": [
+    "joy",
+    "positive"
+  ],
+  "fabulous": [
+    "joy",
+    "positive"
+  ],
+  "excellent": [
+    "joy",
+    "positive"
+  ],
+  "great": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "amazing": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "awesome": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "brilliant": [
+    "joy",
+    "positive"
+  ],
+  "magnificent": [
+    "joy",
+    "positive"
+  ],
+  "splendid": [
+    "joy",
+    "positive"
+  ],
+  "superb": [
+    "joy",
+    "positive"
+  ],
+  "terrific": [
+    "joy",
+    "positive"
+  ],
+  "outstanding": [
+    "joy",
+    "positive"
+  ],
+  "marvelous": [
+    "joy",
+    "positive"
+  ],
+  "glorious": [
+    "joy",
+    "positive"
+  ],
+  "beautiful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "pretty": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "gorgeous": [
+    "joy",
+    "positive"
+  ],
+  "handsome": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "charming": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "enchanting": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "delightful": [
+    "joy",
+    "positive"
+  ],
+  "enjoy": [
+    "joy",
+    "positive"
+  ],
+  "enjoyable": [
+    "joy",
+    "positive"
+  ],
+  "fun": [
+    "joy",
+    "positive"
+  ],
+  "funny": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "hilarious": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "humorous": [
+    "joy",
+    "positive"
+  ],
+  "amusing": [
+    "joy",
+    "positive"
+  ],
+  "entertaining": [
+    "joy",
+    "positive"
+  ],
+  "playful": [
+    "joy",
+    "positive"
+  ],
+  "play": [
+    "joy",
+    "positive"
+  ],
+  "celebrate": [
+    "joy",
+    "positive"
+  ],
+  "celebration": [
+    "joy",
+    "positive"
+  ],
+  "party": [
+    "joy",
+    "positive"
+  ],
+  "festive": [
+    "joy",
+    "positive"
+  ],
+  "festival": [
+    "joy",
+    "positive"
+  ],
+  "holiday": [
+    "joy",
+    "positive"
+  ],
+  "victory": [
+    "joy",
+    "positive"
+  ],
+  "triumph": [
+    "joy",
+    "positive"
+  ],
+  "win": [
+    "joy",
+    "positive"
+  ],
+  "winning": [
+    "joy",
+    "positive"
+  ],
+  "success": [
+    "joy",
+    "positive"
+  ],
+  "successful": [
+    "joy",
+    "positive"
+  ],
+  "achieve": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "achievement": [
+    "joy",
+    "positive"
+  ],
+  "accomplish": [
+    "joy",
+    "positive"
+  ],
+  "accomplishment": [
+    "joy",
+    "positive"
+  ],
+  "proud": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "pride": [
+    "joy",
+    "positive"
+  ],
+  "confident": [
+    "anticipation",
+    "trust",
+    "positive"
+  ],
+  "confidence": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "brave": [
+    "joy",
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "courage": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "courageous": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "hero": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "heroic": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "heroism": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "hope": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "hopeful": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "optimistic": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "optimism": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "inspire": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "inspired": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "inspiring": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "inspiration": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "freedom": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "free": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "liberty": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "independence": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "dream": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "dreamy": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "paradise": [
+    "joy",
+    "positive"
+  ],
+  "heaven": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "blessed": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "blessing": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "lucky": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "fortunate": [
+    "joy",
+    "positive"
+  ],
+  "fortune": [
+    "joy",
+    "positive"
+  ],
+  "treasure": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "precious": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "valuable": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "gift": [
+    "joy",
+    "surprise",
+    "trust",
+    "positive"
+  ],
+  "generous": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "generosity": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "forgive": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "forgiveness": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "mercy": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "grace": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "graceful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "harmony": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "harmonious": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "united": [
+    "trust",
+    "positive"
+  ],
+  "unity": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "together": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "friendship": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "friend": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "friendly": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "companion": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "welcome": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "welcomed": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "embrace": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "hug": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "kiss": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "caress": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "tender": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "tenderness": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "passion": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "passionate": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "desire": [
+    "anticipation",
+    "positive"
+  ],
+  "wish": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "admire": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "admiration": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "respect": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "respectful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "honor": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "dignity": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "noble": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "wise": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "wisdom": [
+    "trust",
+    "positive"
+  ],
+  "intelligent": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "smart": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "clever": [
+    "joy",
+    "positive"
+  ],
+  "genius": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "talent": [
+    "joy",
+    "positive"
+  ],
+  "talented": [
+    "joy",
+    "positive"
+  ],
+  "creative": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "creativity": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "imagine": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "imagination": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "wonder": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "miracle": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "magical": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "magic": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "sparkle": [
+    "joy",
+    "positive"
+  ],
+  "shine": [
+    "joy",
+    "positive"
+  ],
+  "bright": [
+    "joy",
+    "positive"
+  ],
+  "radiant": [
+    "joy",
+    "positive"
+  ],
+  "glow": [
+    "joy",
+    "positive"
+  ],
+  "glowing": [
+    "joy",
+    "positive"
+  ],
+  "sunshine": [
+    "joy",
+    "positive"
+  ],
+  "sun": [
+    "joy",
+    "positive"
+  ],
+  "light": [
+    "joy",
+    "positive"
+  ],
+  "spring": [
+    "joy",
+    "positive"
+  ],
+  "bloom": [
+    "joy",
+    "positive"
+  ],
+  "blossom": [
+    "joy",
+    "positive"
+  ],
+  "garden": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "flower": [
+    "joy",
+    "positive"
+  ],
+  "morning": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "dawn": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "sunrise": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "rainbow": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "gold": [
+    "joy",
+    "positive"
+  ],
+  "golden": [
+    "joy",
+    "positive"
+  ],
+  "diamond": [
+    "joy",
+    "positive"
+  ],
+  "pearl": [
+    "joy",
+    "positive"
+  ],
+  "sad": [
+    "sadness",
+    "negative"
+  ],
+  "sadness": [
+    "sadness",
+    "negative"
+  ],
+  "unhappy": [
+    "sadness",
+    "negative"
+  ],
+  "sorrow": [
+    "sadness",
+    "negative"
+  ],
+  "sorrowful": [
+    "sadness",
+    "negative"
+  ],
+  "grief": [
+    "sadness",
+    "negative"
+  ],
+  "grieve": [
+    "sadness",
+    "negative"
+  ],
+  "grieving": [
+    "sadness",
+    "negative"
+  ],
+  "mourn": [
+    "sadness",
+    "negative"
+  ],
+  "mourning": [
+    "sadness",
+    "negative"
+  ],
+  "mournful": [
+    "sadness",
+    "negative"
+  ],
+  "miserable": [
+    "sadness",
+    "negative"
+  ],
+  "misery": [
+    "sadness",
+    "negative"
+  ],
+  "depressed": [
+    "sadness",
+    "negative"
+  ],
+  "depression": [
+    "sadness",
+    "negative"
+  ],
+  "depressing": [
+    "sadness",
+    "negative"
+  ],
+  "melancholy": [
+    "sadness",
+    "negative"
+  ],
+  "melancholic": [
+    "sadness",
+    "negative"
+  ],
+  "gloomy": [
+    "sadness",
+    "negative"
+  ],
+  "gloom": [
+    "sadness",
+    "negative"
+  ],
+  "bleak": [
+    "sadness",
+    "negative"
+  ],
+  "desolate": [
+    "sadness",
+    "negative"
+  ],
+  "despair": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "desperate": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "hopeless": [
+    "sadness",
+    "negative"
+  ],
+  "hopelessness": [
+    "sadness",
+    "negative"
+  ],
+  "heartbroken": [
+    "sadness",
+    "negative"
+  ],
+  "heartbreak": [
+    "sadness",
+    "negative"
+  ],
+  "cry": [
+    "sadness",
+    "negative"
+  ],
+  "crying": [
+    "sadness",
+    "negative"
+  ],
+  "tears": [
+    "sadness",
+    "negative"
+  ],
+  "tearful": [
+    "sadness",
+    "negative"
+  ],
+  "weep": [
+    "sadness",
+    "negative"
+  ],
+  "weeping": [
+    "sadness",
+    "negative"
+  ],
+  "sob": [
+    "sadness",
+    "negative"
+  ],
+  "sobbing": [
+    "sadness",
+    "negative"
+  ],
+  "lonely": [
+    "sadness",
+    "negative"
+  ],
+  "loneliness": [
+    "sadness",
+    "negative"
+  ],
+  "alone": [
+    "sadness",
+    "negative"
+  ],
+  "isolated": [
+    "sadness",
+    "negative"
+  ],
+  "abandoned": [
+    "sadness",
+    "negative"
+  ],
+  "abandon": [
+    "sadness",
+    "negative"
+  ],
+  "neglected": [
+    "sadness",
+    "negative"
+  ],
+  "neglect": [
+    "sadness",
+    "negative"
+  ],
+  "rejected": [
+    "sadness",
+    "negative"
+  ],
+  "rejection": [
+    "sadness",
+    "negative"
+  ],
+  "loss": [
+    "sadness",
+    "negative"
+  ],
+  "lose": [
+    "sadness",
+    "negative"
+  ],
+  "lost": [
+    "sadness",
+    "negative"
+  ],
+  "losing": [
+    "sadness",
+    "negative"
+  ],
+  "miss": [
+    "sadness",
+    "negative"
+  ],
+  "missing": [
+    "sadness",
+    "negative"
+  ],
+  "regret": [
+    "sadness",
+    "negative"
+  ],
+  "regretful": [
+    "sadness",
+    "negative"
+  ],
+  "remorse": [
+    "sadness",
+    "negative"
+  ],
+  "guilt": [
+    "sadness",
+    "negative"
+  ],
+  "guilty": [
+    "sadness",
+    "negative"
+  ],
+  "ashamed": [
+    "sadness",
+    "negative"
+  ],
+  "shame": [
+    "sadness",
+    "negative"
+  ],
+  "disgrace": [
+    "sadness",
+    "negative"
+  ],
+  "humiliated": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "humiliation": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "dishonored": [
+    "sadness",
+    "negative"
+  ],
+  "dishonor": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "pain": [
+    "fear",
+    "negative"
+  ],
+  "painful": [
+    "sadness",
+    "negative"
+  ],
+  "hurt": [
+    "sadness",
+    "negative"
+  ],
+  "hurting": [
+    "sadness",
+    "negative"
+  ],
+  "suffer": [
+    "fear",
+    "negative"
+  ],
+  "suffering": [
+    "fear",
+    "negative"
+  ],
+  "agony": [
+    "fear",
+    "negative"
+  ],
+  "torment": [
+    "fear",
+    "negative"
+  ],
+  "torture": [
+    "fear",
+    "negative"
+  ],
+  "wound": [
+    "fear",
+    "negative"
+  ],
+  "wounded": [
+    "sadness",
+    "negative"
+  ],
+  "scar": [
+    "sadness",
+    "negative"
+  ],
+  "scarred": [
+    "sadness",
+    "negative"
+  ],
+  "broken": [
+    "sadness",
+    "negative"
+  ],
+  "shatter": [
+    "sadness",
+    "negative"
+  ],
+  "shattered": [
+    "sadness",
+    "negative"
+  ],
+  "crush": [
+    "sadness",
+    "negative"
+  ],
+  "crushed": [
+    "sadness",
+    "negative"
+  ],
+  "destroy": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "ruin": [
+    "sadness",
+    "negative"
+  ],
+  "ruined": [
+    "sadness",
+    "negative"
+  ],
+  "doom": [
+    "fear",
+    "negative"
+  ],
+  "doomed": [
+    "fear",
+    "negative"
+  ],
+  "tragedy": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "tragic": [
+    "sadness",
+    "negative"
+  ],
+  "catastrophe": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "catastrophic": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "disaster": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "disastrous": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "death": [
+    "fear",
+    "negative"
+  ],
+  "die": [
+    "fear",
+    "negative"
+  ],
+  "dead": [
+    "sadness",
+    "negative"
+  ],
+  "dying": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "kill": [
+    "fear",
+    "negative"
+  ],
+  "killed": [
+    "sadness",
+    "negative"
+  ],
+  "murder": [
+    "fear",
+    "negative"
+  ],
+  "funeral": [
+    "sadness",
+    "negative"
+  ],
+  "grave": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "tomb": [
+    "sadness",
+    "negative"
+  ],
+  "dark": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "darkness": [
+    "fear",
+    "negative"
+  ],
+  "shadow": [
+    "fear",
+    "negative"
+  ],
+  "shadows": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "night": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "midnight": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "cold": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "winter": [
+    "sadness",
+    "negative"
+  ],
+  "storm": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "rain": [
+    "sadness",
+    "negative"
+  ],
+  "tear": [
+    "sadness",
+    "negative"
+  ],
+  "empty": [
+    "sadness",
+    "negative"
+  ],
+  "emptiness": [
+    "sadness",
+    "negative"
+  ],
+  "void": [
+    "sadness",
+    "negative"
+  ],
+  "hollow": [
+    "sadness",
+    "negative"
+  ],
+  "waste": [
+    "disgust",
+    "negative"
+  ],
+  "wasted": [
+    "sadness",
+    "negative"
+  ],
+  "worthless": [
+    "sadness",
+    "negative"
+  ],
+  "meaningless": [
+    "sadness",
+    "negative"
+  ],
+  "nothing": [
+    "sadness",
+    "negative"
+  ],
+  "nobody": [
+    "sadness",
+    "negative"
+  ],
+  "nowhere": [
+    "sadness",
+    "negative"
+  ],
+  "never": [
+    "sadness",
+    "negative"
+  ],
+  "farewell": [
+    "sadness",
+    "negative"
+  ],
+  "goodbye": [
+    "sadness",
+    "negative"
+  ],
+  "parting": [
+    "sadness",
+    "negative"
+  ],
+  "separation": [
+    "sadness",
+    "negative"
+  ],
+  "divorce": [
+    "sadness",
+    "negative"
+  ],
+  "orphan": [
+    "sadness",
+    "negative"
+  ],
+  "widow": [
+    "sadness",
+    "negative"
+  ],
+  "widower": [
+    "sadness",
+    "negative"
+  ],
+  "exile": [
+    "sadness",
+    "negative"
+  ],
+  "exiled": [
+    "sadness",
+    "negative"
+  ],
+  "prisoner": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "prison": [
+    "fear",
+    "negative"
+  ],
+  "captive": [
+    "fear",
+    "negative"
+  ],
+  "slave": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "slavery": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "oppressed": [
+    "sadness",
+    "negative"
+  ],
+  "oppression": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "victim": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "helpless": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "powerless": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "angry": [
+    "anger",
+    "negative"
+  ],
+  "anger": [
+    "anger",
+    "negative"
+  ],
+  "furious": [
+    "anger",
+    "negative"
+  ],
+  "fury": [
+    "anger",
+    "negative"
+  ],
+  "rage": [
+    "anger",
+    "negative"
+  ],
+  "enraged": [
+    "anger",
+    "negative"
+  ],
+  "outraged": [
+    "anger",
+    "negative"
+  ],
+  "outrage": [
+    "anger",
+    "negative"
+  ],
+  "mad": [
+    "anger",
+    "negative"
+  ],
+  "infuriated": [
+    "anger",
+    "negative"
+  ],
+  "annoyed": [
+    "anger",
+    "negative"
+  ],
+  "annoyance": [
+    "anger",
+    "negative"
+  ],
+  "irritated": [
+    "anger",
+    "negative"
+  ],
+  "irritation": [
+    "anger",
+    "negative"
+  ],
+  "frustrated": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "frustration": [
+    "anger",
+    "negative"
+  ],
+  "hostile": [
+    "anger",
+    "negative"
+  ],
+  "hostility": [
+    "anger",
+    "negative"
+  ],
+  "hate": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "hatred": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "hateful": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "loathe": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "loathing": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "detest": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "despise": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "contempt": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "scorn": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "disdain": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "resent": [
+    "anger",
+    "negative"
+  ],
+  "resentment": [
+    "anger",
+    "negative"
+  ],
+  "bitter": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "bitterness": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "vengeful": [
+    "anger",
+    "negative"
+  ],
+  "vengeance": [
+    "anger",
+    "negative"
+  ],
+  "revenge": [
+    "anger",
+    "negative"
+  ],
+  "revengeful": [
+    "anger",
+    "negative"
+  ],
+  "cruel": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "cruelty": [
+    "anger",
+    "negative"
+  ],
+  "brutal": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "brutality": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "savage": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "vicious": [
+    "anger",
+    "negative"
+  ],
+  "violent": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "violence": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "aggressive": [
+    "anger",
+    "negative"
+  ],
+  "aggression": [
+    "anger",
+    "negative"
+  ],
+  "attack": [
+    "fear",
+    "negative"
+  ],
+  "attacked": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "fight": [
+    "anger",
+    "negative"
+  ],
+  "fighting": [
+    "anger",
+    "negative"
+  ],
+  "war": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "battle": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "conflict": [
+    "anger",
+    "negative"
+  ],
+  "enemy": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "foe": [
+    "anger",
+    "negative"
+  ],
+  "opponent": [
+    "anger",
+    "negative"
+  ],
+  "rival": [
+    "anger",
+    "negative"
+  ],
+  "rivalry": [
+    "anger",
+    "negative"
+  ],
+  "destruction": [
+    "anger",
+    "negative"
+  ],
+  "destructive": [
+    "anger",
+    "negative"
+  ],
+  "damage": [
+    "anger",
+    "negative"
+  ],
+  "harm": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "harmful": [
+    "anger",
+    "negative"
+  ],
+  "hurtful": [
+    "anger",
+    "negative"
+  ],
+  "injure": [
+    "anger",
+    "negative"
+  ],
+  "injury": [
+    "fear",
+    "negative"
+  ],
+  "abuse": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "abusive": [
+    "anger",
+    "negative"
+  ],
+  "insult": [
+    "anger",
+    "negative"
+  ],
+  "insulting": [
+    "anger",
+    "negative"
+  ],
+  "offend": [
+    "anger",
+    "negative"
+  ],
+  "offensive": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "curse": [
+    "fear",
+    "negative"
+  ],
+  "swear": [
+    "anger",
+    "negative"
+  ],
+  "scream": [
+    "fear",
+    "negative"
+  ],
+  "yell": [
+    "anger",
+    "negative"
+  ],
+  "shout": [
+    "anger",
+    "negative"
+  ],
+  "roar": [
+    "anger",
+    "negative"
+  ],
+  "threat": [
+    "fear",
+    "negative"
+  ],
+  "threaten": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "threatening": [
+    "fear",
+    "negative"
+  ],
+  "danger": [
+    "fear",
+    "negative"
+  ],
+  "dangerous": [
+    "fear",
+    "negative"
+  ],
+  "menace": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "menacing": [
+    "fear",
+    "negative"
+  ],
+  "weapon": [
+    "fear",
+    "negative"
+  ],
+  "punish": [
+    "anger",
+    "negative"
+  ],
+  "punishment": [
+    "anger",
+    "negative"
+  ],
+  "blame": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "accuse": [
+    "anger",
+    "negative"
+  ],
+  "accusation": [
+    "anger",
+    "negative"
+  ],
+  "condemn": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "condemnation": [
+    "anger",
+    "negative"
+  ],
+  "criticize": [
+    "anger",
+    "negative"
+  ],
+  "criticism": [
+    "anger",
+    "negative"
+  ],
+  "complain": [
+    "sadness",
+    "negative"
+  ],
+  "complaint": [
+    "anger",
+    "negative"
+  ],
+  "argue": [
+    "anger",
+    "negative"
+  ],
+  "argument": [
+    "anger",
+    "negative"
+  ],
+  "quarrel": [
+    "anger",
+    "negative"
+  ],
+  "dispute": [
+    "anger",
+    "negative"
+  ],
+  "rebel": [
+    "anger",
+    "negative"
+  ],
+  "rebellion": [
+    "anger",
+    "negative"
+  ],
+  "revolt": [
+    "disgust",
+    "negative"
+  ],
+  "revolution": [
+    "anger",
+    "anticipation",
+    "negative"
+  ],
+  "protest": [
+    "anger",
+    "negative"
+  ],
+  "afraid": [
+    "fear",
+    "negative"
+  ],
+  "fear": [
+    "fear",
+    "negative"
+  ],
+  "fearful": [
+    "fear",
+    "negative"
+  ],
+  "frightened": [
+    "fear",
+    "negative"
+  ],
+  "fright": [
+    "fear",
+    "negative"
+  ],
+  "scared": [
+    "fear",
+    "negative"
+  ],
+  "terrified": [
+    "fear",
+    "negative"
+  ],
+  "terror": [
+    "fear",
+    "negative"
+  ],
+  "terrorize": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "terrorist": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "horror": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "horrified": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "horrifying": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "horrible": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "dread": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "dreadful": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "panic": [
+    "fear",
+    "negative"
+  ],
+  "panicked": [
+    "fear",
+    "negative"
+  ],
+  "anxious": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "anxiety": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "worried": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "worry": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "nervous": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "uneasy": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "restless": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "tense": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "stressed": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "stress": [
+    "fear",
+    "negative"
+  ],
+  "alarm": [
+    "fear",
+    "surprise",
+    "negative"
+  ],
+  "alarmed": [
+    "fear",
+    "surprise",
+    "negative"
+  ],
+  "startled": [
+    "surprise",
+    "negative"
+  ],
+  "shock": [
+    "surprise",
+    "negative"
+  ],
+  "shocked": [
+    "surprise",
+    "negative"
+  ],
+  "startle": [
+    "fear",
+    "surprise",
+    "negative"
+  ],
+  "tremble": [
+    "fear",
+    "negative"
+  ],
+  "trembling": [
+    "fear",
+    "negative"
+  ],
+  "shake": [
+    "fear",
+    "negative"
+  ],
+  "shaking": [
+    "fear",
+    "negative"
+  ],
+  "shiver": [
+    "fear",
+    "negative"
+  ],
+  "shivering": [
+    "fear",
+    "negative"
+  ],
+  "shriek": [
+    "fear",
+    "negative"
+  ],
+  "flee": [
+    "fear",
+    "negative"
+  ],
+  "escape": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "run": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "running": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "hide": [
+    "fear",
+    "negative"
+  ],
+  "hiding": [
+    "fear",
+    "negative"
+  ],
+  "nightmare": [
+    "fear",
+    "negative"
+  ],
+  "nightmarish": [
+    "fear",
+    "negative"
+  ],
+  "monster": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "demon": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "devil": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "ghost": [
+    "fear",
+    "negative"
+  ],
+  "phantom": [
+    "fear",
+    "negative"
+  ],
+  "specter": [
+    "fear",
+    "negative"
+  ],
+  "risk": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "risky": [
+    "fear",
+    "negative"
+  ],
+  "gun": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "knife": [
+    "fear",
+    "negative"
+  ],
+  "sword": [
+    "fear",
+    "negative"
+  ],
+  "poison": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "venom": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "trap": [
+    "fear",
+    "negative"
+  ],
+  "trapped": [
+    "fear",
+    "negative"
+  ],
+  "cage": [
+    "fear",
+    "negative"
+  ],
+  "chase": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "hunted": [
+    "fear",
+    "negative"
+  ],
+  "hunter": [
+    "fear",
+    "negative"
+  ],
+  "predator": [
+    "fear",
+    "negative"
+  ],
+  "prey": [
+    "fear",
+    "negative"
+  ],
+  "stalk": [
+    "fear",
+    "negative"
+  ],
+  "creep": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "lurk": [
+    "fear",
+    "negative"
+  ],
+  "prowl": [
+    "fear",
+    "negative"
+  ],
+  "haunt": [
+    "fear",
+    "negative"
+  ],
+  "haunted": [
+    "fear",
+    "negative"
+  ],
+  "cursed": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "blood": [
+    "disgust",
+    "negative"
+  ],
+  "bloody": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "invasion": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "invade": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "conquer": [
+    "joy",
+    "positive"
+  ],
+  "disgust": [
+    "disgust",
+    "negative"
+  ],
+  "disgusted": [
+    "disgust",
+    "negative"
+  ],
+  "disgusting": [
+    "disgust",
+    "negative"
+  ],
+  "gross": [
+    "disgust",
+    "negative"
+  ],
+  "nasty": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "nastiness": [
+    "disgust",
+    "negative"
+  ],
+  "revolting": [
+    "disgust",
+    "negative"
+  ],
+  "repulsive": [
+    "disgust",
+    "negative"
+  ],
+  "repulsed": [
+    "disgust",
+    "negative"
+  ],
+  "repugnant": [
+    "disgust",
+    "negative"
+  ],
+  "sickening": [
+    "disgust",
+    "negative"
+  ],
+  "nausea": [
+    "disgust",
+    "negative"
+  ],
+  "nauseating": [
+    "disgust",
+    "negative"
+  ],
+  "nauseous": [
+    "disgust",
+    "negative"
+  ],
+  "vomit": [
+    "disgust",
+    "negative"
+  ],
+  "puke": [
+    "disgust",
+    "negative"
+  ],
+  "sick": [
+    "sadness",
+    "disgust",
+    "negative"
+  ],
+  "illness": [
+    "disgust",
+    "sadness",
+    "negative"
+  ],
+  "disease": [
+    "sadness",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "infection": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "infect": [
+    "disgust",
+    "negative"
+  ],
+  "contagious": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "virus": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "bacteria": [
+    "disgust",
+    "negative"
+  ],
+  "germ": [
+    "disgust",
+    "negative"
+  ],
+  "dirt": [
+    "disgust",
+    "negative"
+  ],
+  "dirty": [
+    "disgust",
+    "negative"
+  ],
+  "filth": [
+    "disgust",
+    "negative"
+  ],
+  "filthy": [
+    "disgust",
+    "negative"
+  ],
+  "mud": [
+    "disgust",
+    "negative"
+  ],
+  "grime": [
+    "disgust",
+    "negative"
+  ],
+  "trash": [
+    "disgust",
+    "negative"
+  ],
+  "garbage": [
+    "disgust",
+    "negative"
+  ],
+  "rot": [
+    "disgust",
+    "negative"
+  ],
+  "rotten": [
+    "disgust",
+    "negative"
+  ],
+  "decay": [
+    "disgust",
+    "negative"
+  ],
+  "decaying": [
+    "disgust",
+    "negative"
+  ],
+  "stink": [
+    "disgust",
+    "negative"
+  ],
+  "stinking": [
+    "disgust",
+    "negative"
+  ],
+  "smell": [
+    "disgust",
+    "negative"
+  ],
+  "odor": [
+    "disgust",
+    "negative"
+  ],
+  "stench": [
+    "disgust",
+    "negative"
+  ],
+  "foul": [
+    "disgust",
+    "negative"
+  ],
+  "vile": [
+    "disgust",
+    "negative"
+  ],
+  "corrupt": [
+    "disgust",
+    "anger",
+    "negative"
+  ],
+  "corruption": [
+    "disgust",
+    "negative"
+  ],
+  "corrupted": [
+    "disgust",
+    "negative"
+  ],
+  "contamination": [
+    "disgust",
+    "negative"
+  ],
+  "contaminate": [
+    "disgust",
+    "negative"
+  ],
+  "pollute": [
+    "disgust",
+    "negative"
+  ],
+  "pollution": [
+    "disgust",
+    "negative"
+  ],
+  "toxic": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "poisonous": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "venomous": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "slime": [
+    "disgust",
+    "negative"
+  ],
+  "slimy": [
+    "disgust",
+    "negative"
+  ],
+  "worm": [
+    "disgust",
+    "negative"
+  ],
+  "maggot": [
+    "disgust",
+    "negative"
+  ],
+  "rat": [
+    "disgust",
+    "negative"
+  ],
+  "cockroach": [
+    "disgust",
+    "negative"
+  ],
+  "insect": [
+    "disgust",
+    "negative"
+  ],
+  "bug": [
+    "disgust",
+    "negative"
+  ],
+  "spider": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "snake": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "vermin": [
+    "disgust",
+    "negative"
+  ],
+  "pest": [
+    "disgust",
+    "negative"
+  ],
+  "parasite": [
+    "disgust",
+    "negative"
+  ],
+  "leech": [
+    "disgust",
+    "negative"
+  ],
+  "gore": [
+    "disgust",
+    "negative"
+  ],
+  "carrion": [
+    "disgust",
+    "negative"
+  ],
+  "corpse": [
+    "disgust",
+    "fear",
+    "negative"
+  ],
+  "carcass": [
+    "disgust",
+    "negative"
+  ],
+  "vulgar": [
+    "disgust",
+    "negative"
+  ],
+  "obscene": [
+    "disgust",
+    "negative"
+  ],
+  "pervert": [
+    "disgust",
+    "anger",
+    "negative"
+  ],
+  "perverted": [
+    "disgust",
+    "negative"
+  ],
+  "abnormal": [
+    "disgust",
+    "negative"
+  ],
+  "deform": [
+    "disgust",
+    "negative"
+  ],
+  "deformed": [
+    "disgust",
+    "negative"
+  ],
+  "hideous": [
+    "disgust",
+    "negative"
+  ],
+  "ugly": [
+    "disgust",
+    "negative"
+  ],
+  "grotesque": [
+    "disgust",
+    "negative"
+  ],
+  "surprise": [
+    "surprise",
+    "positive"
+  ],
+  "surprised": [
+    "surprise",
+    "positive"
+  ],
+  "surprising": [
+    "surprise",
+    "positive"
+  ],
+  "astonished": [
+    "surprise",
+    "positive"
+  ],
+  "astonishment": [
+    "surprise",
+    "positive"
+  ],
+  "amazed": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "amazement": [
+    "surprise",
+    "positive"
+  ],
+  "astounded": [
+    "surprise",
+    "positive"
+  ],
+  "astounding": [
+    "surprise",
+    "positive"
+  ],
+  "stunned": [
+    "surprise",
+    "positive"
+  ],
+  "stunning": [
+    "surprise",
+    "positive"
+  ],
+  "unexpected": [
+    "surprise",
+    "positive"
+  ],
+  "unexpectedly": [
+    "surprise",
+    "positive"
+  ],
+  "suddenly": [
+    "surprise",
+    "positive"
+  ],
+  "sudden": [
+    "surprise",
+    "positive"
+  ],
+  "abrupt": [
+    "surprise",
+    "negative"
+  ],
+  "abruptly": [
+    "surprise",
+    "negative"
+  ],
+  "whoa": [
+    "surprise",
+    "positive"
+  ],
+  "wow": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "incredible": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "unbelievable": [
+    "surprise",
+    "positive"
+  ],
+  "unimaginable": [
+    "surprise",
+    "negative"
+  ],
+  "remarkable": [
+    "surprise",
+    "positive"
+  ],
+  "extraordinary": [
+    "surprise",
+    "positive"
+  ],
+  "phenomenal": [
+    "surprise",
+    "positive"
+  ],
+  "miraculous": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "strange": [
+    "surprise",
+    "negative"
+  ],
+  "weird": [
+    "surprise",
+    "negative"
+  ],
+  "bizarre": [
+    "surprise",
+    "negative"
+  ],
+  "odd": [
+    "surprise",
+    "negative"
+  ],
+  "peculiar": [
+    "surprise",
+    "negative"
+  ],
+  "curious": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "mysterious": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "mystery": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "secret": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "reveal": [
+    "surprise",
+    "positive"
+  ],
+  "revelation": [
+    "surprise",
+    "positive"
+  ],
+  "discover": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "discovery": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "uncover": [
+    "surprise",
+    "positive"
+  ],
+  "expose": [
+    "surprise",
+    "negative"
+  ],
+  "twist": [
+    "surprise",
+    "negative"
+  ],
+  "plot": [
+    "anticipation",
+    "negative"
+  ],
+  "turn": [
+    "surprise",
+    "positive"
+  ],
+  "appear": [
+    "surprise",
+    "positive"
+  ],
+  "disappear": [
+    "surprise",
+    "negative"
+  ],
+  "vanish": [
+    "surprise",
+    "negative"
+  ],
+  "emerge": [
+    "surprise",
+    "positive"
+  ],
+  "transform": [
+    "anticipation",
+    "positive"
+  ],
+  "transformation": [
+    "surprise",
+    "positive"
+  ],
+  "change": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "metamorphosis": [
+    "surprise",
+    "positive"
+  ],
+  "awaken": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "awakening": [
+    "surprise",
+    "positive"
+  ],
+  "realize": [
+    "surprise",
+    "positive"
+  ],
+  "epiphany": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "enlighten": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "enlightenment": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "notice": [
+    "surprise",
+    "positive"
+  ],
+  "observe": [
+    "surprise",
+    "positive"
+  ],
+  "anticipate": [
+    "anticipation",
+    "positive"
+  ],
+  "anticipation": [
+    "anticipation",
+    "positive"
+  ],
+  "expect": [
+    "anticipation",
+    "positive"
+  ],
+  "expectation": [
+    "anticipation",
+    "positive"
+  ],
+  "await": [
+    "anticipation",
+    "positive"
+  ],
+  "waiting": [
+    "anticipation",
+    "positive"
+  ],
+  "wait": [
+    "anticipation",
+    "positive"
+  ],
+  "patient": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "impatient": [
+    "anger",
+    "negative"
+  ],
+  "eager": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "eagerness": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "enthusiasm": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "enthusiastic": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "look forward": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "prepare": [
+    "anticipation",
+    "positive"
+  ],
+  "preparation": [
+    "anticipation",
+    "positive"
+  ],
+  "ready": [
+    "anticipation",
+    "positive"
+  ],
+  "plan": [
+    "anticipation",
+    "positive"
+  ],
+  "planning": [
+    "anticipation",
+    "positive"
+  ],
+  "strategy": [
+    "anticipation",
+    "positive"
+  ],
+  "scheme": [
+    "anticipation",
+    "negative"
+  ],
+  "conspire": [
+    "anticipation",
+    "anger",
+    "negative"
+  ],
+  "conspiracy": [
+    "anticipation",
+    "fear",
+    "negative"
+  ],
+  "predict": [
+    "anticipation",
+    "positive"
+  ],
+  "prediction": [
+    "anticipation",
+    "positive"
+  ],
+  "forecast": [
+    "anticipation",
+    "positive"
+  ],
+  "prophecy": [
+    "anticipation",
+    "positive"
+  ],
+  "prophesy": [
+    "anticipation",
+    "positive"
+  ],
+  "prophet": [
+    "anticipation",
+    "positive"
+  ],
+  "vision": [
+    "anticipation",
+    "positive"
+  ],
+  "foresight": [
+    "anticipation",
+    "positive"
+  ],
+  "intuition": [
+    "anticipation",
+    "positive"
+  ],
+  "instinct": [
+    "anticipation",
+    "positive"
+  ],
+  "destiny": [
+    "anticipation",
+    "positive"
+  ],
+  "fate": [
+    "anticipation",
+    "positive"
+  ],
+  "future": [
+    "anticipation",
+    "positive"
+  ],
+  "tomorrow": [
+    "anticipation",
+    "positive"
+  ],
+  "soon": [
+    "anticipation",
+    "positive"
+  ],
+  "approach": [
+    "anticipation",
+    "positive"
+  ],
+  "approaching": [
+    "anticipation",
+    "positive"
+  ],
+  "coming": [
+    "anticipation",
+    "positive"
+  ],
+  "next": [
+    "anticipation",
+    "positive"
+  ],
+  "upcoming": [
+    "anticipation",
+    "positive"
+  ],
+  "potential": [
+    "anticipation",
+    "positive"
+  ],
+  "possibility": [
+    "anticipation",
+    "positive"
+  ],
+  "opportunity": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "chance": [
+    "anticipation",
+    "positive"
+  ],
+  "long": [
+    "anticipation",
+    "positive"
+  ],
+  "yearn": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "yearning": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "crave": [
+    "anticipation",
+    "positive"
+  ],
+  "craving": [
+    "anticipation",
+    "positive"
+  ],
+  "hunger": [
+    "anticipation",
+    "positive"
+  ],
+  "thirst": [
+    "anticipation",
+    "positive"
+  ],
+  "ambition": [
+    "anticipation",
+    "positive"
+  ],
+  "ambitious": [
+    "anticipation",
+    "positive"
+  ],
+  "aspiration": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "goal": [
+    "anticipation",
+    "positive"
+  ],
+  "target": [
+    "anticipation",
+    "positive"
+  ],
+  "mission": [
+    "anticipation",
+    "positive"
+  ],
+  "quest": [
+    "anticipation",
+    "positive"
+  ],
+  "journey": [
+    "anticipation",
+    "positive"
+  ],
+  "adventure": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "explore": [
+    "anticipation",
+    "positive"
+  ],
+  "exploration": [
+    "anticipation",
+    "positive"
+  ],
+  "invent": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "invention": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "create": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "creation": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "build": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "construct": [
+    "anticipation",
+    "positive"
+  ],
+  "develop": [
+    "anticipation",
+    "positive"
+  ],
+  "progress": [
+    "anticipation",
+    "positive"
+  ],
+  "improve": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "improvement": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "grow": [
+    "anticipation",
+    "positive"
+  ],
+  "growth": [
+    "anticipation",
+    "positive"
+  ],
+  "evolve": [
+    "anticipation",
+    "positive"
+  ],
+  "evolution": [
+    "anticipation",
+    "positive"
+  ],
+  "begin": [
+    "anticipation",
+    "positive"
+  ],
+  "start": [
+    "anticipation",
+    "positive"
+  ],
+  "beginning": [
+    "anticipation",
+    "positive"
+  ],
+  "initiate": [
+    "anticipation",
+    "positive"
+  ],
+  "launch": [
+    "anticipation",
+    "positive"
+  ],
+  "trust": [
+    "trust",
+    "positive"
+  ],
+  "trusting": [
+    "trust",
+    "positive"
+  ],
+  "trustworthy": [
+    "trust",
+    "positive"
+  ],
+  "trusted": [
+    "trust",
+    "positive"
+  ],
+  "believe": [
+    "trust",
+    "positive"
+  ],
+  "belief": [
+    "trust",
+    "positive"
+  ],
+  "faith": [
+    "trust",
+    "positive"
+  ],
+  "faithful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "loyal": [
+    "trust",
+    "positive"
+  ],
+  "loyalty": [
+    "trust",
+    "positive"
+  ],
+  "honest": [
+    "trust",
+    "positive"
+  ],
+  "honesty": [
+    "trust",
+    "positive"
+  ],
+  "sincere": [
+    "trust",
+    "positive"
+  ],
+  "sincerity": [
+    "trust",
+    "positive"
+  ],
+  "genuine": [
+    "trust",
+    "positive"
+  ],
+  "authentic": [
+    "trust",
+    "positive"
+  ],
+  "true": [
+    "trust",
+    "positive"
+  ],
+  "truth": [
+    "trust",
+    "positive"
+  ],
+  "truthful": [
+    "trust",
+    "positive"
+  ],
+  "reliable": [
+    "trust",
+    "positive"
+  ],
+  "reliability": [
+    "trust",
+    "positive"
+  ],
+  "dependable": [
+    "trust",
+    "positive"
+  ],
+  "consistent": [
+    "trust",
+    "positive"
+  ],
+  "consistency": [
+    "trust",
+    "positive"
+  ],
+  "stable": [
+    "trust",
+    "positive"
+  ],
+  "steadfast": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "devoted": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "devotion": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "committed": [
+    "trust",
+    "positive"
+  ],
+  "commitment": [
+    "trust",
+    "positive"
+  ],
+  "dedicated": [
+    "trust",
+    "positive"
+  ],
+  "dedication": [
+    "trust",
+    "positive"
+  ],
+  "pledge": [
+    "trust",
+    "positive"
+  ],
+  "promise": [
+    "trust",
+    "positive"
+  ],
+  "vow": [
+    "trust",
+    "positive"
+  ],
+  "oath": [
+    "trust",
+    "positive"
+  ],
+  "protect": [
+    "trust",
+    "positive"
+  ],
+  "protection": [
+    "trust",
+    "positive"
+  ],
+  "safe": [
+    "trust",
+    "positive"
+  ],
+  "safety": [
+    "trust",
+    "positive"
+  ],
+  "secure": [
+    "trust",
+    "positive"
+  ],
+  "security": [
+    "trust",
+    "positive"
+  ],
+  "shelter": [
+    "trust",
+    "positive"
+  ],
+  "refuge": [
+    "trust",
+    "positive"
+  ],
+  "haven": [
+    "trust",
+    "positive"
+  ],
+  "sanctuary": [
+    "trust",
+    "positive"
+  ],
+  "guard": [
+    "trust",
+    "positive"
+  ],
+  "guardian": [
+    "trust",
+    "positive"
+  ],
+  "defend": [
+    "trust",
+    "positive"
+  ],
+  "defense": [
+    "trust",
+    "positive"
+  ],
+  "support": [
+    "trust",
+    "positive"
+  ],
+  "supported": [
+    "trust",
+    "positive"
+  ],
+  "help": [
+    "trust",
+    "positive"
+  ],
+  "helpful": [
+    "trust",
+    "positive"
+  ],
+  "assist": [
+    "trust",
+    "positive"
+  ],
+  "assistance": [
+    "trust",
+    "positive"
+  ],
+  "aid": [
+    "trust",
+    "positive"
+  ],
+  "cooperate": [
+    "trust",
+    "positive"
+  ],
+  "cooperation": [
+    "trust",
+    "positive"
+  ],
+  "collaborate": [
+    "trust",
+    "positive"
+  ],
+  "collaboration": [
+    "trust",
+    "positive"
+  ],
+  "partner": [
+    "trust",
+    "positive"
+  ],
+  "partnership": [
+    "trust",
+    "positive"
+  ],
+  "ally": [
+    "trust",
+    "positive"
+  ],
+  "alliance": [
+    "trust",
+    "positive"
+  ],
+  "team": [
+    "trust",
+    "positive"
+  ],
+  "teamwork": [
+    "trust",
+    "positive"
+  ],
+  "unite": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "union": [
+    "trust",
+    "positive"
+  ],
+  "family": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "mother": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "father": [
+    "trust",
+    "positive"
+  ],
+  "parent": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "child": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "children": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "brother": [
+    "trust",
+    "positive"
+  ],
+  "sister": [
+    "trust",
+    "positive"
+  ],
+  "marry": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "marriage": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "husband": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "wife": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "teacher": [
+    "trust",
+    "positive"
+  ],
+  "mentor": [
+    "trust",
+    "positive"
+  ],
+  "guide": [
+    "trust",
+    "positive"
+  ],
+  "leader": [
+    "trust",
+    "positive"
+  ],
+  "fair": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "justice": [
+    "trust",
+    "positive"
+  ],
+  "just": [
+    "trust",
+    "positive"
+  ],
+  "equal": [
+    "trust",
+    "positive"
+  ],
+  "equality": [
+    "trust",
+    "positive"
+  ],
+  "right": [
+    "trust",
+    "positive"
+  ],
+  "correct": [
+    "trust",
+    "positive"
+  ],
+  "proper": [
+    "trust",
+    "positive"
+  ],
+  "appropriate": [
+    "trust",
+    "positive"
+  ],
+  "suitable": [
+    "trust",
+    "positive"
+  ],
+  "reasonable": [
+    "trust",
+    "positive"
+  ],
+  "rational": [
+    "trust",
+    "positive"
+  ],
+  "logical": [
+    "trust",
+    "positive"
+  ],
+  "practical": [
+    "trust",
+    "positive"
+  ],
+  "careful": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "care": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "cautious": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "prudent": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "moral": [
+    "trust",
+    "positive"
+  ],
+  "ethics": [
+    "trust",
+    "positive"
+  ],
+  "virtue": [
+    "trust",
+    "positive"
+  ],
+  "virtuous": [
+    "trust",
+    "positive"
+  ],
+  "good": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "goodness": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "righteous": [
+    "trust",
+    "positive"
+  ],
+  "innocent": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "innocence": [
+    "trust",
+    "positive"
+  ],
+  "pure": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "clean": [
+    "trust",
+    "positive"
+  ],
+  "wholesome": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "bad": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "better": [
+    "joy",
+    "positive"
+  ],
+  "worse": [
+    "sadness",
+    "negative"
+  ],
+  "best": [
+    "joy",
+    "positive"
+  ],
+  "worst": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "wrong": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "false": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "perfect": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "imperfect": [
+    "sadness",
+    "negative"
+  ],
+  "complete": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "incomplete": [
+    "sadness",
+    "negative"
+  ],
+  "strong": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "weak": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "fast": [
+    "anticipation",
+    "positive"
+  ],
+  "slow": [
+    "sadness",
+    "negative"
+  ],
+  "easy": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "difficult": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "simple": [
+    "trust",
+    "positive"
+  ],
+  "complex": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "rich": [
+    "joy",
+    "positive"
+  ],
+  "poor": [
+    "sadness",
+    "negative"
+  ],
+  "healthy": [
+    "joy",
+    "positive"
+  ],
+  "young": [
+    "joy",
+    "positive"
+  ],
+  "old": [
+    "sadness",
+    "negative"
+  ],
+  "new": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "fresh": [
+    "joy",
+    "positive"
+  ],
+  "unsafe": [
+    "fear",
+    "negative"
+  ],
+  "full": [
+    "joy",
+    "positive"
+  ],
+  "open": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "closed": [
+    "sadness",
+    "negative"
+  ],
+  "stuck": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "chaos": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "chaotic": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "order": [
+    "trust",
+    "positive"
+  ],
+  "harsh": [
+    "anger",
+    "negative"
+  ],
+  "soft": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "hard": [
+    "anger",
+    "negative"
+  ],
+  "smooth": [
+    "trust",
+    "positive"
+  ],
+  "rough": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "dim": [
+    "sadness",
+    "negative"
+  ],
+  "cool": [
+    "trust",
+    "positive"
+  ],
+  "hot": [
+    "anger",
+    "positive"
+  ],
+  "nice": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "mean": [
+    "anger",
+    "negative"
+  ],
+  "polite": [
+    "trust",
+    "positive"
+  ],
+  "rude": [
+    "anger",
+    "negative"
+  ],
+  "coward": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "stupid": [
+    "anger",
+    "negative"
+  ],
+  "fool": [
+    "anger",
+    "negative"
+  ],
+  "foolish": [
+    "anger",
+    "negative"
+  ],
+  "crazy": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "sane": [
+    "trust",
+    "positive"
+  ],
+  "insane": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "silly": [
+    "joy",
+    "positive"
+  ],
+  "serious": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "boring": [
+    "sadness",
+    "negative"
+  ],
+  "interesting": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "dull": [
+    "sadness",
+    "negative"
+  ],
+  "important": [
+    "anticipation",
+    "positive"
+  ],
+  "useless": [
+    "sadness",
+    "negative"
+  ],
+  "useful": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "cheap": [
+    "disgust",
+    "negative"
+  ],
+  "expensive": [
+    "anger",
+    "negative"
+  ],
+  "big": [
+    "joy",
+    "positive"
+  ],
+  "small": [
+    "sadness",
+    "negative"
+  ],
+  "huge": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "tiny": [
+    "sadness",
+    "negative"
+  ],
+  "enormous": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "little": [
+    "sadness",
+    "negative"
+  ],
+  "giant": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "massive": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "powerful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "mighty": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "feeble": [
+    "sadness",
+    "negative"
+  ],
+  "victorious": [
+    "joy",
+    "positive"
+  ],
+  "defeated": [
+    "sadness",
+    "negative"
+  ],
+  "unlucky": [
+    "sadness",
+    "negative"
+  ],
+  "unfortunate": [
+    "sadness",
+    "negative"
+  ],
+  "divine": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "evil": [
+    "anger",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "holy": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "wicked": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "sacred": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "profane": [
+    "disgust",
+    "negative"
+  ],
+  "unfair": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "unequal": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "captivity": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "injustice": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "glory": [
+    "joy",
+    "positive"
+  ],
+  "praise": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "reward": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "heal": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "cure": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "survive": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "perish": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "thrive": [
+    "joy",
+    "positive"
+  ],
+  "fail": [
+    "sadness",
+    "negative"
+  ],
+  "failure": [
+    "sadness",
+    "negative"
+  ],
+  "gain": [
+    "joy",
+    "positive"
+  ],
+  "profit": [
+    "joy",
+    "positive"
+  ],
+  "debt": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "wealth": [
+    "joy",
+    "positive"
+  ],
+  "poverty": [
+    "sadness",
+    "negative"
+  ],
+  "abundance": [
+    "joy",
+    "positive"
+  ],
+  "scarcity": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "prosper": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "decline": [
+    "sadness",
+    "negative"
+  ],
+  "flourish": [
+    "joy",
+    "positive"
+  ],
+  "wither": [
+    "sadness",
+    "negative"
+  ],
+  "fade": [
+    "sadness",
+    "negative"
+  ],
+  "rise": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "fall": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "climb": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "drop": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "soar": [
+    "joy",
+    "positive"
+  ],
+  "plunge": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "ascend": [
+    "joy",
+    "positive"
+  ],
+  "descend": [
+    "sadness",
+    "negative"
+  ],
+  "demolish": [
+    "anger",
+    "negative"
+  ],
+  "repair": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "break": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "connect": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "disconnect": [
+    "sadness",
+    "negative"
+  ],
+  "divide": [
+    "anger",
+    "negative"
+  ],
+  "gather": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "scatter": [
+    "sadness",
+    "negative"
+  ],
+  "reject": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "accept": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "refuse": [
+    "anger",
+    "negative"
+  ],
+  "banish": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "invite": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "exclude": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "include": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "isolate": [
+    "sadness",
+    "negative"
+  ],
+  "share": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "hoard": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "give": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "take": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "receive": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "steal": [
+    "anger",
+    "negative"
+  ],
+  "offer": [
+    "joy",
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "demand": [
+    "anger",
+    "negative"
+  ],
+  "lend": [
+    "trust",
+    "positive"
+  ],
+  "borrow": [
+    "anticipation",
+    "positive"
+  ],
+  "charity": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "greed": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "selfish": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "humble": [
+    "trust",
+    "positive"
+  ],
+  "modest": [
+    "trust",
+    "positive"
+  ],
+  "arrogant": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "meek": [
+    "trust",
+    "positive"
+  ],
+  "tolerant": [
+    "trust",
+    "positive"
+  ],
+  "intolerant": [
+    "anger",
+    "negative"
+  ],
+  "forgiving": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "compassionate": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "indifferent": [
+    "sadness",
+    "negative"
+  ],
+  "sympathetic": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "merciful": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "ruthless": [
+    "anger",
+    "negative"
+  ],
+  "sour": [
+    "disgust",
+    "negative"
+  ],
+  "delicious": [
+    "joy",
+    "positive"
+  ],
+  "tasteless": [
+    "disgust",
+    "negative"
+  ],
+  "fragrant": [
+    "joy",
+    "positive"
+  ],
+  "pleasant": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "unpleasant": [
+    "disgust",
+    "sadness",
+    "negative"
+  ],
+  "uncomfortable": [
+    "sadness",
+    "negative"
+  ],
+  "luxurious": [
+    "joy",
+    "positive"
+  ],
+  "elegant": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "clumsy": [
+    "sadness",
+    "negative"
+  ],
+  "attractive": [
+    "joy",
+    "positive"
+  ],
+  "cute": [
+    "joy",
+    "positive"
+  ],
+  "pathetic": [
+    "sadness",
+    "negative"
+  ],
+  "wretched": [
+    "sadness",
+    "negative"
+  ],
+  "pitiful": [
+    "sadness",
+    "negative"
+  ],
+  "infernal": [
+    "anger",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "heavenly": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "hellish": [
+    "anger",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "angelic": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "demonic": [
+    "anger",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "saintly": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "sinful": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "godly": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "ungodly": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "pious": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "jubilant": [
+    "joy",
+    "positive"
+  ],
+  "jubilation": [
+    "joy",
+    "positive"
+  ],
+  "exult": [
+    "joy",
+    "positive"
+  ],
+  "exultant": [
+    "joy",
+    "positive"
+  ],
+  "jolly": [
+    "joy",
+    "positive"
+  ],
+  "gleeful": [
+    "joy",
+    "positive"
+  ],
+  "glee": [
+    "joy",
+    "positive"
+  ],
+  "upbeat": [
+    "joy",
+    "positive"
+  ],
+  "uplifting": [
+    "joy",
+    "positive"
+  ],
+  "heartwarming": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "heartening": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "cheering": [
+    "joy",
+    "positive"
+  ],
+  "congratulate": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "congratulations": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "applaud": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "ovation": [
+    "joy",
+    "positive"
+  ],
+  "acclaim": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "compliment": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "flatter": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "bless": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "commend": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "revel": [
+    "joy",
+    "positive"
+  ],
+  "revelry": [
+    "joy",
+    "positive"
+  ],
+  "feast": [
+    "joy",
+    "positive"
+  ],
+  "banquet": [
+    "joy",
+    "positive"
+  ],
+  "carnival": [
+    "joy",
+    "positive"
+  ],
+  "gala": [
+    "joy",
+    "positive"
+  ],
+  "triumphant": [
+    "joy",
+    "positive"
+  ],
+  "champion": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "winner": [
+    "joy",
+    "positive"
+  ],
+  "victor": [
+    "joy",
+    "positive"
+  ],
+  "overcome": [
+    "joy",
+    "positive"
+  ],
+  "master": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "mastery": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "skill": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "skilled": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "expert": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "expertise": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "proficient": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "competent": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "capable": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "ability": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "gifted": [
+    "joy",
+    "positive"
+  ],
+  "marvel": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "awe": [
+    "joy",
+    "surprise",
+    "positive"
+  ],
+  "magnificence": [
+    "joy",
+    "positive"
+  ],
+  "grandeur": [
+    "joy",
+    "positive"
+  ],
+  "majestic": [
+    "joy",
+    "positive"
+  ],
+  "royal": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "dignified": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "honored": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "respectable": [
+    "trust",
+    "positive"
+  ],
+  "admirable": [
+    "trust",
+    "positive"
+  ],
+  "worthy": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "treasured": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "beloved": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "darling": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "sweetheart": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "dear": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "dearest": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "intimate": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "romance": [
+    "joy",
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "romantic": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "constant": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "enduring": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "everlasting": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "eternal": [
+    "joy",
+    "trust",
+    "positive"
+  ],
+  "infinite": [
+    "joy",
+    "positive"
+  ],
+  "limitless": [
+    "joy",
+    "positive"
+  ],
+  "boundless": [
+    "joy",
+    "positive"
+  ],
+  "abundant": [
+    "joy",
+    "positive"
+  ],
+  "plentiful": [
+    "joy",
+    "positive"
+  ],
+  "ample": [
+    "joy",
+    "positive"
+  ],
+  "wealthy": [
+    "joy",
+    "positive"
+  ],
+  "prosperous": [
+    "joy",
+    "positive"
+  ],
+  "thriving": [
+    "joy",
+    "positive"
+  ],
+  "flourishing": [
+    "joy",
+    "positive"
+  ],
+  "blooming": [
+    "joy",
+    "positive"
+  ],
+  "vibrant": [
+    "joy",
+    "positive"
+  ],
+  "vivid": [
+    "joy",
+    "positive"
+  ],
+  "lively": [
+    "joy",
+    "positive"
+  ],
+  "animated": [
+    "joy",
+    "positive"
+  ],
+  "spirited": [
+    "joy",
+    "positive"
+  ],
+  "energetic": [
+    "joy",
+    "positive"
+  ],
+  "dynamic": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "zealous": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "fervent": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "ardent": [
+    "joy",
+    "anticipation",
+    "positive"
+  ],
+  "pitiable": [
+    "sadness",
+    "negative"
+  ],
+  "lament": [
+    "sadness",
+    "negative"
+  ],
+  "lamentable": [
+    "sadness",
+    "negative"
+  ],
+  "wail": [
+    "sadness",
+    "negative"
+  ],
+  "howl": [
+    "sadness",
+    "negative"
+  ],
+  "moan": [
+    "sadness",
+    "negative"
+  ],
+  "groan": [
+    "sadness",
+    "negative"
+  ],
+  "sigh": [
+    "sadness",
+    "negative"
+  ],
+  "whimper": [
+    "sadness",
+    "negative"
+  ],
+  "whine": [
+    "sadness",
+    "negative"
+  ],
+  "gripe": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "grumble": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "mutter": [
+    "sadness",
+    "negative"
+  ],
+  "murmur": [
+    "sadness",
+    "negative"
+  ],
+  "disappointed": [
+    "sadness",
+    "negative"
+  ],
+  "disappointment": [
+    "sadness",
+    "negative"
+  ],
+  "disillusioned": [
+    "sadness",
+    "negative"
+  ],
+  "disillusion": [
+    "sadness",
+    "negative"
+  ],
+  "betrayed": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "betrayal": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "backstab": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "backstabbed": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "deceived": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "deceit": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "cheated": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "cheat": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "liar": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "lies": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "fake": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "phony": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "fraud": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "hoax": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "trick": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "tricked": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "manipulate": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "manipulated": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "exploit": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "used": [
+    "sadness",
+    "negative"
+  ],
+  "taken advantage": [
+    "sadness",
+    "negative"
+  ],
+  "unappreciated": [
+    "sadness",
+    "negative"
+  ],
+  "underestimated": [
+    "sadness",
+    "negative"
+  ],
+  "overlooked": [
+    "sadness",
+    "negative"
+  ],
+  "ignored": [
+    "sadness",
+    "negative"
+  ],
+  "forgotten": [
+    "sadness",
+    "negative"
+  ],
+  "dismissed": [
+    "sadness",
+    "negative"
+  ],
+  "belittled": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "insulted": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "offended": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "mocked": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "ridiculed": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "teased": [
+    "sadness",
+    "negative"
+  ],
+  "bullied": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "intimidated": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "persecuted": [
+    "sadness",
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "tortured": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "suffered": [
+    "sadness",
+    "negative"
+  ],
+  "endured": [
+    "sadness",
+    "negative"
+  ],
+  "borne": [
+    "sadness",
+    "negative"
+  ],
+  "tolerated": [
+    "sadness",
+    "negative"
+  ],
+  "swallowed": [
+    "sadness",
+    "negative"
+  ],
+  "bottled": [
+    "sadness",
+    "negative"
+  ],
+  "suppressed": [
+    "sadness",
+    "negative"
+  ],
+  "repressed": [
+    "sadness",
+    "negative"
+  ],
+  "deprived": [
+    "sadness",
+    "negative"
+  ],
+  "starved": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "hungry": [
+    "sadness",
+    "negative"
+  ],
+  "thirsty": [
+    "sadness",
+    "negative"
+  ],
+  "homeless": [
+    "sadness",
+    "negative"
+  ],
+  "penniless": [
+    "sadness",
+    "negative"
+  ],
+  "bankrupt": [
+    "sadness",
+    "negative"
+  ],
+  "broke": [
+    "sadness",
+    "negative"
+  ],
+  "destitute": [
+    "sadness",
+    "negative"
+  ],
+  "impoverished": [
+    "sadness",
+    "negative"
+  ],
+  "downtrodden": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "subjugated": [
+    "sadness",
+    "anger",
+    "negative"
+  ],
+  "conquered": [
+    "sadness",
+    "negative"
+  ],
+  "vanquished": [
+    "sadness",
+    "negative"
+  ],
+  "overwhelmed": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "destroyed": [
+    "sadness",
+    "negative"
+  ],
+  "devastated": [
+    "sadness",
+    "negative"
+  ],
+  "devastation": [
+    "sadness",
+    "negative"
+  ],
+  "ruination": [
+    "sadness",
+    "negative"
+  ],
+  "annihilation": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "extinction": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "extermination": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "genocide": [
+    "sadness",
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "massacre": [
+    "sadness",
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "slaughter": [
+    "sadness",
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "carnage": [
+    "sadness",
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "bloodshed": [
+    "sadness",
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "holocaust": [
+    "sadness",
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "apocalypse": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "infuriate": [
+    "anger",
+    "negative"
+  ],
+  "enrage": [
+    "anger",
+    "negative"
+  ],
+  "incense": [
+    "anger",
+    "negative"
+  ],
+  "madden": [
+    "anger",
+    "negative"
+  ],
+  "provoke": [
+    "anger",
+    "negative"
+  ],
+  "aggravate": [
+    "anger",
+    "negative"
+  ],
+  "exasperate": [
+    "anger",
+    "negative"
+  ],
+  "irritate": [
+    "anger",
+    "negative"
+  ],
+  "annoy": [
+    "anger",
+    "negative"
+  ],
+  "bother": [
+    "anger",
+    "negative"
+  ],
+  "disturb": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "perturb": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "unsettle": [
+    "anger",
+    "fear",
+    "negative"
+  ],
+  "outrageous": [
+    "anger",
+    "negative"
+  ],
+  "scandalous": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "appalling": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "atrocious": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "abominable": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "heinous": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "sinister": [
+    "fear",
+    "negative"
+  ],
+  "malicious": [
+    "anger",
+    "negative"
+  ],
+  "spiteful": [
+    "anger",
+    "negative"
+  ],
+  "vindictive": [
+    "anger",
+    "negative"
+  ],
+  "belligerent": [
+    "anger",
+    "negative"
+  ],
+  "combative": [
+    "anger",
+    "negative"
+  ],
+  "pugnacious": [
+    "anger",
+    "negative"
+  ],
+  "confrontational": [
+    "anger",
+    "negative"
+  ],
+  "defiant": [
+    "anger",
+    "negative"
+  ],
+  "rebellious": [
+    "anger",
+    "negative"
+  ],
+  "disobedient": [
+    "anger",
+    "negative"
+  ],
+  "stubborn": [
+    "anger",
+    "negative"
+  ],
+  "obstinate": [
+    "anger",
+    "negative"
+  ],
+  "headstrong": [
+    "anger",
+    "negative"
+  ],
+  "willful": [
+    "anger",
+    "negative"
+  ],
+  "conceited": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "egotistical": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "narcissistic": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "snobbish": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "elitist": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "prejudiced": [
+    "anger",
+    "negative"
+  ],
+  "biased": [
+    "anger",
+    "negative"
+  ],
+  "discriminatory": [
+    "anger",
+    "negative"
+  ],
+  "racist": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "sexist": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "bigoted": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "narrow-minded": [
+    "anger",
+    "negative"
+  ],
+  "greedy": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "jealous": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "jealousy": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "envious": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "envy": [
+    "anger",
+    "sadness",
+    "negative"
+  ],
+  "possessive": [
+    "anger",
+    "negative"
+  ],
+  "controlling": [
+    "anger",
+    "negative"
+  ],
+  "dominating": [
+    "anger",
+    "negative"
+  ],
+  "oppressive": [
+    "anger",
+    "negative"
+  ],
+  "tyrannical": [
+    "anger",
+    "negative"
+  ],
+  "dictatorial": [
+    "anger",
+    "negative"
+  ],
+  "authoritarian": [
+    "anger",
+    "negative"
+  ],
+  "fascist": [
+    "anger",
+    "negative"
+  ],
+  "totalitarian": [
+    "anger",
+    "negative"
+  ],
+  "despotic": [
+    "anger",
+    "negative"
+  ],
+  "merciless": [
+    "anger",
+    "negative"
+  ],
+  "unforgiving": [
+    "anger",
+    "negative"
+  ],
+  "unrelenting": [
+    "anger",
+    "negative"
+  ],
+  "remorseless": [
+    "anger",
+    "negative"
+  ],
+  "pitiless": [
+    "anger",
+    "negative"
+  ],
+  "cold-hearted": [
+    "anger",
+    "negative"
+  ],
+  "heartless": [
+    "anger",
+    "negative"
+  ],
+  "soulless": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "inhuman": [
+    "anger",
+    "disgust",
+    "negative"
+  ],
+  "apprehensive": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "apprehension": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "timid": [
+    "fear",
+    "negative"
+  ],
+  "timidity": [
+    "fear",
+    "negative"
+  ],
+  "cowardly": [
+    "fear",
+    "negative"
+  ],
+  "cowardice": [
+    "fear",
+    "negative"
+  ],
+  "fearsome": [
+    "fear",
+    "negative"
+  ],
+  "intimidating": [
+    "fear",
+    "negative"
+  ],
+  "intimidation": [
+    "fear",
+    "negative"
+  ],
+  "formidable": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "overwhelming": [
+    "fear",
+    "negative"
+  ],
+  "ominous": [
+    "fear",
+    "negative"
+  ],
+  "foreboding": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "eerie": [
+    "fear",
+    "negative"
+  ],
+  "creepy": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "spooky": [
+    "fear",
+    "negative"
+  ],
+  "haunting": [
+    "fear",
+    "negative"
+  ],
+  "chilling": [
+    "fear",
+    "negative"
+  ],
+  "bloodcurdling": [
+    "fear",
+    "negative"
+  ],
+  "hair-raising": [
+    "fear",
+    "negative"
+  ],
+  "spine-chilling": [
+    "fear",
+    "negative"
+  ],
+  "terrifying": [
+    "fear",
+    "negative"
+  ],
+  "petrifying": [
+    "fear",
+    "negative"
+  ],
+  "petrified": [
+    "fear",
+    "negative"
+  ],
+  "frozen": [
+    "fear",
+    "negative"
+  ],
+  "paralyzed": [
+    "fear",
+    "negative"
+  ],
+  "numb": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "vulnerable": [
+    "fear",
+    "negative"
+  ],
+  "exposed": [
+    "fear",
+    "negative"
+  ],
+  "defenseless": [
+    "fear",
+    "negative"
+  ],
+  "unprotected": [
+    "fear",
+    "negative"
+  ],
+  "fragile": [
+    "fear",
+    "negative"
+  ],
+  "delicate": [
+    "fear",
+    "negative"
+  ],
+  "precarious": [
+    "fear",
+    "negative"
+  ],
+  "perilous": [
+    "fear",
+    "negative"
+  ],
+  "hazardous": [
+    "fear",
+    "negative"
+  ],
+  "uncertain": [
+    "anticipation",
+    "fear",
+    "negative"
+  ],
+  "unpredictable": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "unstable": [
+    "fear",
+    "negative"
+  ],
+  "volatile": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "turbulent": [
+    "fear",
+    "negative"
+  ],
+  "stormy": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "explosive": [
+    "fear",
+    "anger",
+    "negative"
+  ],
+  "combustible": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "inflammable": [
+    "fear",
+    "anticipation",
+    "negative"
+  ],
+  "lethal": [
+    "fear",
+    "negative"
+  ],
+  "deadly": [
+    "fear",
+    "negative"
+  ],
+  "fatal": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "mortal": [
+    "fear",
+    "negative"
+  ],
+  "infectious": [
+    "fear",
+    "disgust",
+    "negative"
+  ],
+  "epidemic": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "pandemic": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "plague": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "famine": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "drought": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "flood": [
+    "fear",
+    "negative"
+  ],
+  "earthquake": [
+    "fear",
+    "negative"
+  ],
+  "hurricane": [
+    "fear",
+    "negative"
+  ],
+  "tornado": [
+    "fear",
+    "negative"
+  ],
+  "tsunami": [
+    "fear",
+    "negative"
+  ],
+  "volcano": [
+    "fear",
+    "negative"
+  ],
+  "eruption": [
+    "fear",
+    "negative"
+  ],
+  "avalanche": [
+    "fear",
+    "negative"
+  ],
+  "landslide": [
+    "fear",
+    "negative"
+  ],
+  "cataclysm": [
+    "fear",
+    "negative"
+  ],
+  "calamity": [
+    "fear",
+    "sadness",
+    "negative"
+  ],
+  "bewildered": [
+    "surprise",
+    "negative"
+  ],
+  "bewilderment": [
+    "surprise",
+    "negative"
+  ],
+  "confused": [
+    "surprise",
+    "negative"
+  ],
+  "confusion": [
+    "surprise",
+    "negative"
+  ],
+  "perplexed": [
+    "surprise",
+    "negative"
+  ],
+  "perplexity": [
+    "surprise",
+    "negative"
+  ],
+  "puzzled": [
+    "surprise",
+    "negative"
+  ],
+  "puzzle": [
+    "surprise",
+    "anticipation",
+    "negative"
+  ],
+  "baffled": [
+    "surprise",
+    "negative"
+  ],
+  "flabbergasted": [
+    "surprise",
+    "negative"
+  ],
+  "dumbfounded": [
+    "surprise",
+    "negative"
+  ],
+  "speechless": [
+    "surprise",
+    "negative"
+  ],
+  "dumbstruck": [
+    "surprise",
+    "negative"
+  ],
+  "thunderstruck": [
+    "surprise",
+    "negative"
+  ],
+  "awestruck": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "gobsmacked": [
+    "surprise",
+    "negative"
+  ],
+  "nonplussed": [
+    "surprise",
+    "negative"
+  ],
+  "taken aback": [
+    "surprise",
+    "negative"
+  ],
+  "caught off guard": [
+    "surprise",
+    "negative"
+  ],
+  "out of nowhere": [
+    "surprise",
+    "negative"
+  ],
+  "without warning": [
+    "surprise",
+    "negative"
+  ],
+  " blindsided": [
+    "surprise",
+    "negative"
+  ],
+  "sideswiped": [
+    "surprise",
+    "negative"
+  ],
+  "floored": [
+    "surprise",
+    "negative"
+  ],
+  "blown away": [
+    "surprise",
+    "positive"
+  ],
+  "mind-blowing": [
+    "surprise",
+    "positive"
+  ],
+  "jaw-dropping": [
+    "surprise",
+    "positive"
+  ],
+  "eye-opening": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "thought-provoking": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "unprecedented": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "groundbreaking": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "revolutionary": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "innovative": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "novel": [
+    "surprise",
+    "anticipation",
+    "positive"
+  ],
+  "original": [
+    "surprise",
+    "positive"
+  ],
+  "unique": [
+    "surprise",
+    "positive"
+  ],
+  "rare": [
+    "surprise",
+    "positive"
+  ],
+  "uncommon": [
+    "surprise",
+    "positive"
+  ],
+  "exceptional": [
+    "surprise",
+    "joy",
+    "positive"
+  ],
+  "unusual": [
+    "surprise",
+    "negative"
+  ],
+  "surreal": [
+    "surprise",
+    "negative"
+  ],
+  "absurd": [
+    "surprise",
+    "anger",
+    "negative"
+  ],
+  "ridiculous": [
+    "surprise",
+    "anger",
+    "negative"
+  ],
+  "preposterous": [
+    "surprise",
+    "anger",
+    "negative"
+  ],
+  "ludicrous": [
+    "surprise",
+    "anger",
+    "negative"
+  ],
+  "impossible": [
+    "surprise",
+    "negative"
+  ],
+  "implausible": [
+    "surprise",
+    "negative"
+  ],
+  "inconceivable": [
+    "surprise",
+    "negative"
+  ],
+  "unthinkable": [
+    "surprise",
+    "negative"
+  ],
+  "beyond belief": [
+    "surprise",
+    "negative"
+  ],
+  "resolve": [
+    "anticipation",
+    "positive"
+  ],
+  "resolute": [
+    "anticipation",
+    "trust",
+    "positive"
+  ],
+  "determined": [
+    "anticipation",
+    "positive"
+  ],
+  "determination": [
+    "anticipation",
+    "positive"
+  ],
+  "persistent": [
+    "anticipation",
+    "positive"
+  ],
+  "persistence": [
+    "anticipation",
+    "positive"
+  ],
+  "perseverance": [
+    "anticipation",
+    "positive"
+  ],
+  "persevere": [
+    "anticipation",
+    "positive"
+  ],
+  "tenacious": [
+    "anticipation",
+    "positive"
+  ],
+  "tenacity": [
+    "anticipation",
+    "positive"
+  ],
+  "driven": [
+    "anticipation",
+    "positive"
+  ],
+  "motivated": [
+    "anticipation",
+    "positive"
+  ],
+  "motivation": [
+    "anticipation",
+    "positive"
+  ],
+  "goal-oriented": [
+    "anticipation",
+    "positive"
+  ],
+  "focused": [
+    "anticipation",
+    "positive"
+  ],
+  "concentrated": [
+    "anticipation",
+    "positive"
+  ],
+  "attentive": [
+    "anticipation",
+    "positive"
+  ],
+  "vigilant": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "watchful": [
+    "anticipation",
+    "positive"
+  ],
+  "observant": [
+    "anticipation",
+    "positive"
+  ],
+  "alert": [
+    "anticipation",
+    "positive"
+  ],
+  "awake": [
+    "anticipation",
+    "positive"
+  ],
+  "aware": [
+    "anticipation",
+    "positive"
+  ],
+  "conscious": [
+    "anticipation",
+    "positive"
+  ],
+  "mindful": [
+    "anticipation",
+    "positive"
+  ],
+  "deliberate": [
+    "anticipation",
+    "positive"
+  ],
+  "intentional": [
+    "anticipation",
+    "positive"
+  ],
+  "purposeful": [
+    "anticipation",
+    "positive"
+  ],
+  "meaningful": [
+    "anticipation",
+    "positive"
+  ],
+  "significant": [
+    "anticipation",
+    "positive"
+  ],
+  "crucial": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "critical": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "essential": [
+    "anticipation",
+    "positive"
+  ],
+  "vital": [
+    "anticipation",
+    "positive"
+  ],
+  "necessary": [
+    "anticipation",
+    "positive"
+  ],
+  "required": [
+    "anticipation",
+    "positive"
+  ],
+  "urgent": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "immediate": [
+    "anticipation",
+    "positive"
+  ],
+  "imminent": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "forthcoming": [
+    "anticipation",
+    "positive"
+  ],
+  "near": [
+    "anticipation",
+    "positive"
+  ],
+  "close": [
+    "anticipation",
+    "positive"
+  ],
+  "inevitable": [
+    "anticipation",
+    "fear",
+    "positive"
+  ],
+  "certain": [
+    "anticipation",
+    "trust",
+    "positive"
+  ],
+  "sure": [
+    "anticipation",
+    "trust",
+    "positive"
+  ],
+  "assured": [
+    "trust",
+    "positive"
+  ],
+  "convinced": [
+    "anticipation",
+    "trust",
+    "positive"
+  ],
+  "positive": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "pessimistic": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "skeptical": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "doubtful": [
+    "anticipation",
+    "fear",
+    "negative"
+  ],
+  "doubt": [
+    "anticipation",
+    "fear",
+    "negative"
+  ],
+  "hesitant": [
+    "anticipation",
+    "fear",
+    "negative"
+  ],
+  "hesitation": [
+    "anticipation",
+    "fear",
+    "negative"
+  ],
+  "reluctant": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "unwilling": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "resigned": [
+    "anticipation",
+    "sadness",
+    "negative"
+  ],
+  "acceptance": [
+    "anticipation",
+    "joy",
+    "positive"
+  ],
+  "dependability": [
+    "trust",
+    "positive"
+  ],
+  "responsible": [
+    "trust",
+    "positive"
+  ],
+  "responsibility": [
+    "trust",
+    "positive"
+  ],
+  "accountable": [
+    "trust",
+    "positive"
+  ],
+  "answerable": [
+    "trust",
+    "positive"
+  ],
+  "credible": [
+    "trust",
+    "positive"
+  ],
+  "credibility": [
+    "trust",
+    "positive"
+  ],
+  "plausible": [
+    "trust",
+    "positive"
+  ],
+  "believable": [
+    "trust",
+    "positive"
+  ],
+  "reputable": [
+    "trust",
+    "positive"
+  ],
+  "reputation": [
+    "trust",
+    "positive"
+  ],
+  "prestigious": [
+    "trust",
+    "positive"
+  ],
+  "prestige": [
+    "trust",
+    "positive"
+  ],
+  "esteemed": [
+    "trust",
+    "positive"
+  ],
+  "esteem": [
+    "trust",
+    "positive"
+  ],
+  "regarded": [
+    "trust",
+    "positive"
+  ],
+  "highly regarded": [
+    "trust",
+    "positive"
+  ],
+  "respected": [
+    "trust",
+    "positive"
+  ],
+  "honorable": [
+    "trust",
+    "positive"
+  ],
+  "ethical": [
+    "trust",
+    "positive"
+  ],
+  "principled": [
+    "trust",
+    "positive"
+  ],
+  "upright": [
+    "trust",
+    "positive"
+  ],
+  "scrupulous": [
+    "trust",
+    "positive"
+  ],
+  "conscientious": [
+    "trust",
+    "positive"
+  ],
+  "dutiful": [
+    "trust",
+    "positive"
+  ],
+  "duty": [
+    "trust",
+    "positive"
+  ],
+  "obligation": [
+    "trust",
+    "anticipation",
+    "positive"
+  ],
+  "bound": [
+    "trust",
+    "positive"
+  ],
+  "sworn": [
+    "trust",
+    "positive"
+  ],
+  "pledged": [
+    "trust",
+    "positive"
+  ],
+  "promised": [
+    "trust",
+    "positive"
+  ],
+  "guaranteed": [
+    "trust",
+    "positive"
+  ],
+  "guarantee": [
+    "trust",
+    "positive"
+  ],
+  "warranted": [
+    "trust",
+    "positive"
+  ],
+  "warranty": [
+    "trust",
+    "positive"
+  ],
+  "safeguard": [
+    "trust",
+    "positive"
+  ],
+  "shield": [
+    "trust",
+    "positive"
+  ],
+  "armor": [
+    "trust",
+    "positive"
+  ],
+  "fortress": [
+    "trust",
+    "positive"
+  ],
+  "stronghold": [
+    "trust",
+    "positive"
+  ],
+  "asylum": [
+    "trust",
+    "positive"
+  ],
+  "refugee": [
+    "sadness",
+    "fear",
+    "negative"
+  ],
+  "protector": [
+    "trust",
+    "positive"
+  ],
+  "defender": [
+    "trust",
+    "positive"
+  ],
+  "advocate": [
+    "trust",
+    "positive"
+  ],
+  "supporter": [
+    "trust",
+    "positive"
+  ],
+  "backer": [
+    "trust",
+    "positive"
+  ],
+  "sponsor": [
+    "trust",
+    "positive"
+  ],
+  "patron": [
+    "trust",
+    "positive"
+  ],
+  "benefactor": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "philanthropist": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "humanitarian": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "altruist": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "volunteer": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "samaritan": [
+    "trust",
+    "joy",
+    "positive"
+  ],
+  "neighborly": [
+    "trust",
+    "positive"
+  ],
+  "community": [
+    "trust",
+    "positive"
+  ],
+  "society": [
+    "trust",
+    "positive"
+  ],
+  "civilization": [
+    "trust",
+    "positive"
+  ],
+  "culture": [
+    "trust",
+    "positive"
+  ],
+  "heritage": [
+    "trust",
+    "positive"
+  ],
+  "tradition": [
+    "trust",
+    "positive"
+  ],
+  "traditional": [
+    "trust",
+    "positive"
+  ],
+  "conventional": [
+    "trust",
+    "positive"
+  ],
+  "established": [
+    "trust",
+    "positive"
+  ],
+  "institution": [
+    "trust",
+    "positive"
+  ],
+  "foundation": [
+    "trust",
+    "positive"
+  ],
+  "structure": [
+    "trust",
+    "positive"
+  ],
+  "organization": [
+    "trust",
+    "positive"
+  ],
+  "system": [
+    "trust",
+    "positive"
+  ],
+  "framework": [
+    "trust",
+    "positive"
+  ],
+  "constitution": [
+    "trust",
+    "positive"
+  ],
+  "law": [
+    "trust",
+    "positive"
+  ],
+  "legal": [
+    "trust",
+    "positive"
+  ],
+  "legitimate": [
+    "trust",
+    "positive"
+  ],
+  "legality": [
+    "trust",
+    "positive"
+  ],
+  "contract": [
+    "trust",
+    "positive"
+  ],
+  "agreement": [
+    "trust",
+    "positive"
+  ],
+  "treaty": [
+    "trust",
+    "positive"
+  ],
+  "pact": [
+    "trust",
+    "positive"
+  ],
+  "covenant": [
+    "trust",
+    "positive"
+  ]
+}
