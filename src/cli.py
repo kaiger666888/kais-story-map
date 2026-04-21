@@ -56,6 +56,9 @@ def main() -> None:
                         help="手动指定角色名列表（逗号分隔）")
     parser.add_argument("--format", "-f", choices=["html", "json", "csv", "all"], default="html",
                         help="输出格式 (默认: html)")
+    parser.add_argument("--granularity", "-g", choices=["fine", "medium", "coarse", "overview"],
+                        default="medium",
+                        help="分析颗粒度: fine(细粒度) / medium(中等) / coarse(粗粒度) / overview(概览) (默认: medium)")
 
     args = parser.parse_args()
 
@@ -78,8 +81,18 @@ def main() -> None:
     if args.characters:
         manual_chars = [c.strip() for c in args.characters.split(",") if c.strip()]
 
+    # 颗粒度映射
+    granularity_map = {
+        "fine":     {"window": 100, "overlap": 80},
+        "medium":   {"window": 200, "overlap": 150},
+        "coarse":   {"window": 500, "overlap": 100},
+        "overview": {"window": 1000, "overlap": 200},
+    }
+    g = granularity_map[args.granularity]
+
     # 执行分析
-    report = run_analysis(text, language=lang, manual_characters=manual_chars)
+    report = run_analysis(text, language=lang, manual_characters=manual_chars,
+                          window_size=g["window"], overlap=g["overlap"])
     report.source_file = str(input_path)
 
     # 创建输出目录
@@ -109,6 +122,8 @@ def run_analysis(
     text: str,
     language: Optional[Language] = None,
     manual_characters: Optional[list[str]] = None,
+    window_size: int = 200,
+    overlap: int = 150,
 ) -> AnalysisReport:
     """编排完整分析管线
 
@@ -116,6 +131,8 @@ def run_analysis(
         text: 完整文本
         language: 语言（None 则自动检测）
         manual_characters: 手动角色列表
+        window_size: 滑动窗口大小
+        overlap: 窗口重叠大小
     Returns:
         AnalysisReport
     """
@@ -127,7 +144,7 @@ def run_analysis(
     print(f"📝 文本长度: {len(text)} 字符")
 
     # 预处理：分段（默认窗口 200 词，步长 50，提高分析粒度）
-    segments = split_into_segments(text, window_size=200, overlap=150, language=language)
+    segments = split_into_segments(text, window_size=window_size, overlap=overlap, language=language)
     print(f"📊 分段数: {len(segments)}")
 
     # 预处理：分词

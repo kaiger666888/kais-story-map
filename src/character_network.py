@@ -61,9 +61,29 @@ def _generate_name_variants(name: str) -> list[str]:
         "han solo": ["Han", "SOLO"],
     }
 
+    # 中文角色变体映射
+    SPECIAL_ALIASES_ZH = {
+        "卢克·天行者": ["卢克", "天行者"],
+        "莱娅公主": ["莱娅", "公主"],
+        "韩·索罗": ["韩", "索罗"],
+        "欧比旺·克诺比": ["欧比旺", "克诺比", "本"],
+        "达斯·维达": ["维达"],
+        "楚巴卡": [],
+        "欧文": ["叔叔", "欧文叔叔"],
+        "比格斯": [],
+    }
+
     name_lower = name.lower()
     for key, aliases in SPECIAL_ALIASES.items():
         if name_lower == key or name_lower.startswith(key):
+            for alias in aliases:
+                if alias not in variants:
+                    variants.append(alias)
+            break
+
+    # 中文角色变体
+    for key, aliases in SPECIAL_ALIASES_ZH.items():
+        if name == key or name.startswith(key):
             for alias in aliases:
                 if alias not in variants:
                     variants.append(alias)

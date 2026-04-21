@@ -177,6 +177,15 @@ def json_schema() -> dict[str, Any]:
     }
 
 
+def _get_node_degree(name: str, edges: list) -> int:
+    """计算节点在边列表中的度数"""
+    count = 0
+    for e in edges:
+        if e.source == name or e.target == name:
+            count += 1
+    return count
+
+
 def _report_to_dict(report: AnalysisReport) -> dict[str, Any]:
     """将 AnalysisReport 转换为可序列化的字典
 
@@ -222,6 +231,7 @@ def _report_to_dict(report: AnalysisReport) -> dict[str, Any]:
                     "name": n.name,
                     "mentions": n.mentions,
                     "centrality": round(n.centrality, 4),
+                    "degree": _get_node_degree(n.name, report.character_network.edges),
                 }
                 for n in report.character_network.nodes
             ],
@@ -260,6 +270,7 @@ def _report_to_dict(report: AnalysisReport) -> dict[str, Any]:
                 "title": a.title,
                 "detail": a.detail,
                 "suggestion": a.suggestion,
+                "message": a.suggestion or a.detail or a.title,
             }
             for a in report.advice
         ],
