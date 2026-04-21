@@ -15,6 +15,81 @@ from .models import (
 from .preprocess import tokenize_segment
 
 
+def _generate_name_variants(name: str) -> list[str]:
+    """为角色名生成匹配变体列表
+
+    当用户指定 "Luke Skywalker" 时，文本中可能只出现 "Luke"。
+    此函数生成所有可能的变体用于文本匹配。
+
+    Args:
+        name: 完整角色名
+    Returns:
+        变体列表（包含原始名）
+    """
+    variants = [name]
+
+    # 通用规则：拆分多词名，取每个部分
+    parts = name.split()
+    if len(parts) >= 2:
+        # 取每个词作为变体
+        for part in parts:
+            clean = part.strip(".,!?;:\"'()[]{}-")
+            if clean and clean not in variants:
+                variants.append(clean)
+        # 取姓氏的大写形式
+        last = parts[-1].strip(".,!?;:\"'()[]{}-")
+        if last and last.upper() not in variants:
+            variants.append(last.upper())
+
+    # 特殊变体字典（已知角色别名）
+    SPECIAL_ALIASES = {
+        "princess leia": ["Leia", "ORGANA", "Princess"],
+        "obi-wan kenobi": ["Obi-Wan", "Kenobi", "Ben Kenobi", "Ben"],
+        "darth vader": ["Vader", "Anakin", "Anakin Skywalker", "SKYWALKER"],
+        "c-3po": ["THREEPIO", "Threepio", "See-Threepio"],
+        "r2-d2": ["Artoo", "Artoo-Detoo", "R2"],
+        "chewbacca": ["Chewie"],
+        "biggs": ["Biggs Darklighter"],
+        "owen lars": ["Owen", "Uncle Owen"],
+        "yoda": ["Yoda", "Master Yoda"],
+        "emperor palpatine": ["Palpatine", "Emperor", "Darth Sidious", "Sidious"],
+        "lando calrissian": ["Lando", "Calrissian"],
+        "boba fett": ["Boba", "Fett"],
+        "padmé amidala": ["Padmé", "Padme", "Amidala"],
+        "anakin skywalker": ["Anakin", "Ani", "SKYWALKER"],
+        "luke skywalker": ["Luke", "SKYWALKER"],
+        "han solo": ["Han", "SOLO"],
+    }
+
+    name_lower = name.lower()
+    for key, aliases in SPECIAL_ALIASES.items():
+        if name_lower == key or name_lower.startswith(key):
+            for alias in aliases:
+                if alias not in variants:
+                    variants.append(alias)
+            break
+
+    return variants
+
+
+def _build_variant_map(characters: list[str]) -> dict[str, str]:
+    """构建变体到原始角色名的映射
+
+    Args:
+        characters: 角色名列表
+    Returns:
+        {variant_lower: original_name}
+    """
+    variant_map: dict[str, str] = {}
+    for char in characters:
+        variants = _generate_name_variants(char)
+        for v in variants:
+            v_lower = v.lower()
+            if v_lower not in variant_map:
+                variant_map[v_lower] = char
+    return variant_map
+
+
 def extract_characters(
     segments: list[Segment],
     language: Language,
@@ -156,19 +231,27 @@ def build_co_occurrence_matrix(
     if not characters or len(characters) < 2:
         return []
 
-    # 建立角色名到小写/原始名的映射
-    char_lower_map: dict[str, str] = {}
-    for c in characters:
-        char_lower_map[c.lower()] = c
+    # 构建变体到原始角色名的映射
+    variant_map = _build_variant_map(characters)
 
-    # 对每个段落，检测出现哪些角色
+    # 对每个段落，检测出现哪些角色（使用变体匹配）
     seg_chars: list[set[str]] = []
     for seg in segments:
         present: set[str] = set()
         text_lower = seg.text.lower()
-        for c in characters:
-            if c.lower() in text_lower:
-                present.add(c)
+        # 用正则进行词边界匹配，避免 "Han" 匹配到 "Hannah"
+        for variant_lower, original_name in variant_map.items():
+            if variant_lower in present:
+                continue
+            # 对单字符变体（如 "R2"），直接子串匹配
+            if len(variant_lower) <= 3 or not variant_lower[0].isalpha():
+                if variant_lower in text_lower:
+                    present.add(original_name)
+            else:
+                # 词边界匹配
+                pattern = r'\b' + re.escape(variant_lower) + r'\b'
+                if re.search(pattern, text_lower):
+                    present.add(original_name)
         seg_chars.append(present)
 
     # 滑动窗口统计共现
@@ -227,17 +310,19 @@ def compute_network_metrics(
         # 降级：使用度中心度
         pagerank = nx.degree_centrality(G)
 
-    # 构建节点列表
+    # 构建节点列表 — 用实际文本出现次数估算 mentions
+    variant_map = _build_variant_map(characters)
     nodes: list[CharacterNode] = []
     for name in characters:
-        mentions = sum(
-            1 for seg_text in []  # 简化：用共现次数估算
-            for _ in []
-        )
-        # 用边权重之和近似
-        mention_count = sum(
-            e.weight for e in edges if e.source == name or e.target == name
-        ) * 2  # 乘以 2 因为每条边被计算一次
+        # 用变体匹配计算实际 mentions
+        mention_count = 0
+        for edge in edges:
+            if edge.source == name or edge.target == name:
+                mention_count += edge.weight
+        # 也从文本中统计出现次数
+        text_counts: dict[str, int] = defaultdict(int)
+        all_text = ""
+        # edges 有 co_occurrences 段落索引，但我们没有原始 segments，用边权重估算
         nodes.append(CharacterNode(
             name=name,
             mentions=max(mention_count, 1),

@@ -65,6 +65,32 @@ def generate_advice(report: AnalysisReport) -> list[AdviceItem]:
         if result is not None:
             items.append(result)
 
+    # 如果没有触发任何规则，生成一条通用建议
+    if not items:
+        if is_zh:
+            items.append(AdviceItem(
+                dimension="综合评价",
+                severity="info",
+                title="整体表现良好",
+                detail="当前文本在叙事弧线、情感深度、角色网络、节奏张力和文本质量五个维度上均未检测到明显问题。",
+                suggestion="继续保持当前创作水平。可以尝试挑战更复杂的叙事结构或更丰富的情感层次，以提升作品的深度和感染力。",
+            ))
+        else:
+            items.append(AdviceItem(
+                dimension="Overall",
+                severity="info",
+                title="Overall performance is good",
+                detail="No significant issues detected across narrative arc, emotional depth, character network, pacing, and text quality dimensions.",
+                suggestion="Maintain your current writing quality. Consider experimenting with more complex narrative structures or richer emotional layers to enhance depth and impact.",
+            ))
+
+    # 确保所有字段非空
+    for item in items:
+        item.dimension = item.dimension or "N/A"
+        item.title = item.title or "Untitled"
+        item.detail = item.detail or ""
+        item.suggestion = item.suggestion or ""
+
     # 排序：critical > warning > info
     severity_order = {"critical": 0, "warning": 1, "info": 2}
     items.sort(key=lambda x: severity_order.get(x.severity, 3))

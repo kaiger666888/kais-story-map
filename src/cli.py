@@ -126,8 +126,8 @@ def run_analysis(
     print(f"📖 语言: {language.value}")
     print(f"📝 文本长度: {len(text)} 字符")
 
-    # 预处理：分段
-    segments = split_into_segments(text, language=language)
+    # 预处理：分段（默认窗口 200 词，步长 50，提高分析粒度）
+    segments = split_into_segments(text, window_size=200, overlap=150, language=language)
     print(f"📊 分段数: {len(segments)}")
 
     # 预处理：分词

@@ -56,6 +56,9 @@ def compute_pacing(
         # 动作密度（动词/总词数）
         action_density = _compute_action_density(tokens, language)
 
+        # 场景切换检测（空行/双换行分隔）
+        scene_changes = _count_scene_changes(seg.text)
+
         points.append(PacingPoint(
             segment_index=seg.index,
             sentence_length_avg=avg_sent_len,
@@ -104,6 +107,21 @@ def compute_tension_curve(
         tensions.append(max(0.0, min(1.0, tension)))
 
     return tensions
+
+
+def _count_scene_changes(text: str) -> int:
+    """检测文本中的场景切换次数（空行分隔）
+
+    Args:
+        text: 文本段落
+    Returns:
+        场景切换次数
+    """
+    # 双换行或连续空行视为场景切换
+    scene_breaks = len(re.findall(r'\n\s*\n', text))
+    # 也检测场景分隔符模式（如 *** 或 --- ）
+    scene_breaks += len(re.findall(r'\n\s*[*\-]{3,}\s*\n', text))
+    return scene_breaks
 
 
 def _compute_description_ratio(
