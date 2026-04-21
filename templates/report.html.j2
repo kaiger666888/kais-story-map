@@ -371,6 +371,27 @@ body {
   </div>
 </div>
 
+<!-- 评分卡片 -->
+<div id="score-card" class="card" style="display:none; margin-bottom: 20px;">
+  <div class="card-header">
+    <h2><span class="icon">🏆</span> Quality Score</h2>
+    <div id="score-type-badge" class="arc-badge"></div>
+  </div>
+  <div class="card-body" style="display:flex; align-items:center; gap:30px; flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <div id="score-total" style="font-size:48px; font-weight:800; color:var(--accent);"></div>
+      <div id="score-grade" style="font-size:24px; color:var(--text-secondary);"></div>
+    </div>
+    <div style="flex:1; min-width:250px;">
+      <div id="score-bars"></div>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <div style="font-size:12px; color:var(--text-muted); margin-bottom:6px;">类型置信度</div>
+      <div id="score-confidence"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ①② 叙事弧线 + 情感深度 -->
 <div class="grid-2">
   <!-- 叙事弧线 -->
@@ -829,6 +850,38 @@ function exportCSV() {
   a.href = url; a.download = 'storymap-report.csv'; a.click();
   URL.revokeObjectURL(url);
 }
+
+// === 评分卡片渲染 ===
+(function() {
+  try {
+    const data = JSON.parse(document.getElementById('report-data').textContent);
+    const scoreEl = document.getElementById('score-card');
+    if (!data.score) { scoreEl.style.display = 'none'; return; }
+    const s = data.score;
+    scoreEl.style.display = 'block';
+    document.getElementById('score-total').textContent = s.total + '/100';
+    const gradeColors = {S:'#ffd700',A:'#00cec9',B:'#fdcb6e',C:'#e67e22',D:'#ff7675'};
+    const gradeEl = document.getElementById('score-grade');
+    gradeEl.textContent = 'Grade ' + s.grade;
+    gradeEl.style.color = gradeColors[s.grade] || 'var(--text-secondary)';
+    document.getElementById('score-type-badge').textContent = s.story_type_name;
+    const typeNames = {power_fantasy:'爽文/热血',classic_narrative:'经典叙事',suspense:'悬疑/惊悚',romance:'言情/情感',epic:'史诗/历史'};
+    let barsHtml = '';
+    for (const [k,v] of Object.entries(s.dimensions)) {
+      const pct = v.score;
+      const color = pct>=80?'var(--success)':pct>=60?'var(--warning)':'var(--danger)';
+      barsHtml += `<div style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary);margin-bottom:2px;"><span>${v.label}</span><span>${pct}/100 (${(v.weight*100).toFixed(0)}%)</span></div><div style="background:var(--border);border-radius:4px;height:8px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:${color};border-radius:4px;transition:width 0.5s;"></div></div></div>`;
+    }
+    document.getElementById('score-bars').innerHTML = barsHtml;
+    let confHtml = '';
+    for (const [t,v] of Object.entries(s.type_scores)) {
+      const pct = Math.max(0,v);
+      const color = t===s.story_type?'var(--accent)':'var(--text-muted)';
+      confHtml += `<div style="margin-bottom:4px;"><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);margin-bottom:1px;"><span>${typeNames[t]||t}</span><span>${pct}</span></div><div style="background:var(--border);border-radius:3px;height:5px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:${color};border-radius:3px;"></div></div></div>`;
+    }
+    document.getElementById('score-confidence').innerHTML = confHtml;
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>

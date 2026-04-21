@@ -59,6 +59,8 @@ def main() -> None:
     parser.add_argument("--granularity", "-g", choices=["fine", "medium", "coarse", "overview"],
                         default="medium",
                         help="分析颗粒度: fine(细粒度) / medium(中等) / coarse(粗粒度) / overview(概览) (默认: medium)")
+    parser.add_argument("--score", "-s", action="store_true",
+                        help="输出类型感知质量评分")
 
     args = parser.parse_args()
 
@@ -102,9 +104,16 @@ def main() -> None:
     # 导出
     fmt = args.format
 
+    # 质量评分（在导出前计算，HTML 需要评分数据）
+    score_result = None
+    if args.score:
+        from .story_scorer import score_story
+        d = _report_to_dict(report)
+        score_result = score_story(d)
+
     if fmt in ("html", "all"):
         html_path = str(output_dir / "report.html")
-        render_html(report, html_path)
+        render_html(report, html_path, score_data=score_result)
         print(f"✅ HTML 报告已生成: {html_path}")
 
     if fmt in ("json", "all"):
@@ -116,6 +125,29 @@ def main() -> None:
         csv_dir = str(output_dir / "csv")
         files = to_csv(report, csv_dir)
         print(f"✅ CSV 文件已生成: {csv_dir}/ ({len(files)} files)")
+
+    # 终端输出评分
+    if score_result:
+        s = score_result
+        print(f"\n{'='*50}")
+        print(f"  📊 类型感知质量评分")
+        print(f"{'='*50}")
+        print(f"  检测类型: {s['story_type_name']} ({s['story_type']})")
+        print(f"  总分: {s['total']}/100  评级: {s['grade']}")
+        print(f"\n  维度评分:")
+        for k, v in s["dimensions"].items():
+            bar = '█' * (v['score'] // 5) + '░' * (20 - v['score'] // 5)
+            print(f"    {v['label']:8} [{v['score']:3d}/100] {bar}  (权重{v['weight']:.0%})")
+        print(f"\n  类型置信度:")
+        for t, sc in sorted(s["type_scores"].items(), key=lambda x: -x[1]):
+            name_map = {"power_fantasy":"爽文/热血","classic_narrative":"经典叙事",
+                        "suspense":"悬疑/惊悚","romance":"言情/情感","epic":"史诗/历史"}
+            bar = '█' * (sc // 5) + '░' * (20 - sc // 5)
+            print(f"    {name_map.get(t,t):12} {sc:3d}/100 {bar}")
+        score_path = str(output_dir / "score.json")
+        with open(score_path, "w", encoding="utf-8") as f:
+            json.dump(s, f, ensure_ascii=False, indent=2)
+        print(f"\n  评分数据已保存: {score_path}")
 
 
 def run_analysis(
@@ -204,7 +236,7 @@ def run_analysis(
     return report
 
 
-def render_html(report: AnalysisReport, output_path: str) -> None:
+def render_html(report: AnalysisReport, output_path: str, score_data: dict = None) -> None:
     """Jinja2 渲染 HTML 报告
 
     Args:
@@ -224,6 +256,8 @@ def render_html(report: AnalysisReport, output_path: str) -> None:
     # 准备模板数据
     tension = compute_tension_curve(report.pacing_points)
     report_data = _report_to_dict(report)
+    if score_data:
+        report_data["score"] = score_data
 
     # 情感标签页颜色
     emotion_colors = {
