@@ -187,70 +187,69 @@ def detect_story_type(d: dict) -> str:
     coverage = sum(1 for dim in dims if any(p.get(dim, 0) > 0.15 for p in emo))
 
     # --- 类型打分 ---
-    # 策略：寻找每种类型的"唯一指纹"
-    # 不共享分数，每种类型只有自己特有的信号才能得分
 
     # ===== 爽文 (power_fantasy) =====
-    # 指纹：极短句(<8) AND NOT 恐惧主导
+    # 核心：短句(sl<8) + 情绪集中(dominant<=1) + 非恐惧(需joy>=0.15排除战斗恐惧)
     pf_score = 0
     fear_r = dim_ratios.get("fear", 0)
     trust_r = dim_ratios.get("trust", 0)
-    is_fear_dominant = fear_r > 0.15 and fear_r > trust_r
-    if avg_sl < 8 and not is_fear_dominant: pf_score += 50  # 极短句=爽文铁证(但非恐惧)
-    elif avg_sl < 8 and is_fear_dominant: pf_score -= 30     # 短句+恐惧=悬疑不是爽文
-    elif avg_sl < 12:
-        if nodes and len(nodes) > 1:
-            degrees = sorted([n.get("degree", 0) for n in nodes], reverse=True)
-            if degrees[0] > 0 and degrees[0] > sum(degrees[1:]) * 0.5:
-                pf_score += 40   # 短句+星形
-                # 但如果 fear<0.10 且 joy+sad 都高，可能是言情
-                joy_r = dim_ratios.get("joy", 0)
-                sad_r = dim_ratios.get("sadness", 0)
-                if fear_r < 0.10 and joy_r > 0.15 and sad_r > 0.15:
-                    pf_score -= 20  # 降低爽文分，让言情胜出
-        elif dominant <= 2:
-            pf_score += 25   # 短句+情绪集中
+    is_fear_dominant = fear_r > 0.15 and fear_r > trust_r and dim_ratios.get("joy", 0) < 0.15
+    if avg_sl < 8 and dominant <= 1 and not is_fear_dominant:
+        pf_score += 50
+    elif avg_sl < 8 and dominant <= 2 and not is_fear_dominant:
+        pf_score += 30
+    elif avg_sl < 8 and is_fear_dominant:
+        pf_score -= 30
+    elif avg_sl < 12 and dominant <= 1 and not is_fear_dominant:
+        pf_score += 15
     scores["power_fantasy"] = pf_score
 
     # ===== 经典叙事 (classic_narrative) =====
-    # 指纹：多角色(>=5) + 多次中心(>=2) + 对话低(<15%) + 情感覆盖广(>=6)
+    # 核心：长句(>10) + 低对话(<15%) + 广覆盖(>=6)
+    # 或者：多支线(>=4) + 广覆盖(>=7) 且非短句集中
     cl_score = 0
-    if n_chars >= 5 and secondary_hubs >= 2 and dialogue_mean < 0.15:
-        cl_score += 40                               # 经典铁证组合
-    elif coverage >= 6 and dialogue_mean < 0.20:
-        cl_score += 30
-    elif coverage >= 6 and dialogue_mean < 0.25:
-        cl_score += 15
-    # 经典叙事允许 fear 较高（战争场景）
+    if avg_sl > 10 and dialogue_mean < 0.15 and coverage >= 6:
+        cl_score += 45  # 长句+低对话+广覆盖=经典
+    elif secondary_hubs >= 4 and coverage >= 7 and not (avg_sl < 9 and dominant <= 1):
+        cl_score += 40  # 多支线+广覆盖=经典(排除爽文)
+    elif secondary_hubs >= 4 and coverage >= 6:
+        cl_score += 25
+    elif coverage >= 6 and dialogue_mean < 0.15 and avg_sl > 8:
+        cl_score += 20
     if secondary_hubs >= 2 and n_chars >= 5 and tension_amp > 0.3:
-        cl_score += 10
+        cl_score += 5
     # 反信号
-    if avg_sl < 10: cl_score -= 20
-    if dominant <= 1: cl_score -= 15
+    if avg_sl < 8 and dominant <= 1: cl_score -= 25
+    if dominant <= 1 and secondary_hubs < 3: cl_score -= 10
     scores["classic_narrative"] = cl_score
 
     # ===== 悬疑/惊悚 (suspense) =====
-    # 指纹：fear>trust AND 次中心>=2 (复杂关系网中的恐惧)
+    # 核心：fear>trust + 次中心>=2
     su_score = 0
     fear_r = dim_ratios.get("fear", 0)
     trust_r = dim_ratios.get("trust", 0)
-    if fear_r > trust_r and secondary_hubs >= 2: su_score += 45  # 独占组合
-    elif fear_r > trust_r and secondary_hubs >= 1: su_score += 25
-    elif fear_r > 0.10 and n_chars >= 4: su_score += 15
+    if fear_r > trust_r and secondary_hubs >= 2:
+        su_score += 45
+    elif fear_r > trust_r and secondary_hubs >= 1:
+        su_score += 25
+    elif fear_r > 0.10 and n_chars >= 4:
+        su_score += 10
     # 反信号
-    if dim_ratios.get("joy", 0) > 0.25: su_score -= 20
+    if dim_ratios.get("joy", 0) > 0.20: su_score -= 20
     scores["suspense"] = su_score
 
     # ===== 言情/情感 (romance) =====
-    # 指纹：joy+sad 都高 AND trust 较高 AND fear较低 AND 对话较高
+    # 核心：joy+sad都高 + fear低 OR 纯高joy+trust
     ro_score = 0
     joy_r = dim_ratios.get("joy", 0)
     sad_r = dim_ratios.get("sadness", 0)
     trust_r = dim_ratios.get("trust", 0)
     fear_r = dim_ratios.get("fear", 0)
     is_romance_emo = joy_r > 0.15 and sad_r > 0.15 and fear_r < 0.15
-    if is_romance_emo and dialogue_mean > 0.15: ro_score += 50  # 独占：悲喜交织+对话+无恐惧
+    is_sweet = joy_r > 0.30 and fear_r < 0.15 and trust_r > 0.08
+    if is_romance_emo and dialogue_mean > 0.08: ro_score += 50
     elif is_romance_emo: ro_score += 35
+    elif is_sweet and dialogue_mean > 0.05: ro_score += 35
     elif joy_r > 0.10 and sad_r > 0.10: ro_score += 20
     # 反信号
     if fear_r > 0.20: ro_score -= 25
@@ -258,15 +257,18 @@ def detect_story_type(d: dict) -> str:
     scores["romance"] = ro_score
 
     # ===== 史诗/历史 (epic) =====
-    # 指纹：大量角色(>=10) OR (>=6角色 AND >=3次中心)
+    # 核心：超多角色(>=15) + 超多支线(>=8)
     ep_score = 0
-    if n_chars >= 10: ep_score += 50                 # 独占：超多角色
-    elif n_chars >= 6 and secondary_hubs >= 3: ep_score += 40  # 独占组合
-    elif n_chars >= 6 and secondary_hubs >= 2: ep_score += 20
-    elif n_chars >= 5: ep_score += 10
+    if n_chars >= 15 and secondary_hubs >= 8:
+        ep_score += 50  # 极端规模=史诗
+    elif n_chars >= 10 and secondary_hubs >= 5 and dialogue_mean < 0.20:
+        ep_score += 40
+    elif n_chars >= 10 and secondary_hubs >= 3:
+        ep_score += 20
     # 反信号
     if avg_sl < 8: ep_score -= 20
     if dominant <= 1: ep_score -= 10
+    if dialogue_mean > 0.25: ep_score -= 15
     scores["epic"] = ep_score
 
     # 返回最高分类型
