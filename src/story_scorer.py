@@ -195,7 +195,12 @@ def detect_story_type(d: dict) -> str:
     trust_r = dim_ratios.get("trust", 0)
     is_fear_dominant = fear_r > 0.15 and fear_r > trust_r and dim_ratios.get("joy", 0) < 0.15
     if avg_sl < 8 and dominant <= 1 and not is_fear_dominant:
-        pf_score += 50
+        if secondary_hubs >= 12:
+            pf_score += 40  # 极多支线+短句+集中=复杂爽文(都市打脸类)
+        elif dialogue_mean > 0.25:
+            pf_score += 20  # 高对话+短句=可能是经典
+        else:
+            pf_score += 50
     elif avg_sl < 8 and dominant <= 2 and not is_fear_dominant:
         pf_score += 30
     elif avg_sl < 8 and is_fear_dominant:
@@ -219,7 +224,7 @@ def detect_story_type(d: dict) -> str:
     if secondary_hubs >= 2 and n_chars >= 5 and tension_amp > 0.3:
         cl_score += 5
     # 反信号
-    if avg_sl < 8 and dominant <= 1: cl_score -= 25
+    if avg_sl < 8 and dominant <= 1 and secondary_hubs < 6: cl_score -= 25
     if dominant <= 1 and secondary_hubs < 3: cl_score -= 10
     scores["classic_narrative"] = cl_score
 
@@ -245,11 +250,11 @@ def detect_story_type(d: dict) -> str:
     sad_r = dim_ratios.get("sadness", 0)
     trust_r = dim_ratios.get("trust", 0)
     fear_r = dim_ratios.get("fear", 0)
-    is_romance_emo = joy_r > 0.15 and sad_r > 0.15 and fear_r < 0.15
+    is_romance_emo = joy_r > 0.15 and sad_r > 0.15 and fear_r < 0.15 and not (secondary_hubs >= 6 and coverage >= 7)
     is_sweet = joy_r > 0.30 and fear_r < 0.15 and trust_r > 0.08
     if is_romance_emo and dialogue_mean > 0.08: ro_score += 50
     elif is_romance_emo: ro_score += 35
-    elif is_sweet and dialogue_mean > 0.05: ro_score += 35
+    elif is_sweet and dialogue_mean > 0.05: ro_score += 48  # 纯甜文  # 纯甜文
     elif joy_r > 0.10 and sad_r > 0.10: ro_score += 20
     # 反信号
     if fear_r > 0.20: ro_score -= 25
