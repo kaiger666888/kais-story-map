@@ -1,4 +1,4 @@
-# Autoresearch Project: kais-story-map type scorer
+# Autoresearch Project: kais-story-score type scorer
 
 ## Goal
 优化故事类型检测准确率到 5/5，同时保持各类型内评分区分度。

@@ -1,4 +1,4 @@
-# kais-story-map 📖
+# kais-story-score 📖
 
 小说五维特性可视化分析工具。从 `.txt` 小说原文生成交互式 HTML 报告。
 

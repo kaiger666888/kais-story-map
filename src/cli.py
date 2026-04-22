@@ -45,7 +45,7 @@ from .pacing_tension import compute_tension_curve as _tension
 def main() -> None:
     """argparse 入口"""
     parser = argparse.ArgumentParser(
-        description="kais-story-map: 小说五维特性可视化分析",
+        description="kais-story-score: 小说五维特性可视化分析",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--input", "-i", required=True, help="输入文本文件路径 (.txt)")

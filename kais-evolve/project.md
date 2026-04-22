@@ -1,11 +1,11 @@
-# Autoresearch Project: kais-story-map
+# Autoresearch Project: kais-story-score
 
 ## Goal
-迭代修复 bug 并提升 kais-story-map 小说分析质量。三个待修复 bug + 分析质量优化。
+迭代修复 bug 并提升 kais-story-score 小说分析质量。三个待修复 bug + 分析质量优化。
 
 ## Metric
 - Primary: 综合质量评分（0-100，越高越好），由测试脚本自动计算
-- Command: python3 ~/.openclaw/workspace/skills/kais-story-map/kais-evolve/eval.py
+- Command: python3 ~/.openclaw/workspace/skills/kais-story-score/kais-evolve/eval.py
 - Parse: 最后一行输出 "SCORE: XX.XX"
 
 ### 评分维度（每项 0-20 分，总分 100）
@@ -27,7 +27,7 @@
 - Simplicity: 优先修复 bug，不要过度重构
 
 ## Baseline
-- Command: python3 ~/.openclaw/workspace/skills/kais-story-map/kais-evolve/eval.py
+- Command: python3 ~/.openclaw/workspace/skills/kais-story-score/kais-evolve/eval.py
 - Expected metric: ~40 (当前 bug 导致多个维度 0 分)
 
 ## Test Data

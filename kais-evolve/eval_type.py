@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kais-story-map 类型感知评分 — kais-evolve 评估脚本"""
+"""kais-story-score 类型感知评分 — kais-evolve 评估脚本"""
 import json, os, sys, glob, subprocess
 
 SKILL_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
