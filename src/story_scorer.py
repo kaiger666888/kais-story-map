@@ -25,11 +25,11 @@ STORY_TYPES = {
             "dominant_emotions_ok": True,  # 允许情绪集中在2-3个
         },
         "weights": {
-            "arc": 0.25,        # 弧线重要（爽感曲线）
-            "emotion": 0.15,     # 情感相对次要（爽文靠张力）
-            "network": 0.15,     # 网络结构不太重要
-            "pacing": 0.30,      # 节奏最重要（爽感来源）
-            "text_quality": 0.15, # 文本质量一般
+            "arc": 0.20,        # 弧线重要
+            "emotion": 0.15,     # 情感相对次要
+            "network": 0.10,     # 网络结构降低
+            "pacing": 0.25,      # 节奏重要
+            "text_quality": 0.30, # 文本质量最核心（区分烂片）
         }
     },
     "classic_narrative": {
@@ -48,10 +48,10 @@ STORY_TYPES = {
         },
         "weights": {
             "arc": 0.20,
-            "emotion": 0.25,     # 情感丰富度很重要
-            "network": 0.20,     # 角色关系很重要
+            "emotion": 0.20,     # 情感丰富度很重要
+            "network": 0.10,     # 网络结构降低（烂片也能堆角色）
             "pacing": 0.20,
-            "text_quality": 0.15,
+            "text_quality": 0.30, # 文本质量最核心（区分烂片）
         }
     },
     "suspense": {
@@ -69,10 +69,10 @@ STORY_TYPES = {
         },
         "weights": {
             "arc": 0.15,
-            "emotion": 0.25,     # 情绪氛围最重要
-            "network": 0.20,     # 关系网揭示线索
-            "pacing": 0.25,      # 节奏控制最重要
-            "text_quality": 0.15,
+            "emotion": 0.20,     # 情绪氛围重要
+            "network": 0.15,     # 关系网揭示线索
+            "pacing": 0.20,      # 节奏控制重要
+            "text_quality": 0.30, # 文本质量最核心
         }
     },
     "romance": {
@@ -89,10 +89,10 @@ STORY_TYPES = {
         },
         "weights": {
             "arc": 0.15,
-            "emotion": 0.30,     # 情感深度最核心
-            "network": 0.25,     # 人物关系最重要
-            "pacing": 0.15,
-            "text_quality": 0.15,
+            "emotion": 0.20,     # 情感深度核心
+            "network": 0.15,     # 人物关系重要
+            "pacing": 0.20,
+            "text_quality": 0.30,
         }
     },
     "epic": {
@@ -111,9 +111,9 @@ STORY_TYPES = {
         "weights": {
             "arc": 0.15,
             "emotion": 0.20,
-            "network": 0.25,     # 角色网络最核心
+            "network": 0.20,
             "pacing": 0.15,
-            "text_quality": 0.25, # 文本质量重要
+            "text_quality": 0.30,
         }
     },
 }
@@ -304,7 +304,7 @@ def score_story(d: dict, story_type: str = None) -> dict:
     emo = d.get("emotions", [])
     cn = d.get("characters", {})
     pacing = d.get("pacing", [])
-    quality = d.get("text_quality", {})
+    quality = d.get("quality", d.get("text_quality", {}))
 
     tensions = [p.get("tension", 0) for p in pacing] if pacing else [0.5]
     tension_mean = sum(tensions) / len(tensions)
@@ -339,6 +339,17 @@ def score_story(d: dict, story_type: str = None) -> dict:
     dominant_ratio = max(dim_totals.values()) / total_dim if total_dim > 0 else 0
     arc_conf = d.get("narrative_arc", {}).get("confidence", 0)
     arc_shape = d.get("narrative_arc", {}).get("shape", "")
+
+    # 新增特征：角色集中度（Herfindahl指数）
+    if nodes:
+        mentions = [n.get("mentions", 1) for n in nodes]
+        total_mentions = sum(mentions)
+        herfindahl = sum((m / total_mentions) ** 2 for m in mentions) if total_mentions > 0 else 1.0
+    else:
+        herfindahl = 1.0
+
+    # 新增特征：词汇丰富度
+    vocab_richness = quality.get("vocabulary_richness", 0)
 
     # ---- 逐维度评分（0-100）----
 
@@ -442,27 +453,36 @@ def score_story(d: dict, story_type: str = None) -> dict:
         if max_t_idx < len(tensions) * 0.8: pac_score += 10  # 高潮不在最后=有铺垫
     pac_score = min(pac_score, 100)
 
-    # 5. 文本质量评分
+    # 5. 文本质量评分（增强版：强区分烂片）
     txt_score = 0
     ttr = quality.get("ttr", 0)
-    if ttr > 0.15: txt_score += 25
-    elif ttr > 0.10: txt_score += 15
-    elif ttr > 0.05: txt_score += 8
+    if ttr > 0.15: txt_score += 15
+    elif ttr > 0.10: txt_score += 10
+    elif ttr > 0.05: txt_score += 5
     # 句长合适度
     slr = ideal.get("avg_sentence_len_range", (8, 40))
-    if slr[0] <= avg_sl <= slr[1]: txt_score += 25
-    elif avg_sl > 0: txt_score += 10
+    if slr[0] <= avg_sl <= slr[1]: txt_score += 10
+    elif avg_sl > 0: txt_score += 5
     # 句法复杂度
-    sc_min = ideal.get("syntax_complexity_min", 0)
-    if sc_min > 0 and quality.get("syntax_complexity", 0) >= sc_min: txt_score += 20
-    elif quality.get("syntax_complexity", 0) > 0.5: txt_score += 10
-    # 句长变化
-    if sentence_variance > 5: txt_score += 15
-    elif sentence_variance > 2: txt_score += 8
-    # 词汇丰富度
-    if quality.get("vocabulary_richness", 0) > 0.5: txt_score += 15
-    elif quality.get("vocabulary_richness", 0) > 0.3: txt_score += 8
-    txt_score = min(txt_score, 100)
+    syn_cpx = quality.get("syntax_complexity", 0)
+    if syn_cpx > 0.9: txt_score += 15
+    elif syn_cpx > 0.7: txt_score += 10
+    elif syn_cpx > 0.5: txt_score += 5
+    # 词汇丰富度（最强区分信号：好片0.40+ vs 烂片0.21-）
+    if vocab_richness > 0.45: txt_score += 30
+    elif vocab_richness > 0.35: txt_score += 22
+    elif vocab_richness > 0.25: txt_score += 12
+    elif vocab_richness > 0.15: txt_score += 5
+    # 句长方差（好片2.4+ vs 烂片1.3-1.9）
+    if sentence_variance > 4.0: txt_score += 20
+    elif sentence_variance > 3.0: txt_score += 15
+    elif sentence_variance > 2.0: txt_score += 8
+    elif sentence_variance > 1.0: txt_score += 3
+    # 角色集中度惩罚（过集中=主角独占=扁平）
+    if herfindahl < 0.15: txt_score += 10  # 均衡=好
+    elif herfindahl > 0.40: txt_score -= 15  # 过度集中=烂
+    elif herfindahl > 0.30: txt_score -= 5
+    txt_score = max(0, min(txt_score, 100))
 
     # ---- 加权总分 ----
     raw_total = (
