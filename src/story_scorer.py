@@ -237,6 +237,8 @@ def detect_story_type(d: dict) -> str:
         su_score += 45
     elif fear_r > trust_r and secondary_hubs >= 1:
         su_score += 25
+    elif fear_r > 0.20 and fear_r > trust_r:
+        su_score += 30  # 强恐惧=悬疑(即使角色少)
     elif fear_r > 0.10 and n_chars >= 4:
         su_score += 10
     # 反信号
