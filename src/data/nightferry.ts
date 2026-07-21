@@ -1,0 +1,710 @@
+/**
+ * 《夜航 NIGHT FERRY》— 全站统一演示数据
+ * 悬疑剧情片剧本:8 人物 / 12 场景 / 6 道具 / 42 场戏(三幕)
+ * 所有页面的图谱、曲线、统计均基于本模块,保证跨页数据自洽。
+ *
+ * 情绪标尺:-5(绝望)→ +5(狂喜)
+ * 三幕切分:ACT I 场 1–12 / ACT II 场 13–34 / ACT III 场 35–42
+ */
+
+export type NodeKind = 'character' | 'prop' | 'scene' | 'emotion' | 'event'
+export type ActId = 1 | 2 | 3
+
+/** 图谱节点配色规范(全站统一) */
+export const NODE_COLORS: Record<NodeKind, string> = {
+  character: '#FFB347',
+  scene: '#4DD8FF',
+  prop: '#A78BFA',
+  emotion: '#FF4D6D',
+  event: '#7BE0A3',
+}
+
+export const EMOTION_MIN = -5
+export const EMOTION_MAX = 5
+
+export interface Character {
+  id: string
+  name: string
+  nameEn: string
+  role: string
+  age: number
+  gender: '女' | '男'
+  /** 个人代表色(情绪曲线 / 人物卡使用;图谱节点统一 amber) */
+  color: string
+  avatar: string
+  bio: string
+  /** 人物动机 */
+  desire: string
+  tags: string[]
+  /** 42 场逐场情绪值(-5..+5);null = 该场不在场 / 失联 / 死亡 */
+  arc: (number | null)[]
+}
+
+export const CHARACTERS: Character[] = [
+  {
+    id: 'linwan',
+    name: '林晚',
+    nameEn: 'LIN WAN',
+    role: '主角 · 调查记者',
+    age: 35,
+    gender: '女',
+    color: '#FFB347',
+    avatar: '/avatar-linwan.png',
+    bio: '《海声周刊》调查记者。姐姐林霜三年前在这条船上失踪,官方结论是意外落海。她带着一支录音笔登上这条改装渡轮,要把那晚的真相一节一节拆开。',
+    desire: '查清姐姐失踪真相,并活着把它写成报道',
+    tags: ['主角', '视角人物', '真相驱动'],
+    arc: [
+      0.5, -0.5, 0.5, 1, -1.5, 0.5, -1.5, -1, -2, -1.5, -2.5, -3,
+      -1.5, -1, 0.5, -2.5, 1, -2.5, -3, -2, -3.5, -2.5, -3.5, -4,
+      -0.5, -2, -4, -4.5, -1, -4, -3, -2, -1, 4,
+      -2.5, -3.5, -2, 2, 3, 2.5, 4, 4.2,
+    ],
+  },
+  {
+    id: 'jiangli',
+    name: '江离',
+    nameEn: 'JIANG LI',
+    role: '船长',
+    age: 55,
+    gender: '男',
+    color: '#4DD8FF',
+    avatar: '/avatar-jiangli.png',
+    bio: '"夜航号"船长,三十年跑同一条夜航线路。欠过韩崇一笔救命的债,从此被攥在手里。林霜失踪那晚,是他在航海日志上签了字。',
+    desire: '保住船和船员,赎回三年前的那次沉默',
+    tags: ['关键知情人', '道德灰区', '救赎弧'],
+    arc: [
+      -0.5, -1, -0.5, 0.5, -1, 0, -1.5, -1, -2, -2.5, -2, -2.5,
+      -2, -2, -2, -3, -1.5, -3, -2.5, -2, -3, -3.5, -3, -3.5,
+      1, -2.5, -3, -2, -1, -3.5, -3, -2.5, -1.5, 3.5,
+      -2, -3, -1.5, 2, 3, 3.5, 3.8, 4,
+    ],
+  },
+  {
+    id: 'shenque',
+    name: '沈确',
+    nameEn: 'SHEN QUE',
+    role: '大副',
+    age: 40,
+    gender: '男',
+    color: '#A78BFA',
+    avatar: '/avatar-shenque.png',
+    bio: '大副,船上的实际秩序维护者。利落、警惕、眼神从不放空。他替韩崇看住这条船,也替自己看住一笔快到岸的"退休金"。',
+    desire: '压住船上一切异动,安全到岸拿钱离场',
+    tags: ['对立面', '执行者', '监视者'],
+    arc: [
+      0, -0.5, 0.5, 0.5, -1, 0, -1, -1.5, -1, -2, -1.5, -2,
+      -1.5, -1, -1, -2, -1.5, -2, -1, -1.5, -2.5, -2, -3, -3,
+      -2, -2.5, -3, -1, -2, -4, -3.5, -3, -3.5, -4,
+      -3.5, -4, -4, -3.8, -4.2, -4, -4.2, -4.2,
+    ],
+  },
+  {
+    id: 'suqiao',
+    name: '苏乔',
+    nameEn: 'SU QIAO',
+    role: '乘客 · 随船医生',
+    age: 30,
+    gender: '女',
+    color: '#7BE0A3',
+    avatar: '/avatar-suqiao.png',
+    bio: '随船医生,哥哥是一名跑这条线的货代,半年前失联。她登船的理由和林晚惊人地相似,只是她把刀子藏在了绷带下面。',
+    desire: '找到哥哥的下落,守住船上每一个人的命',
+    tags: ['同盟', '理性担当', '医疗资源'],
+    arc: [
+      0.5, 0.5, 0.5, 1.5, -0.5, 1, -1, 0, -1, -1.5, -1.5, -2,
+      -1, 0, 0.5, -2, 1.5, -1, -2, -1, -2.5, -2, -2.5, -3,
+      -0.5, -1.5, -2.5, -3, -0.5, -3.5, -2.5, -2, -1, 3.5,
+      -2, -2.5, -1.5, 2.5, 3, 3, 3.8, 4,
+    ],
+  },
+  {
+    id: 'laogui',
+    name: '老鬼',
+    nameEn: 'LAO GUI',
+    role: '轮机长',
+    age: 60,
+    gender: '男',
+    color: '#C77F1F',
+    avatar: '/avatar-laogui.png',
+    bio: '轮机长,在这条船的机舱里待了三十年,比谁都清楚钢板下面藏着什么。油污满脸,话极少,钥匙贴身挂着。第 30 场,他死在自己最熟悉的轮机室。',
+    desire: '退休前把知道的事交给一个可靠的人',
+    tags: ['关键知情人', '导师型', '牺牲'],
+    arc: [
+      -0.5, 0, 0, -0.5, -1, 0.5, -1, -0.5, -1.5, -1.5, -1, -2,
+      -1.5, 0.5, 1, -2, 0, -1.5, -1, -1, -2, -1.5, -2, -2.5,
+      -1, -2, -2.5, -2, -1, -4.2, null, null, null, null,
+      null, null, null, null, null, null, null, null,
+    ],
+  },
+  {
+    id: 'achan',
+    name: '阿灿',
+    nameEn: 'A CAN',
+    role: '实习水手',
+    age: 19,
+    gender: '男',
+    color: '#FF8FA3',
+    avatar: '/avatar-achan.png',
+    bio: '实习水手,第一次跑夜航。紧张、勤快、眼睛很亮。他看见了他不该看见的,也在最关键的时候,做了大人才敢做的事。',
+    desire: '平安完成首航,证明自己不是个孩子',
+    tags: ['成长弧', '目击者', '行动派'],
+    arc: [
+      0.5, 0, 0.5, 1, -1.5, 1, -1, -0.5, -1, -2, -1.5, -2.5,
+      -1, -0.5, 0.5, -3, 1, -2, -2.5, -1.5, -3, -2, -3, -3.5,
+      -1, -2, -3, -3, 0.5, -3.5, -3, -2, -1.5, 3.5,
+      -2.5, -3, -1.5, 2.5, 3.5, 3, 3.8, 4,
+    ],
+  },
+  {
+    id: 'bailu',
+    name: '白露',
+    nameEn: 'BAI LU',
+    role: '林晚的线人',
+    age: 28,
+    gender: '女',
+    color: '#FF4D6D',
+    avatar: '/avatar-bailu.png',
+    bio: '林晚经营了两年的线人,以货主助理身份潜伏在韩崇身边。风衣立领,笑得恰到好处。第 23 场她突然失联,第 32 场在救生艇里被找到。',
+    desire: '把韩崇的账本带下船,换自己一个干净身份',
+    tags: ['潜伏者', '情报线', '失联-回归'],
+    arc: [
+      0.5, -0.5, 0, 1, -1, 0.5, -1.5, -1, -2, -1.5, -2, -2.5,
+      -1.5, -1, 0, -2.5, 1, -2, -2.5, -2, -3, -2.5, -3.5, null,
+      null, null, null, null, null, null, null, -2.5, -2, 3,
+      -3, -3.5, -2.5, 2, 3, 2.5, 3.8, 4,
+    ],
+  },
+  {
+    id: 'hanchong',
+    name: '韩崇',
+    nameEn: 'HAN CHONG',
+    role: '货主',
+    age: 50,
+    gender: '男',
+    color: '#9A937F',
+    avatar: '/avatar-hanchong.png',
+    bio: '本航次最大货主,西装、雪茄、永远背光而坐。他的集装箱不在舱单上,他的"货"会在午夜被吊上甲板。整条船都是他棋盘的一部分。',
+    desire: '让集装箱和秘密一起平安到岸',
+    tags: ['反派', '幕后', '胁迫网络'],
+    arc: [
+      0.5, 0.5, 0.5, 1, -0.5, 0.5, -0.5, -0.5, -1, -1, -1.5, -2,
+      -1, -0.5, -1, -1.5, -1, -2, -1, -1.5, -2, -2, -1.5, -2,
+      -1, -2, -1.5, -1, -1.5, -1, -2, -2.5, -3, -4,
+      -3, -3.5, -3.8, -4, -4.2, -4.2, -4.2, -4.2,
+    ],
+  },
+]
+
+/* ──────────────────────────── 道具 ──────────────────────────── */
+
+export interface PropAppearance {
+  /** 场号(1–42) */
+  beat: number
+  sceneId: string
+  note: string
+  /** 该时点持有人 */
+  holderId?: string
+}
+
+export interface ScriptProp {
+  id: string
+  name: string
+  nameEn: string
+  kind: '证据' | '工具' | '信物'
+  /** 图谱节点统一 violet */
+  color: string
+  description: string
+  /** 剧情重要性 1–5 */
+  significance: number
+  timeline: PropAppearance[]
+}
+
+export const PROPS: ScriptProp[] = [
+  {
+    id: 'recorder',
+    name: '黑匣子录音笔',
+    nameEn: 'THE RECORDER',
+    kind: '证据',
+    color: '#A78BFA',
+    description: '林晚的采访录音笔,外形像一支旧钢笔。它录下过底舱的异响、江离的失言,也最终录下了韩崇自己的声音。',
+    significance: 5,
+    timeline: [
+      { beat: 1, sceneId: 'S01', note: '林晚随身携带登船', holderId: 'linwan' },
+      { beat: 5, sceneId: 'S03', note: '录下底舱集装箱内的敲击声', holderId: 'linwan' },
+      { beat: 18, sceneId: 'S02', note: '录下江离对峙时的半句失言', holderId: 'linwan' },
+      { beat: 28, sceneId: 'S09', note: '林晚被囚,录音笔落入沈确手中', holderId: 'shenque' },
+      { beat: 32, sceneId: 'S08', note: '白露从沈确舱房偷回,还给林晚', holderId: 'linwan' },
+      { beat: 39, sceneId: 'S11', note: '救生艇上当众播放,成为定罪证据', holderId: 'linwan' },
+    ],
+  },
+  {
+    id: 'manifest',
+    name: '货运舱单',
+    nameEn: 'THE MANIFEST',
+    kind: '证据',
+    color: '#A78BFA',
+    description: '本航次的货运舱单。第 9 栏有一只没有编号的集装箱——它是整出戏的第一道裂缝。',
+    significance: 5,
+    timeline: [
+      { beat: 9, sceneId: 'S03', note: '林晚在底舱办公台发现,第 9 栏为空', holderId: 'linwan' },
+      { beat: 18, sceneId: 'S02', note: '林晚向江离当面出示', holderId: 'linwan' },
+      { beat: 33, sceneId: 'S09', note: '与密室药瓶批号互相印证,锁定走私链', holderId: 'linwan' },
+    ],
+  },
+  {
+    id: 'key',
+    name: '生锈的钥匙',
+    nameEn: 'THE RUSTY KEY',
+    kind: '工具',
+    color: '#A78BFA',
+    description: '一把不属于船上任何门锁目录的黄铜钥匙,老鬼贴身挂了二十年。它开的那个房间,不存在于船舶图纸。',
+    significance: 4,
+    timeline: [
+      { beat: 14, sceneId: 'S07', note: '老鬼从领口取出,第一次示人', holderId: 'laogui' },
+      { beat: 15, sceneId: 'S07', note: '老鬼把它交给林晚:"替我看看那间屋子"', holderId: 'linwan' },
+      { beat: 21, sceneId: 'S09', note: '打开货仓深处的密室', holderId: 'linwan' },
+      { beat: 30, sceneId: 'S07', note: '老鬼身亡,他配的备用钥匙同时失踪', holderId: 'shenque' },
+    ],
+  },
+  {
+    id: 'flare',
+    name: '救生艇信号弹',
+    nameEn: 'THE FLARE',
+    kind: '工具',
+    color: '#A78BFA',
+    description: '救生艇标配的红色信号弹。在所有人都以为被海遗忘的夜里,它是唯一能被看见的语言。',
+    significance: 3,
+    timeline: [
+      { beat: 20, sceneId: 'S08', note: '阿灿夜巡时发现信号弹箱被挪动过', holderId: 'achan' },
+      { beat: 36, sceneId: 'S08', note: '弃船时随救生艇带走', holderId: 'achan' },
+      { beat: 38, sceneId: 'S11', note: '阿灿发射信号弹,引来海警巡逻艇', holderId: 'achan' },
+    ],
+  },
+  {
+    id: 'medkit',
+    name: '苏乔的药箱',
+    nameEn: 'THE MEDKIT',
+    kind: '工具',
+    color: '#A78BFA',
+    description: '苏乔随身的铝制药箱,夹层比看起来深。它包扎伤口,也藏过舱单——它是船上少数绝对安全的地方。',
+    significance: 3,
+    timeline: [
+      { beat: 6, sceneId: 'S05', note: '苏乔为烫伤的阿灿包扎', holderId: 'suqiao' },
+      { beat: 17, sceneId: 'S05', note: '药箱暗格替林晚藏下货运舱单', holderId: 'suqiao' },
+      { beat: 26, sceneId: 'S05', note: '发现密室药品与药箱批号同源', holderId: 'suqiao' },
+      { beat: 36, sceneId: 'S08', note: '弃船时随身转移', holderId: 'suqiao' },
+    ],
+  },
+  {
+    id: 'photo',
+    name: '旧照片',
+    nameEn: 'THE OLD PHOTO',
+    kind: '信物',
+    color: '#A78BFA',
+    description: '一张边缘卷曲的合影:年轻的江离站在甲板上,身旁是笑得明亮的林霜。背面的日期,是林霜失踪前的一周。',
+    significance: 4,
+    timeline: [
+      { beat: 3, sceneId: 'S02', note: '驾驶舱相框里露出的一角', holderId: 'jiangli' },
+      { beat: 22, sceneId: 'S09', note: '密室墙上钉着同款照片', holderId: 'jiangli' },
+      { beat: 25, sceneId: 'S10', note: '江离讲述照片与林霜的来历', holderId: 'jiangli' },
+      { beat: 33, sceneId: 'S09', note: '照片背面日期补全时间线证据链', holderId: 'linwan' },
+    ],
+  },
+]
+
+/* ──────────────────────────── 场景 ──────────────────────────── */
+
+export interface SceneLocation {
+  id: string
+  code: string
+  name: string
+  nameEn: string
+  /** 图谱节点统一 cyan */
+  color: string
+  description: string
+  /** 场景氛围关键词 */
+  mood: string[]
+}
+
+export const SCENES: SceneLocation[] = [
+  { id: 'S01', code: 'S01', name: '码头夜', nameEn: 'DOCK NIGHT', color: '#4DD8FF', description: '登船码头,雨夜,集装箱吊机的剪影。故事开始与信号中断的地方。', mood: ['雨', '启程', '失联'] },
+  { id: 'S02', code: 'S02', name: '驾驶舱', nameEn: 'THE BRIDGE', color: '#4DD8FF', description: '全船制高点,海图桌与舵轮。权力与谎言都在这里转弯。', mood: ['权力', '对峙', '抉择'] },
+  { id: 'S03', code: 'S03', name: '底舱货仓', nameEn: 'CARGO HOLD', color: '#4DD8FF', description: '三层集装箱迷宫,滴水声与脚步声被放大十倍。秘密的第一现场。', mood: ['迷宫', '跟踪', '发现'] },
+  { id: 'S04', code: 'S04', name: '甲板风暴', nameEn: 'STORM DECK', color: '#4DD8FF', description: '风暴中的露天甲板,浪直接拍上舷墙。全剧情绪峰值发生地。', mood: ['风暴', '对峙', '高潮'] },
+  { id: 'S05', code: 'S05', name: '医务室', nameEn: 'INFIRMARY', color: '#4DD8FF', description: '白色小屋,消毒水味,是船上唯一说真话的地方。', mood: ['同盟', '疗伤', '密谋'] },
+  { id: 'S06', code: 'S06', name: '餐厅', nameEn: 'MESS HALL', color: '#4DD8FF', description: '长条餐桌与昏黄吊灯。表面最体面、桌下最危险的地方。', mood: ['交锋', '试探', '猜忌'] },
+  { id: 'S07', code: 'S07', name: '轮机室', nameEn: 'ENGINE ROOM', color: '#4DD8FF', description: '轰鸣、油污、红色警示灯。老鬼的王国,也是他的葬身之地。', mood: ['轰鸣', '托付', '死亡'] },
+  { id: 'S08', code: 'S08', name: '救生艇甲板', nameEn: 'LIFEBOAT DECK', color: '#4DD8FF', description: '吊艇架一字排开,海风最大的一侧。失踪与获救都在这里。', mood: ['夜巡', '弃船', '重逢'] },
+  { id: 'S09', code: 'S09', name: '货仓密室', nameEn: 'HIDDEN ROOM', color: '#4DD8FF', description: '图纸上不存在的房间:空铺位、药瓶、墙上的照片。真相的内脏。', mood: ['真相', '囚禁', '拼图'] },
+  { id: 'S10', code: 'S10', name: '船长室', nameEn: "CAPTAIN'S CABIN", color: '#4DD8FF', description: '海图、旧相框、一瓶没开的酒。江离的忏悔室。', mood: ['独白', '忏悔', '抉择'] },
+  { id: 'S11', code: 'S11', name: '海面救生艇', nameEn: 'LIFEBOAT AT SEA', color: '#4DD8FF', description: '漆黑海面上的一叶小艇,所有人的命被压缩到三平方米。', mood: ['博弈', '求生', '逆转'] },
+  { id: 'S12', code: 'S12', name: '黎明码头', nameEn: 'DAWN HARBOUR', color: '#4DD8FF', description: '风暴退去后的码头,第一线金色晨光。故事的皮重新长好。', mood: ['黎明', '收束', '希望'] },
+]
+
+/* ──────────────────────────── 节拍(42 场) ──────────────────────────── */
+
+export type BeatType = 'setup' | 'inciting' | 'rising' | 'turning' | 'crisis' | 'climax' | 'resolution'
+
+export interface Beat {
+  /** 场号 1–42 */
+  index: number
+  act: ActId
+  /** 发生场景(S01–S12) */
+  sceneId: string
+  title: string
+  summary: string
+  /** 全剧情绪曲线值(-5..+5) */
+  emotion: number
+  /** 本场出场人物 id */
+  characters: string[]
+  /** 本场涉及道具 id */
+  props?: string[]
+  /** 是否 14 个关键节拍之一 */
+  key?: boolean
+  type: BeatType
+}
+
+export const BEATS: Beat[] = [
+  /* ── ACT I(场 1–12)── */
+  { index: 1, act: 1, sceneId: 'S01', title: '夜航启程', summary: '雨夜码头,林晚登上"夜航号"。白露与她擦肩,把一张字条塞进她的口袋。', emotion: 0.5, characters: ['linwan', 'bailu', 'achan'], props: ['recorder'], key: true, type: 'setup' },
+  { index: 2, act: 1, sceneId: 'S01', title: '登船安检', summary: '沈确亲自检查乘客行李,录音笔险些暴露;韩崇的集装箱免检吊上船。', emotion: -0.5, characters: ['linwan', 'shenque', 'hanchong'], type: 'setup' },
+  { index: 3, act: 1, sceneId: 'S02', title: '船长接见', summary: '江离在驾驶舱迎客,宣布因风暴改道。林晚注意到相框里露出的半张旧照片。', emotion: 0, characters: ['jiangli', 'shenque', 'linwan'], props: ['photo'], type: 'setup' },
+  { index: 4, act: 1, sceneId: 'S06', title: '餐厅初识', summary: '首日晚餐:苏乔、阿灿登场;韩崇举杯,敬酒词里藏着刀。', emotion: 1, characters: ['linwan', 'jiangli', 'shenque', 'suqiao', 'achan', 'hanchong'], type: 'setup' },
+  { index: 5, act: 1, sceneId: 'S03', title: '底舱异响', summary: '林晚循着敲击声摸进底舱,录音笔录下集装箱里不属于货物的动静。', emotion: -1, characters: ['linwan'], props: ['recorder'], key: true, type: 'inciting' },
+  { index: 6, act: 1, sceneId: 'S05', title: '阿灿的求助', summary: '阿灿被蒸汽烫伤,苏乔为他包扎;林晚第一次看清这位医生的手有多稳。', emotion: 0.5, characters: ['achan', 'suqiao', 'linwan'], props: ['medkit'], type: 'setup' },
+  { index: 7, act: 1, sceneId: 'S01', title: '信号失联', summary: '卫星电话成了砖头,船与陆地的最后一根线断了。', emotion: -1.5, characters: ['linwan', 'jiangli', 'shenque'], type: 'rising' },
+  { index: 8, act: 1, sceneId: 'S06', title: '白露的警告', summary: '白露借递盐罐低声说:"别信船长,别喝餐厅的汤。"', emotion: -1, characters: ['linwan', 'bailu'], type: 'rising' },
+  { index: 9, act: 1, sceneId: 'S03', title: '货运舱单', summary: '林晚在底舱办公台翻到舱单——第 9 栏的集装箱没有编号。', emotion: -2, characters: ['linwan'], props: ['manifest'], key: true, type: 'inciting' },
+  { index: 10, act: 1, sceneId: 'S02', title: '风暴预警', summary: '气压骤降,江离下令保持航线穿风暴而过,沈确罕见地没有反对。', emotion: -2, characters: ['jiangli', 'shenque', 'achan'], type: 'rising' },
+  { index: 11, act: 1, sceneId: 'S06', title: '餐厅交锋', summary: '韩崇坐到林晚对面,慢条斯理地盘问她的来历,每一句都像在称她的斤两。', emotion: -2.5, characters: ['hanchong', 'linwan', 'suqiao'], type: 'rising' },
+  { index: 12, act: 1, sceneId: 'S03', title: '午夜跟踪', summary: '林晚夜探底舱,发现身后多了一个人的脚步。她关灯屏息,手电的光从她头顶扫过。', emotion: -3, characters: ['linwan', 'shenque'], key: true, type: 'crisis' },
+  /* ── ACT II(场 13–34)── */
+  { index: 13, act: 2, sceneId: 'S03', title: '甩掉尾巴', summary: '林晚借集装箱迷宫甩开跟踪者,顺手撕下一枚被换过的箱封。', emotion: -1.5, characters: ['linwan'], type: 'rising' },
+  { index: 14, act: 2, sceneId: 'S07', title: '轮机室密谈', summary: '轰鸣声里,老鬼承认:底舱有一间"图纸上不存在的房间"。', emotion: -1, characters: ['laogui', 'linwan'], type: 'rising' },
+  { index: 15, act: 2, sceneId: 'S07', title: '生锈的钥匙', summary: '老鬼把贴身二十年的黄铜钥匙放进林晚掌心:"替我看看那间屋子。"', emotion: 0.5, characters: ['laogui', 'linwan'], props: ['key'], key: true, type: 'turning' },
+  { index: 16, act: 2, sceneId: 'S04', title: '风暴登陆', summary: '风暴正面撞上渡轮,整船倾斜,甲板成了战场。', emotion: -3, characters: ['jiangli', 'shenque', 'achan', 'linwan'], key: true, type: 'crisis' },
+  { index: 17, act: 2, sceneId: 'S05', title: '医务室同盟', summary: '苏乔说出她登船的真正原因,并把药箱暗格借给林晚藏舱单。同盟结成。', emotion: 1, characters: ['suqiao', 'linwan'], props: ['medkit', 'manifest'], type: 'turning' },
+  { index: 18, act: 2, sceneId: 'S02', title: '驾驶舱对峙', summary: '林晚把舱单拍在海图桌上,江离的回答滴水不漏,唯独失言了半句。', emotion: -2.5, characters: ['linwan', 'jiangli', 'shenque'], props: ['manifest', 'recorder'], type: 'rising' },
+  { index: 19, act: 2, sceneId: 'S10', title: '暗中搜查', summary: '沈确以安全检查为名翻遍船长室与林晚的房间,一无所获,留下一床狼藉。', emotion: -3, characters: ['shenque', 'linwan'], type: 'rising' },
+  { index: 20, act: 2, sceneId: 'S08', title: '夜吊货柜', summary: '阿灿夜巡,看见那只无编号集装箱在午夜被悄悄吊上救生艇甲板。', emotion: -2, characters: ['achan', 'shenque'], props: ['flare'], type: 'rising' },
+  { index: 21, act: 2, sceneId: 'S09', title: '密室开启', summary: '钥匙转动的声音轻得像叹气。门后:空铺位、成排药瓶、一面钉满照片的墙。', emotion: -3.5, characters: ['linwan', 'suqiao'], props: ['key'], key: true, type: 'turning' },
+  { index: 22, act: 2, sceneId: 'S09', title: '照片背面', summary: '照片墙上,林晚看见了姐姐——年轻的江离站在林霜身边,背面写着失踪前一周的日期。', emotion: -2, characters: ['linwan'], props: ['photo'], key: true, type: 'crisis' },
+]
+
+const BEATS_PART2: Beat[] = [
+  { index: 23, act: 2, sceneId: 'S06', title: '白露失联', summary: '约定的接头时间,白露的座位空着,餐巾叠得整整齐齐——太整齐了。', emotion: -3.5, characters: ['linwan', 'suqiao'], type: 'crisis' },
+  { index: 24, act: 2, sceneId: 'S06', title: '血色餐刀', summary: '林晚的餐盘下压着一把餐刀,刀柄缠着白露的丝巾。这是最后通牒。', emotion: -4, characters: ['linwan', 'hanchong'], type: 'crisis' },
+  { index: 25, act: 2, sceneId: 'S10', title: '江离的独白', summary: '船长室里,江离第一次说出林霜的名字:三年前她是目击者,而他在日志上签了字。', emotion: 0, characters: ['jiangli', 'linwan'], props: ['photo'], key: true, type: 'turning' },
+  { index: 26, act: 2, sceneId: 'S05', title: '药箱藏针', summary: '苏乔比对批号:密室里的镇静剂,与正规药品同一条生产线,同一个批号。', emotion: -2.5, characters: ['suqiao', 'linwan'], props: ['medkit'], type: 'rising' },
+  { index: 27, act: 2, sceneId: 'S02', title: '电台被毁', summary: '沈确砸毁电台,火花四溅。"从现在起,谁也不许跟岸上说话。"', emotion: -4, characters: ['shenque', 'jiangli', 'achan'], type: 'crisis' },
+  { index: 28, act: 2, sceneId: 'S09', title: '囚于密室', summary: '林晚被反锁进密室,录音笔被搜走。黑暗里,墙上的照片一张张看着她。', emotion: -4, characters: ['linwan', 'shenque'], props: ['recorder'], key: true, type: 'crisis' },
+  { index: 29, act: 2, sceneId: 'S03', title: '阿灿营救', summary: '通风管传来敲击声——阿灿用最水手的方式,把林晚从铁板后面放了出来。', emotion: -1, characters: ['achan', 'linwan'], type: 'turning' },
+  { index: 30, act: 2, sceneId: 'S07', title: '老鬼之死', summary: '轮机室的轰鸣停了七秒。老鬼倒在机组旁,手心里还攥着半张舱单复印件。全剧情绪谷值。', emotion: -4.2, characters: ['laogui', 'linwan', 'achan', 'suqiao'], props: ['key'], key: true, type: 'crisis' },
+  { index: 31, act: 2, sceneId: 'S06', title: '全员猜忌', summary: '餐厅里没人动筷。每个人都有动机,每个人都在说谎,每个人都在看别人。', emotion: -3.5, characters: ['linwan', 'jiangli', 'shenque', 'suqiao', 'achan', 'hanchong'], type: 'rising' },
+  { index: 32, act: 2, sceneId: 'S08', title: '白露重现', summary: '阿灿检查救生艇时发现被捆在艇底的白露——活着,手里还攥着半本账页。', emotion: -2, characters: ['bailu', 'linwan', 'achan'], props: ['recorder'], type: 'turning' },
+  { index: 33, act: 2, sceneId: 'S09', title: '真相拼图', summary: '舱单、药瓶批号、照片日期、账页——四年的人口与药品走私链,在密室里拼成整张图。', emotion: -1, characters: ['linwan', 'suqiao', 'bailu', 'jiangli'], props: ['manifest', 'photo'], type: 'turning' },
+  { index: 34, act: 2, sceneId: 'S04', title: '风暴对峙', summary: '风暴最烈时,全船摊牌:船员倒戈,沈确被制服,驾驶舱易主。全剧情绪峰值。', emotion: 4.5, characters: ['linwan', 'jiangli', 'shenque', 'achan', 'hanchong', 'suqiao'], key: true, type: 'climax' },
+  /* ── ACT III(场 35–42)── */
+  { index: 35, act: 3, sceneId: 'S02', title: '韩崇的筹码', summary: '韩崇消失在混乱里,再出现时,刀架在白露颈侧,站在驾驶舱门口。', emotion: -3, characters: ['hanchong', 'bailu', 'jiangli', 'linwan'], type: 'crisis' },
+  { index: 36, act: 3, sceneId: 'S08', title: '弃船命令', summary: '船体水线下被撕开一道口子。江离下达了船长一生最不愿说的两个字:弃船。', emotion: -3.5, characters: ['jiangli', 'shenque', 'achan', 'suqiao', 'linwan', 'hanchong', 'bailu'], props: ['flare', 'medkit'], type: 'crisis' },
+  { index: 37, act: 3, sceneId: 'S11', title: '救生艇博弈', summary: '小艇在黑海里起伏。韩崇用证据换自由,林晚用命换证据,谁都不先眨眼。', emotion: -2, characters: ['hanchong', 'linwan', 'suqiao', 'bailu', 'achan', 'shenque'], type: 'crisis' },
+  { index: 38, act: 3, sceneId: 'S11', title: '信号弹', summary: '阿灿拉开信号弹,红色火光撕开夜幕——远处,海警巡逻艇的灯回应了。', emotion: 2.5, characters: ['achan', 'linwan', 'suqiao', 'bailu', 'hanchong', 'shenque'], props: ['flare'], key: true, type: 'climax' },
+  { index: 39, act: 3, sceneId: 'S11', title: '韩崇就擒', summary: '录音笔在所有人面前播放,韩崇自己的声音定他自己的罪。', emotion: 3.5, characters: ['hanchong', 'linwan'], props: ['recorder'], type: 'resolution' },
+  { index: 40, act: 3, sceneId: 'S10', title: '江离的抉择', summary: '江离把半沉的船头调向巡逻艇,亲手打开了驾驶舱的门。这一次,他不签字,他作证。', emotion: 2, characters: ['jiangli', 'linwan'], type: 'resolution' },
+  { index: 41, act: 3, sceneId: 'S12', title: '黎明抵港', summary: '风暴退了。渡轮与巡逻艇并排进港,晨光把每个人的影子拉得很长。', emotion: 4, characters: ['linwan', 'jiangli', 'suqiao', 'achan', 'bailu', 'shenque', 'hanchong'], type: 'resolution' },
+  { index: 42, act: 3, sceneId: 'S12', title: '尾声:新的航程', summary: '三个月后,林晚的报道付印;阿灿收到海事学校的录取信;江离以证人身份出庭。码头上,又有船要出海。', emotion: 4.2, characters: ['linwan', 'achan', 'suqiao', 'bailu'], key: true, type: 'resolution' },
+]
+
+BEATS.push(...BEATS_PART2)
+
+/* ──────────────────────────── 三幕 ──────────────────────────── */
+
+export interface Act {
+  id: ActId
+  name: string
+  nameEn: string
+  /** 场号区间(闭区间) */
+  range: [number, number]
+  color: string
+  summary: string
+}
+
+export const ACTS: Act[] = [
+  { id: 1, name: '第一幕 · 建置', nameEn: 'ACT I', range: [1, 12], color: '#F2EAD8', summary: '登船、布子、失联:每一个人都带着秘密上船,第一道裂缝出现在舱单第 9 栏。' },
+  { id: 2, name: '第二幕 · 对抗', nameEn: 'ACT II', range: [13, 34], color: '#FFB347', summary: '钥匙、密室、死亡与反转:真相一层层剥开,代价一条比一条重,直到风暴夜的全面摊牌。' },
+  { id: 3, name: '第三幕 · 解决', nameEn: 'ACT III', range: [35, 42], color: '#FF4D6D', summary: '弃船、博弈、信号弹:海面小艇上的最后谈判,以黎明时分的进港收尾。' },
+]
+
+/* ──────────────────────────── 关系 / 边 ──────────────────────────── */
+
+export type EdgeKind = 'character-character' | 'character-prop' | 'character-scene' | 'prop-scene'
+
+export interface RelationshipEdge {
+  id: string
+  /** 节点 id(人物 id / 道具 id / 场景 id) */
+  source: string
+  target: string
+  kind: EdgeKind
+  /** 关系短语,如「猎手与猎物」 */
+  label: string
+  /** 关系情感倾向 -5(敌对)..+5(亲密);道具/场景边可为 0 */
+  sentiment: number
+  /** 关系强度 1–5(图谱边宽) */
+  strength: number
+  /** 关系建立场号 */
+  sinceBeat: number
+}
+
+/** 26 条人物关系(与首页 S2 数据点一致) */
+export const RELATIONSHIPS: RelationshipEdge[] = [
+  { id: 'r01', source: 'linwan', target: 'jiangli', kind: 'character-character', label: '追查与隐瞒', sentiment: -2, strength: 5, sinceBeat: 3 },
+  { id: 'r02', source: 'linwan', target: 'shenque', kind: 'character-character', label: '互相提防', sentiment: -3, strength: 4, sinceBeat: 2 },
+  { id: 'r03', source: 'linwan', target: 'suqiao', kind: 'character-character', label: '医患同盟', sentiment: 3, strength: 4, sinceBeat: 17 },
+  { id: 'r04', source: 'linwan', target: 'laogui', kind: 'character-character', label: '钥匙的托付', sentiment: 2, strength: 3, sinceBeat: 15 },
+  { id: 'r05', source: 'linwan', target: 'achan', kind: 'character-character', label: '姐弟般守护', sentiment: 2, strength: 3, sinceBeat: 6 },
+  { id: 'r06', source: 'linwan', target: 'bailu', kind: 'character-character', label: '情报单线', sentiment: 2, strength: 4, sinceBeat: 1 },
+  { id: 'r07', source: 'linwan', target: 'hanchong', kind: 'character-character', label: '猎手与猎物', sentiment: -4, strength: 5, sinceBeat: 11 },
+  { id: 'r08', source: 'jiangli', target: 'shenque', kind: 'character-character', label: '貌合神离', sentiment: -2, strength: 4, sinceBeat: 3 },
+  { id: 'r09', source: 'jiangli', target: 'laogui', kind: 'character-character', label: '三十年同船', sentiment: 3, strength: 3, sinceBeat: 1 },
+  { id: 'r10', source: 'jiangli', target: 'hanchong', kind: 'character-character', label: '债务与把柄', sentiment: -3, strength: 5, sinceBeat: 1 },
+  { id: 'r11', source: 'shenque', target: 'hanchong', kind: 'character-character', label: '利益同盟', sentiment: 2, strength: 4, sinceBeat: 2 },
+  { id: 'r12', source: 'suqiao', target: 'achan', kind: 'character-character', label: '绷带与信任', sentiment: 2, strength: 2, sinceBeat: 6 },
+  { id: 'r13', source: 'suqiao', target: 'hanchong', kind: 'character-character', label: '药箱里的秘密', sentiment: -2, strength: 3, sinceBeat: 26 },
+  { id: 'r14', source: 'laogui', target: 'achan', kind: 'character-character', label: '轮机室的传承', sentiment: 3, strength: 3, sinceBeat: 1 },
+  { id: 'r15', source: 'achan', target: 'bailu', kind: 'character-character', label: '救生艇下的字条', sentiment: 1, strength: 2, sinceBeat: 32 },
+  { id: 'r16', source: 'bailu', target: 'hanchong', kind: 'character-character', label: '潜伏与反潜伏', sentiment: -3, strength: 4, sinceBeat: 1 },
+  { id: 'r17', source: 'bailu', target: 'jiangli', kind: 'character-character', label: '当年的乘客', sentiment: 1, strength: 2, sinceBeat: 3 },
+  { id: 'r18', source: 'hanchong', target: 'laogui', kind: 'character-character', label: '灭口', sentiment: -5, strength: 4, sinceBeat: 30 },
+  { id: 'r19', source: 'suqiao', target: 'shenque', kind: 'character-character', label: '听诊器与谎言', sentiment: -1, strength: 2, sinceBeat: 19 },
+  { id: 'r20', source: 'achan', target: 'shenque', kind: 'character-character', label: '新人与老油条', sentiment: -2, strength: 3, sinceBeat: 2 },
+  { id: 'r21', source: 'jiangli', target: 'suqiao', kind: 'character-character', label: '船上的医生', sentiment: 1, strength: 2, sinceBeat: 4 },
+  { id: 'r22', source: 'hanchong', target: 'achan', kind: 'character-character', label: '灭口未遂', sentiment: -3, strength: 3, sinceBeat: 20 },
+  { id: 'r23', source: 'bailu', target: 'suqiao', kind: 'character-character', label: '药箱里的录音笔', sentiment: 2, strength: 2, sinceBeat: 32 },
+  { id: 'r24', source: 'laogui', target: 'shenque', kind: 'character-character', label: '油污与西装', sentiment: -2, strength: 2, sinceBeat: 10 },
+  { id: 'r25', source: 'shenque', target: 'bailu', kind: 'character-character', label: '餐厅里的交锋', sentiment: -2, strength: 3, sinceBeat: 23 },
+  { id: 'r26', source: 'achan', target: 'jiangli', kind: 'character-character', label: '船长的背影', sentiment: 2, strength: 2, sinceBeat: 3 },
+]
+
+/** 人物 ↔ 道具(持有 / 追寻 / 藏匿) */
+export const CHARACTER_PROP_EDGES: RelationshipEdge[] = [
+  { id: 'cp01', source: 'linwan', target: 'recorder', kind: 'character-prop', label: '持有 · 一度被夺', sentiment: 0, strength: 5, sinceBeat: 1 },
+  { id: 'cp02', source: 'linwan', target: 'manifest', kind: 'character-prop', label: '发现并出示', sentiment: 0, strength: 4, sinceBeat: 9 },
+  { id: 'cp03', source: 'laogui', target: 'key', kind: 'character-prop', label: '贴身保管二十年', sentiment: 0, strength: 4, sinceBeat: 14 },
+  { id: 'cp04', source: 'linwan', target: 'key', kind: 'character-prop', label: '受托开启密室', sentiment: 0, strength: 4, sinceBeat: 15 },
+  { id: 'cp05', source: 'shenque', target: 'recorder', kind: 'character-prop', label: '搜走', sentiment: 0, strength: 3, sinceBeat: 28 },
+  { id: 'cp06', source: 'shenque', target: 'key', kind: 'character-prop', label: '夺走备用钥匙', sentiment: 0, strength: 3, sinceBeat: 30 },
+  { id: 'cp07', source: 'achan', target: 'flare', kind: 'character-prop', label: '发现并发射', sentiment: 0, strength: 4, sinceBeat: 20 },
+  { id: 'cp08', source: 'suqiao', target: 'medkit', kind: 'character-prop', label: '随身携带', sentiment: 0, strength: 3, sinceBeat: 6 },
+  { id: 'cp09', source: 'jiangli', target: 'photo', kind: 'character-prop', label: '珍藏与忏悔', sentiment: 0, strength: 4, sinceBeat: 3 },
+  { id: 'cp10', source: 'linwan', target: 'photo', kind: 'character-prop', label: '姐姐的影像', sentiment: 0, strength: 4, sinceBeat: 22 },
+  { id: 'cp11', source: 'bailu', target: 'recorder', kind: 'character-prop', label: '冒死偷回', sentiment: 0, strength: 3, sinceBeat: 32 },
+  { id: 'cp12', source: 'hanchong', target: 'manifest', kind: 'character-prop', label: '第 9 栏的货主', sentiment: 0, strength: 5, sinceBeat: 9 },
+]
+
+/** 道具 ↔ 场景(出现 / 藏匿地) */
+export const PROP_SCENE_EDGES: RelationshipEdge[] = [
+  { id: 'ps01', source: 'recorder', target: 'S01', kind: 'prop-scene', label: '随主登船', sentiment: 0, strength: 2, sinceBeat: 1 },
+  { id: 'ps02', source: 'recorder', target: 'S11', kind: 'prop-scene', label: '定罪播放地', sentiment: 0, strength: 3, sinceBeat: 39 },
+  { id: 'ps03', source: 'manifest', target: 'S03', kind: 'prop-scene', label: '发现地', sentiment: 0, strength: 3, sinceBeat: 9 },
+  { id: 'ps04', source: 'key', target: 'S07', kind: 'prop-scene', label: '保管地', sentiment: 0, strength: 2, sinceBeat: 14 },
+  { id: 'ps05', source: 'key', target: 'S09', kind: 'prop-scene', label: '开启之地', sentiment: 0, strength: 3, sinceBeat: 21 },
+  { id: 'ps06', source: 'flare', target: 'S08', kind: 'prop-scene', label: '存放地', sentiment: 0, strength: 2, sinceBeat: 20 },
+  { id: 'ps07', source: 'medkit', target: 'S05', kind: 'prop-scene', label: '常驻', sentiment: 0, strength: 2, sinceBeat: 6 },
+  { id: 'ps08', source: 'photo', target: 'S09', kind: 'prop-scene', label: '照片墙', sentiment: 0, strength: 3, sinceBeat: 22 },
+]
+
+/* ──────────────────────────── 全剧统计 ──────────────────────────── */
+
+export interface ScriptStats {
+  beats: number
+  characters: number
+  dialogueLines: number
+  acts: number
+  keyBeats: number
+  /** 节奏熵(节拍间隔的信息熵,0–1) */
+  paceEntropy: number
+  /** 人物关系数 */
+  relations: number
+  /** 流转道具数 */
+  propsFlow: number
+  /** 情绪振幅 = 峰值 − 谷值 */
+  emotionAmplitude: number
+  peakBeat: number
+  peakValue: number
+  valleyBeat: number
+  valleyValue: number
+  /** 平均张力(|emotion| 均值归一化到 0–1) */
+  avgTension: number
+}
+
+function computeStats(): ScriptStats {
+  const emotions = BEATS.map((b) => b.emotion)
+  const peakValue = Math.max(...emotions)
+  const valleyValue = Math.min(...emotions)
+  const peakBeat = BEATS[emotions.indexOf(peakValue)].index
+  const valleyBeat = BEATS[emotions.indexOf(valleyValue)].index
+  const avgTension = emotions.reduce((s, e) => s + Math.abs(e), 0) / emotions.length / EMOTION_MAX
+  return {
+    beats: BEATS.length,
+    characters: CHARACTERS.length,
+    dialogueLines: 1204,
+    acts: ACTS.length,
+    keyBeats: BEATS.filter((b) => b.key).length,
+    paceEntropy: 0.71,
+    relations: RELATIONSHIPS.length,
+    propsFlow: PROPS.length,
+    emotionAmplitude: Math.round((peakValue - valleyValue) * 10) / 10,
+    peakBeat,
+    peakValue,
+    valleyBeat,
+    valleyValue,
+    avgTension: Math.round(avgTension * 100) / 100,
+  }
+}
+
+export const SCRIPT_STATS: ScriptStats = computeStats()
+
+/* ──────────────────────────── 查询辅助 ──────────────────────────── */
+
+export const getCharacter = (id: string): Character | undefined => CHARACTERS.find((c) => c.id === id)
+export const getProp = (id: string): ScriptProp | undefined => PROPS.find((p) => p.id === id)
+export const getScene = (id: string): SceneLocation | undefined => SCENES.find((s) => s.id === id)
+export const getBeat = (index: number): Beat | undefined => BEATS.find((b) => b.index === index)
+export const getAct = (id: ActId): Act | undefined => ACTS.find((a) => a.id === id)
+export const beatsOfAct = (id: ActId): Beat[] => BEATS.filter((b) => b.act === id)
+
+/** 全剧整体情绪曲线(42 点) */
+export const EMOTION_SERIES: { beat: number; emotion: number; act: ActId; sceneId: string; title: string }[] =
+  BEATS.map((b) => ({ beat: b.index, emotion: b.emotion, act: b.act, sceneId: b.sceneId, title: b.title }))
+
+/** 单个人物的逐场情绪序列(42 点,含 null) */
+export function characterArc(id: string): (number | null)[] {
+  return getCharacter(id)?.arc ?? []
+}
+
+/** 场景 ↔ 出场人物映射 */
+export const SCENE_CHARACTERS: Record<string, string[]> = (() => {
+  const map: Record<string, Set<string>> = {}
+  for (const b of BEATS) {
+    if (!map[b.sceneId]) map[b.sceneId] = new Set()
+    b.characters.forEach((c) => map[b.sceneId].add(c))
+  }
+  return Object.fromEntries(Object.entries(map).map(([k, v]) => [k, [...v]]))
+})()
+
+/** 场景 ↔ 出场场次映射 */
+export const SCENE_BEATS: Record<string, number[]> = (() => {
+  const map: Record<string, number[]> = {}
+  for (const b of BEATS) {
+    if (!map[b.sceneId]) map[b.sceneId] = []
+    map[b.sceneId].push(b.index)
+  }
+  return map
+})()
+
+/* ──────────────────────────── 图谱数据构建 ──────────────────────────── */
+
+export interface GraphNode {
+  id: string
+  kind: NodeKind
+  label: string
+  labelEn: string
+  color: string
+  /** 建议半径(px) */
+  size: number
+  avatar?: string
+  meta?: string
+}
+
+export interface GraphLink {
+  source: string
+  target: string
+  label?: string
+  sentiment?: number
+  strength: number
+}
+
+/** 人物-场景出现边(由 42 场出场记录推导) */
+export const CHARACTER_SCENE_EDGES: RelationshipEdge[] = (() => {
+  const edges: RelationshipEdge[] = []
+  let n = 0
+  for (const scene of SCENES) {
+    for (const charId of SCENE_CHARACTERS[scene.id] ?? []) {
+      const firstBeat = Math.min(...BEATS.filter((b) => b.sceneId === scene.id && b.characters.includes(charId)).map((b) => b.index))
+      n += 1
+      edges.push({ id: `cs${String(n).padStart(2, '0')}`, source: charId, target: scene.id, kind: 'character-scene', label: '出场', sentiment: 0, strength: 1, sinceBeat: firstBeat })
+    }
+  }
+  return edges
+})()
+
+export const GRAPH_NODES: GraphNode[] = [
+  ...CHARACTERS.map<GraphNode>((c) => ({ id: c.id, kind: 'character', label: c.name, labelEn: c.nameEn, color: NODE_COLORS.character, size: 22, avatar: c.avatar, meta: c.role })),
+  ...PROPS.map<GraphNode>((p) => ({ id: p.id, kind: 'prop', label: p.name, labelEn: p.nameEn, color: NODE_COLORS.prop, size: 13, meta: p.kind })),
+  ...SCENES.map<GraphNode>((s) => ({ id: s.id, kind: 'scene', label: s.name, labelEn: s.nameEn, color: NODE_COLORS.scene, size: 15, meta: s.code })),
+]
+
+export const GRAPH_LINKS: GraphLink[] = [
+  ...RELATIONSHIPS.map<GraphLink>((e) => ({ source: e.source, target: e.target, label: e.label, sentiment: e.sentiment, strength: e.strength })),
+  ...CHARACTER_PROP_EDGES.map<GraphLink>((e) => ({ source: e.source, target: e.target, label: e.label, strength: e.strength })),
+  ...PROP_SCENE_EDGES.map<GraphLink>((e) => ({ source: e.source, target: e.target, label: e.label, strength: e.strength })),
+  ...CHARACTER_SCENE_EDGES.map<GraphLink>((e) => ({ source: e.source, target: e.target, strength: e.strength })),
+]
+
+/* ──────────────────────────── 案例库条目 ──────────────────────────── */
+
+export interface CaseEntry {
+  id: string
+  title: string
+  titleEn: string
+  genre: string
+  poster: string
+  beats: number
+  characters: number
+  amplitude: number
+  paceEntropy: number
+  oneLiner: string
+  isDemo: boolean
+}
+
+export const CASES: CaseEntry[] = [
+  {
+    id: 'nightferry',
+    title: '夜航',
+    titleEn: 'NIGHT FERRY',
+    genre: '悬疑 · 剧情',
+    poster: '/case-nightferry.png',
+    beats: 42,
+    characters: 8,
+    amplitude: 8.7,
+    paceEntropy: 0.71,
+    oneLiner: '一名记者登上深夜渡轮,追查姐姐三年前失踪的真相。',
+    isDemo: true,
+  },
+  {
+    id: 'luomu',
+    title: '落幕',
+    titleEn: 'FINAL SHOW',
+    genre: '文艺 · 家庭',
+    poster: '/case-luomu.png',
+    beats: 36,
+    characters: 6,
+    amplitude: 6.4,
+    paceEntropy: 0.58,
+    oneLiner: '县城老电影院拆除前夜,三代人各自赶来赴最后一场放映。',
+    isDemo: false,
+  },
+  {
+    id: 'tingyu',
+    title: '听雨',
+    titleEn: 'RAIN LISTENER',
+    genre: '古典 · 爱情',
+    poster: '/case-tingyu.png',
+    beats: 30,
+    characters: 5,
+    amplitude: 5.2,
+    paceEntropy: 0.49,
+    oneLiner: '江南庭院里,一场雨把两个十年未见的人困在了同一屋檐下。',
+    isDemo: false,
+  },
+]

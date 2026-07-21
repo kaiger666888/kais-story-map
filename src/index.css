@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* DramaCore is dark-first: shadcn tokens mapped onto the ink palette */
+    --background: 240 20% 4%;
+    --foreground: 40 35% 91%;
+    --card: 240 18% 7%;
+    --card-foreground: 40 35% 91%;
+    --popover: 240 18% 7%;
+    --popover-foreground: 40 35% 91%;
+    --primary: 36 100% 64%;
+    --primary-foreground: 240 20% 4%;
+    --secondary: 240 14% 9%;
+    --secondary-foreground: 40 35% 91%;
+    --muted: 240 14% 9%;
+    --muted-foreground: 44 11% 55%;
+    --accent: 240 14% 11%;
+    --accent-foreground: 40 35% 91%;
+    --destructive: 350 100% 65%;
+    --destructive-foreground: 40 35% 91%;
+    --border: 240 11% 17%;
+    --input: 240 11% 17%;
+    --ring: 36 100% 64%;
+    --radius: 0.625rem;
+    --sidebar-background: 240 18% 7%;
+    --sidebar-foreground: 40 35% 91%;
+    --sidebar-primary: 36 100% 64%;
+    --sidebar-primary-foreground: 240 20% 4%;
+    --sidebar-accent: 240 14% 11%;
+    --sidebar-accent-foreground: 40 35% 91%;
+    --sidebar-border: 240 11% 17%;
+    --sidebar-ring: 36 100% 64%;
+
+    /* DramaCore raw tokens */
+    --ink-950: #08080D;
+    --ink-900: #0E0E16;
+    --ink-800: #16161F;
+    --ink-line: #26262F;
+    --paper: #F2EAD8;
+    --paper-dim: #9A937F;
+    --amber: #FFB347;
+    --amber-deep: #C77F1F;
+    --rose: #FF4D6D;
+    --rose-soft: #FF8FA3;
+    --cyan: #4DD8FF;
+    --green: #7BE0A3;
+    --violet: #A78BFA;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink-950 text-paper font-sans antialiased;
+    font-feature-settings: 'ss01' on;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(255, 179, 71, 0.28);
+    color: #F2EAD8;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #08080D;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #26262F;
+    border-radius: 999px;
+    border: 2px solid #08080D;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a48;
+  }
+  /* 全站噪点颗粒叠加(极低透明度,不拦截交互) */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/texture-grain.svg');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 90;
+  }
+}
+
+@layer components {
+  /* mono 眉题 / 数据标注 */
+  .mono-label {
+    @apply font-mono text-[0.75rem] uppercase tracking-[0.12em] text-paper-dim;
+  }
+  .mono-tick {
+    @apply font-mono text-[0.6875rem] tracking-[0.08em] text-paper-dim;
+  }
+  /* 全站细网格背景(60px, 透明度 0.35) */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(38, 38, 47, 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38, 38, 47, 0.35) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  /* 噪点颗粒叠加 */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/texture-grain.svg');
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* 聚光灯光斑 */
+  .spotlight {
+    background: radial-gradient(circle at 50% 38%, rgba(255, 179, 71, 0.14), transparent 60%);
+  }
+  /* 标题渐变文字:paper → amber */
+  .text-gradient {
+    background: linear-gradient(120deg, #F2EAD8, #FFB347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* 情绪带渐变(平静 → 高涨) */
+  .gradient-emotion {
+    background: linear-gradient(90deg, #4DD8FF, #7BE0A3, #FFB347, #FF4D6D);
+  }
+  /* 容器 */
+  .site-container {
+    @apply mx-auto w-full max-w-site;
+    padding-left: clamp(20px, 5vw, 64px);
+    padding-right: clamp(20px, 5vw, 64px);
+  }
+}
