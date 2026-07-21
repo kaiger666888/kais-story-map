@@ -1,9 +1,11 @@
 /**
  * 情绪曲线页 — 共享常量与推导助手
- * 所有数值均由 src/data/nightferry.ts 的演示数据推导,保证跨页自洽。
+ * 纯函数(beatCode/fmtVal/valueColor/heatColor/beatArousal)不依赖数据,可直接 import;
+ * 数据依赖函数(charMean/sceneCharAvg/sceneBeatRange)改为 useEmotionHelpers() hook,
+ * 内部从 ScriptDataContext 取当前剧本数据,保证动态加载时跨图自洽。
  */
 import type { Beat } from '@/data/nightferry'
-import { BEATS, getCharacter } from '@/data/nightferry'
+import { useScript } from '@/context/ScriptDataContext'
 
 /** 主图关键事件(green 菱形标记)— 与 emotion.md S2 一致 */
 export const EVENT_MARKERS: { beat: number; label: string }[] = [
@@ -50,28 +52,6 @@ export function heatColor(v: number): string {
   return `rgb(${c[0]}, ${c[1]}, ${c[2]})`
 }
 
-/* ── 数据推导 ── */
-
-/** 人物弧均值(忽略 null 缺场) */
-export function charMean(charId: string): number {
-  const c = getCharacter(charId)
-  if (!c) return 0
-  const vals = c.arc.filter((v): v is number => v != null)
-  if (!vals.length) return 0
-  return Math.round((vals.reduce((s, v) => s + v, 0) / vals.length) * 10) / 10
-}
-
-/** 场景 × 人物平均情绪(该人物在该场景所有出场场的 arc 均值);无出场 → null */
-export function sceneCharAvg(sceneId: string, charId: string): number | null {
-  const c = getCharacter(charId)
-  if (!c) return null
-  const vals = BEATS.filter((b) => b.sceneId === sceneId && b.characters.includes(charId))
-    .map((b) => c.arc[b.index - 1])
-    .filter((v): v is number => v != null)
-  if (!vals.length) return null
-  return Math.round((vals.reduce((s, v) => s + v, 0) / vals.length) * 10) / 10
-}
-
 /**
  * 唤醒度(0–10)推导:情绪强度 × 在场人数 × 关键节拍加权。
  * 仅用于 S5 象限 y 轴,确定性映射,不产生随机数。
@@ -83,8 +63,41 @@ export function beatArousal(b: Beat): number {
   return Math.min(10, Math.round((base + crowd + key) * 10) / 10)
 }
 
-/** 某场景覆盖的场号区间(用于主图联动高亮) */
-export function sceneBeatRange(sceneId: string): [number, number] {
-  const idx = BEATS.filter((b) => b.sceneId === sceneId).map((b) => b.index)
-  return [Math.min(...idx), Math.max(...idx)]
+/* ── 数据推导(绑定当前剧本数据) ── */
+
+/**
+ * 返回绑定当前 ScriptDataContext 数据的推导函数。在组件内调用一次。
+ * charMean/sceneCharAvg/sceneBeatRange 的逻辑与原实现一致,只是数据源改为动态。
+ */
+export function useEmotionHelpers() {
+  const { beats, getCharacter } = useScript()
+
+  /** 人物弧均值(忽略 null 缺场) */
+  const charMean = (charId: string): number => {
+    const c = getCharacter(charId)
+    if (!c) return 0
+    const vals = c.arc.filter((v): v is number => v != null)
+    if (!vals.length) return 0
+    return Math.round((vals.reduce((s, v) => s + v, 0) / vals.length) * 10) / 10
+  }
+
+  /** 场景 × 人物平均情绪(该人物在该场景所有出场场的 arc 均值);无出场 → null */
+  const sceneCharAvg = (sceneId: string, charId: string): number | null => {
+    const c = getCharacter(charId)
+    if (!c) return null
+    const vals = beats
+      .filter((b) => b.sceneId === sceneId && b.characters.includes(charId))
+      .map((b) => c.arc[b.index - 1])
+      .filter((v): v is number => v != null)
+    if (!vals.length) return null
+    return Math.round((vals.reduce((s, v) => s + v, 0) / vals.length) * 10) / 10
+  }
+
+  /** 某场景覆盖的场号区间(用于主图联动高亮) */
+  const sceneBeatRange = (sceneId: string): [number, number] => {
+    const idx = beats.filter((b) => b.sceneId === sceneId).map((b) => b.index)
+    return [Math.min(...idx), Math.max(...idx)]
+  }
+
+  return { charMean, sceneCharAvg, sceneBeatRange }
 }

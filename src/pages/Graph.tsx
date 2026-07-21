@@ -51,22 +51,17 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { NodeChip, PanelCard } from '@/components/common'
-import {
-  BEATS,
-  CHARACTER_PROP_EDGES,
-  CHARACTERS,
-  GRAPH_NODES,
-  NODE_COLORS,
-  PROPS,
-  PROP_SCENE_EDGES,
-  RELATIONSHIPS,
-  SCENE_BEATS,
-  getBeat,
-  getCharacter,
-  getProp,
-  getScene,
+import { NODE_COLORS } from '@/data/nightferry'
+import type {
+  ActId,
+  Beat,
+  Character,
+  GraphNode,
+  NodeKind,
+  RelationshipEdge,
+  ScriptProp,
 } from '@/data/nightferry'
-import type { ActId, Beat, NodeKind } from '@/data/nightferry'
+import { useScript } from '@/context/ScriptDataContext'
 
 /* ──────────────────────────── 图谱数据构建 ──────────────────────────── */
 
@@ -110,130 +105,14 @@ const EVENT_CHARACTER_ANCHORS: Record<number, string> = {
   27: 'shenque',
   42: 'linwan',
 }
-/** 画布持有边:多持有记录的道具仅保留前两条(满足 58 边规格;完整流转见抽屉「流转链」) */
-const CP_CANVAS_EDGES = CHARACTER_PROP_EDGES.filter((e) => e.id !== 'cp06' && e.id !== 'cp11')
-
 const actOfBeat = (beat: number): ActId => (beat <= 12 ? 1 : beat <= 34 ? 2 : 3)
 const eventNodeId = (beat: number) => `evt-${String(beat).padStart(2, '0')}`
-
-function firstAppearanceBeat(charId: string): number {
-  let min = 43
-  for (const b of BEATS) if (b.characters.includes(charId) && b.index < min) min = b.index
-  return min === 43 ? 1 : min
-}
-function lastAppearanceBeat(charId: string): number {
-  let max = 0
-  for (const b of BEATS) if (b.characters.includes(charId) && b.index > max) max = b.index
-  return max
-}
-
-const WORK_NODES: WorkNode[] = [
-  ...GRAPH_NODES.map<WorkNode>((n) => {
-    const sinceBeat =
-      n.kind === 'character'
-        ? firstAppearanceBeat(n.id)
-        : n.kind === 'prop'
-          ? Math.min(...(getProp(n.id)?.timeline.map((t) => t.beat) ?? [1]))
-          : Math.min(...(SCENE_BEATS[n.id] ?? [1]))
-    return { ...n, sinceBeat, act: actOfBeat(sinceBeat) }
-  }),
-  ...EVENT_BEAT_INDICES.map<WorkNode>((bi, i) => {
-    const b = getBeat(bi)!
-    return {
-      id: eventNodeId(bi),
-      kind: 'event',
-      label: b.title,
-      labelEn: `EVT.${String(i + 1).padStart(2, '0')}`,
-      color: NODE_COLORS.event,
-      size: 5,
-      meta: b.sceneId,
-      sinceBeat: bi,
-      act: b.act,
-    }
-  }),
-]
 
 const ccCategory = (sentiment: number): RelCategory =>
   sentiment >= 2 ? 'kin' : sentiment <= -2 ? 'conflict' : 'secret'
 
-const WORK_EDGES: WorkEdge[] = [
-  ...RELATIONSHIPS.map<WorkEdge>((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    kind: 'cc',
-    label: e.label,
-    sentiment: e.sentiment,
-    strength: e.strength,
-    sinceBeat: e.sinceBeat,
-    category: ccCategory(e.sentiment),
-    dashed: e.sentiment <= -3,
-  })),
-  ...CP_CANVAS_EDGES.map<WorkEdge>((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    kind: 'cp',
-    label: e.label,
-    sentiment: 0,
-    strength: e.strength,
-    sinceBeat: e.sinceBeat,
-    category: 'hold',
-    dashed: false,
-  })),
-  ...PROP_SCENE_EDGES.map<WorkEdge>((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    kind: 'ps',
-    label: e.label,
-    sentiment: 0,
-    strength: e.strength,
-    sinceBeat: e.sinceBeat,
-    category: 'presence',
-    dashed: false,
-  })),
-  ...EVENT_BEAT_INDICES.map<WorkEdge>((bi, i) => ({
-    id: `es${String(i + 1).padStart(2, '0')}`,
-    source: eventNodeId(bi),
-    target: getBeat(bi)!.sceneId,
-    kind: 'es',
-    label: '发生于',
-    sentiment: 0,
-    strength: 2,
-    sinceBeat: bi,
-    category: 'presence',
-    dashed: false,
-  })),
-  ...Object.entries(EVENT_CHARACTER_ANCHORS).map<WorkEdge>(([bi, charId], i) => ({
-    id: `ec${String(i + 1).padStart(2, '0')}`,
-    source: eventNodeId(Number(bi)),
-    target: charId,
-    kind: 'ec',
-    label: '核心人物',
-    sentiment: 0,
-    strength: 2,
-    sinceBeat: Number(bi),
-    category: 'presence',
-    dashed: false,
-  })),
-]
-
-const NODE_MAP = new Map<string, WorkNode>(WORK_NODES.map((n) => [n.id, n]))
-const ADJ = new Map<string, Set<string>>()
-const DEGREE = new Map<string, number>()
-for (const e of WORK_EDGES) {
-  if (!ADJ.has(e.source)) ADJ.set(e.source, new Set())
-  if (!ADJ.has(e.target)) ADJ.set(e.target, new Set())
-  ADJ.get(e.source)!.add(e.target)
-  ADJ.get(e.target)!.add(e.source)
-  DEGREE.set(e.source, (DEGREE.get(e.source) ?? 0) + 1)
-  DEGREE.set(e.target, (DEGREE.get(e.target) ?? 0) + 1)
-}
-
-const GRAPH_NODE_COUNT = WORK_NODES.length
-const GRAPH_EDGE_COUNT = WORK_EDGES.length
-const GRAPH_DENSITY = (2 * GRAPH_EDGE_COUNT) / (GRAPH_NODE_COUNT * (GRAPH_NODE_COUNT - 1))
+/* WORK_NODES / WORK_EDGES / NODE_MAP / ADJ / DEGREE 等派生资产由 buildGraphAssets(当前剧本数据)
+   在组件内 useMemo 构建 —— 见下方 buildGraphAssets。 */
 
 const KIND_LABEL: Record<NodeKind, string> = {
   character: '人物',
@@ -281,97 +160,238 @@ const PROP_ICON: Record<string, typeof Mic> = {
   photo: ImageIcon,
 }
 
-function monoIdOf(node: WorkNode): string {
-  if (node.kind === 'character') {
-    const i = CHARACTERS.findIndex((c) => c.id === node.id)
-    return `CHAR.${String(i + 1).padStart(2, '0')}`
-  }
-  if (node.kind === 'prop') {
-    const i = PROPS.findIndex((p) => p.id === node.id)
-    return `PROP.${String(i + 1).padStart(2, '0')}`
-  }
-  if (node.kind === 'scene') return node.id
-  return node.labelEn
+/* monoIdOf / lastSeenOf / twoHopSet / shortestPath / TOP_DEGREE / longestAbsence / BAILU_GAP /
+   COMMUNITIES / crossEdges 均为「依赖当前剧本数据」的派生物,已移入下方 buildGraphAssets。 */
+
+/* ──────────────────────────── 图谱派生资产(数据驱动) ──────────────────────────── */
+
+/** buildGraphAssets 的入参 —— useScript() 提供的数据子集 */
+interface GraphAssetsInput {
+  characters: Character[]
+  props: ScriptProp[]
+  beats: Beat[]
+  graphNodes: GraphNode[]
+  sceneBeats: Record<string, number[]>
+  relationships: RelationshipEdge[]
+  characterPropEdges: RelationshipEdge[]
+  propSceneEdges: RelationshipEdge[]
+  getBeat: (i: number) => Beat | undefined
+  getProp: (id: string) => ScriptProp | undefined
+  getCharacter: (id: string) => Character | undefined
 }
 
-function lastSeenOf(node: WorkNode): number {
-  if (node.kind === 'character') return lastAppearanceBeat(node.id)
-  if (node.kind === 'prop') return Math.max(...(getProp(node.id)?.timeline.map((t) => t.beat) ?? [0]))
-  if (node.kind === 'scene') return Math.max(...(SCENE_BEATS[node.id] ?? [0]))
-  return node.sinceBeat
+interface GraphAssets {
+  WORK_NODES: WorkNode[]
+  WORK_EDGES: WorkEdge[]
+  NODE_MAP: Map<string, WorkNode>
+  ADJ: Map<string, Set<string>>
+  DEGREE: Map<string, number>
+  GRAPH_NODE_COUNT: number
+  GRAPH_EDGE_COUNT: number
+  GRAPH_DENSITY: number
+  TOP_DEGREE: { node: WorkNode; deg: number }[]
+  BAILU_GAP: { from: number; to: number; len: number; back: number }
+  COMMUNITIES: { id: string; name: string; en: string; color: string; members: string[] }[]
+  monoIdOf: (node: WorkNode) => string
+  lastSeenOf: (node: WorkNode) => number
+  twoHopSet: (id: string) => Set<string>
+  shortestPath: (a: string, b: string) => string[] | null
+  crossEdges: (a: string[], b: string[]) => number
+  beatCount: number
 }
 
-/** 双跳子图 */
-function twoHopSet(id: string): Set<string> {
-  const out = new Set<string>([id])
-  for (const n of ADJ.get(id) ?? []) {
-    out.add(n)
-    for (const n2 of ADJ.get(n) ?? []) out.add(n2)
+/**
+ * 根据当前剧本数据(useScript 提供)构建 Graph 所需的全部派生资产。纯函数。
+ * 组件以 useMemo(() => buildGraphAssets(script), [script.data]) 缓存;
+ * 数据切换(?data=)时整套图谱 / 洞察随之重建。
+ * 容错:事件场号、人物 / 道具锚定 id 在动态数据中不存在时自动跳过,不报错。
+ */
+function buildGraphAssets(d: GraphAssetsInput): GraphAssets {
+  const beatCount = d.beats.length
+
+  const firstAppearanceBeat = (charId: string): number => {
+    let min = beatCount + 1
+    for (const b of d.beats) if (b.characters.includes(charId) && b.index < min) min = b.index
+    return min > beatCount ? 1 : min
   }
-  return out
-}
+  const lastAppearanceBeat = (charId: string): number => {
+    let max = 0
+    for (const b of d.beats) if (b.characters.includes(charId) && b.index > max) max = b.index
+    return max
+  }
 
-/** BFS 最短路径 */
-function shortestPath(a: string, b: string): string[] | null {
-  if (a === b) return [a]
-  const prev = new Map<string, string | null>([[a, null]])
-  const queue = [a]
-  while (queue.length) {
-    const cur = queue.shift()!
-    for (const nb of ADJ.get(cur) ?? []) {
-      if (prev.has(nb)) continue
-      prev.set(nb, cur)
-      if (nb === b) {
-        const path: string[] = [b]
-        let p: string | null = cur
-        while (p) {
-          path.unshift(p)
-          p = prev.get(p) ?? null
+  /** 画布持有边:多持有记录的道具仅保留前两条(原规格);动态数据无 cp06/cp11 时 filter 无害 */
+  const CP_CANVAS_EDGES = d.characterPropEdges.filter((e) => e.id !== 'cp06' && e.id !== 'cp11')
+  /** 仅保留动态数据中真实存在的事件场号 */
+  const eventBeats = (EVENT_BEAT_INDICES as readonly number[]).filter((bi) => d.getBeat(bi))
+
+  const WORK_NODES: WorkNode[] = [
+    ...d.graphNodes.map<WorkNode>((n) => {
+      const sinceBeat =
+        n.kind === 'character'
+          ? firstAppearanceBeat(n.id)
+          : n.kind === 'prop'
+            ? Math.min(...(d.getProp(n.id)?.timeline.map((t) => t.beat) ?? [1]))
+            : Math.min(...(d.sceneBeats[n.id] ?? [1]))
+      return { ...n, sinceBeat, act: actOfBeat(sinceBeat) }
+    }),
+    ...eventBeats.map<WorkNode>((bi) => {
+      const b = d.getBeat(bi)!
+      const i = (EVENT_BEAT_INDICES as readonly number[]).indexOf(bi)
+      return {
+        id: eventNodeId(bi),
+        kind: 'event',
+        label: b.title,
+        labelEn: `EVT.${String(i + 1).padStart(2, '0')}`,
+        color: NODE_COLORS.event,
+        size: 5,
+        meta: b.sceneId,
+        sinceBeat: bi,
+        act: b.act,
+      }
+    }),
+  ]
+
+  const WORK_EDGES: WorkEdge[] = [
+    ...d.relationships.map<WorkEdge>((e) => ({
+      id: e.id, source: e.source, target: e.target, kind: 'cc',
+      label: e.label, sentiment: e.sentiment, strength: e.strength, sinceBeat: e.sinceBeat,
+      category: ccCategory(e.sentiment), dashed: e.sentiment <= -3,
+    })),
+    ...CP_CANVAS_EDGES.map<WorkEdge>((e) => ({
+      id: e.id, source: e.source, target: e.target, kind: 'cp',
+      label: e.label, sentiment: 0, strength: e.strength, sinceBeat: e.sinceBeat,
+      category: 'hold', dashed: false,
+    })),
+    ...d.propSceneEdges.map<WorkEdge>((e) => ({
+      id: e.id, source: e.source, target: e.target, kind: 'ps',
+      label: e.label, sentiment: 0, strength: e.strength, sinceBeat: e.sinceBeat,
+      category: 'presence', dashed: false,
+    })),
+    ...eventBeats.map<WorkEdge>((bi, i) => ({
+      id: `es${String(i + 1).padStart(2, '0')}`, source: eventNodeId(bi), target: d.getBeat(bi)!.sceneId,
+      kind: 'es', label: '发生于', sentiment: 0, strength: 2, sinceBeat: bi, category: 'presence', dashed: false,
+    })),
+    ...(Object.entries(EVENT_CHARACTER_ANCHORS) as [string, string][])
+      .filter(([bi, charId]) => d.getBeat(Number(bi)) && d.getCharacter(charId))
+      .map<WorkEdge>(([bi, charId], i) => ({
+        id: `ec${String(i + 1).padStart(2, '0')}`, source: eventNodeId(Number(bi)), target: charId,
+        kind: 'ec', label: '核心人物', sentiment: 0, strength: 2, sinceBeat: Number(bi), category: 'presence', dashed: false,
+      })),
+  ]
+
+  const NODE_MAP = new Map<string, WorkNode>(WORK_NODES.map((n) => [n.id, n]))
+  const ADJ = new Map<string, Set<string>>()
+  const DEGREE = new Map<string, number>()
+  for (const e of WORK_EDGES) {
+    if (!ADJ.has(e.source)) ADJ.set(e.source, new Set())
+    if (!ADJ.has(e.target)) ADJ.set(e.target, new Set())
+    ADJ.get(e.source)!.add(e.target)
+    ADJ.get(e.target)!.add(e.source)
+    DEGREE.set(e.source, (DEGREE.get(e.source) ?? 0) + 1)
+    DEGREE.set(e.target, (DEGREE.get(e.target) ?? 0) + 1)
+  }
+
+  const GRAPH_NODE_COUNT = WORK_NODES.length
+  const GRAPH_EDGE_COUNT = WORK_EDGES.length
+  const GRAPH_DENSITY = GRAPH_NODE_COUNT > 1 ? (2 * GRAPH_EDGE_COUNT) / (GRAPH_NODE_COUNT * (GRAPH_NODE_COUNT - 1)) : 0
+
+  const monoIdOf = (node: WorkNode): string => {
+    if (node.kind === 'character') {
+      const i = d.characters.findIndex((c) => c.id === node.id)
+      return `CHAR.${String(i + 1).padStart(2, '0')}`
+    }
+    if (node.kind === 'prop') {
+      const i = d.props.findIndex((p) => p.id === node.id)
+      return `PROP.${String(i + 1).padStart(2, '0')}`
+    }
+    if (node.kind === 'scene') return node.id
+    return node.labelEn
+  }
+
+  const lastSeenOf = (node: WorkNode): number => {
+    if (node.kind === 'character') return lastAppearanceBeat(node.id)
+    if (node.kind === 'prop') return Math.max(...(d.getProp(node.id)?.timeline.map((t) => t.beat) ?? [0]))
+    if (node.kind === 'scene') return Math.max(...(d.sceneBeats[node.id] ?? [0]))
+    return node.sinceBeat
+  }
+
+  /** 双跳子图 */
+  const twoHopSet = (id: string): Set<string> => {
+    const out = new Set<string>([id])
+    for (const n of ADJ.get(id) ?? []) {
+      out.add(n)
+      for (const n2 of ADJ.get(n) ?? []) out.add(n2)
+    }
+    return out
+  }
+
+  /** BFS 最短路径 */
+  const shortestPath = (a: string, b: string): string[] | null => {
+    if (a === b) return [a]
+    const prev = new Map<string, string | null>([[a, null]])
+    const queue = [a]
+    while (queue.length) {
+      const cur = queue.shift()!
+      for (const nb of ADJ.get(cur) ?? []) {
+        if (prev.has(nb)) continue
+        prev.set(nb, cur)
+        if (nb === b) {
+          const path: string[] = [b]
+          let p: string | null = cur
+          while (p) {
+            path.unshift(p)
+            p = prev.get(p) ?? null
+          }
+          return path
         }
-        return path
+        queue.push(nb)
       }
-      queue.push(nb)
     }
+    return null
   }
-  return null
-}
 
-/* ──────────────────────────── 洞察数据 ──────────────────────────── */
+  const TOP_DEGREE = [...DEGREE.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([id, deg]) => ({ node: NODE_MAP.get(id)!, deg }))
+    .filter((x) => x.node)
 
-const TOP_DEGREE = [...DEGREE.entries()]
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
-  .map(([id, deg]) => ({ node: NODE_MAP.get(id)!, deg }))
-
-function longestAbsence(charId: string): { from: number; to: number; len: number; back: number } {
-  const present = new Set<number>()
-  for (const b of BEATS) if (b.characters.includes(charId)) present.add(b.index)
-  let best = { from: 0, to: 0, len: 0, back: 0 }
-  let runStart = 0
-  for (let i = 1; i <= 43; i++) {
-    if (i <= 42 && !present.has(i)) {
-      if (runStart === 0) runStart = i
-    } else {
-      if (runStart !== 0 && i - runStart > best.len) {
-        best = { from: runStart, to: i - 1, len: i - runStart, back: i <= 42 ? i : 0 }
+  const longestAbsence = (charId: string): { from: number; to: number; len: number; back: number } => {
+    const present = new Set<number>()
+    for (const b of d.beats) if (b.characters.includes(charId)) present.add(b.index)
+    let best = { from: 0, to: 0, len: 0, back: 0 }
+    let runStart = 0
+    for (let i = 1; i <= beatCount; i++) {
+      if (!present.has(i)) {
+        if (runStart === 0) runStart = i
+      } else {
+        if (runStart !== 0 && i - runStart > best.len) {
+          best = { from: runStart, to: i - 1, len: i - runStart, back: i }
+        }
+        runStart = 0
       }
-      runStart = 0
     }
+    return best
   }
-  return best
-}
-const BAILU_GAP = longestAbsence('bailu')
+  const BAILU_GAP = longestAbsence('bailu')
 
-const COMMUNITIES = [
-  { id: 'crew', name: '船方', en: 'CREW', color: '#4DD8FF', members: ['jiangli', 'shenque', 'laogui', 'achan'] },
-  { id: 'passenger', name: '乘客方', en: 'PASSENGERS', color: '#FFB347', members: ['linwan', 'suqiao', 'bailu'] },
-  { id: 'cargo', name: '货主方', en: 'CARGO', color: '#FF4D6D', members: ['hanchong'] },
-]
-function crossEdges(a: string[], b: string[]): number {
-  return RELATIONSHIPS.filter(
-    (e) =>
-      (a.includes(e.source) && b.includes(e.target)) || (a.includes(e.target) && b.includes(e.source)),
-  ).length
+  const COMMUNITIES = [
+    { id: 'crew', name: '船方', en: 'CREW', color: '#4DD8FF', members: ['jiangli', 'shenque', 'laogui', 'achan'].filter((m) => NODE_MAP.has(m)) },
+    { id: 'passenger', name: '乘客方', en: 'PASSENGERS', color: '#FFB347', members: ['linwan', 'suqiao', 'bailu'].filter((m) => NODE_MAP.has(m)) },
+    { id: 'cargo', name: '货主方', en: 'CARGO', color: '#FF4D6D', members: ['hanchong'].filter((m) => NODE_MAP.has(m)) },
+  ]
+  const crossEdges = (a: string[], b: string[]): number =>
+    d.relationships.filter(
+      (e) => (a.includes(e.source) && b.includes(e.target)) || (a.includes(e.target) && b.includes(e.source)),
+    ).length
+
+  return {
+    WORK_NODES, WORK_EDGES, NODE_MAP, ADJ, DEGREE,
+    GRAPH_NODE_COUNT, GRAPH_EDGE_COUNT, GRAPH_DENSITY,
+    TOP_DEGREE, BAILU_GAP, COMMUNITIES,
+    monoIdOf, lastSeenOf, twoHopSet, shortestPath, crossEdges, beatCount,
+  }
 }
 
 /* ──────────────────────────── 小组件 / hooks ──────────────────────────── */
@@ -439,7 +459,37 @@ const LAYOUT_MODES: { value: LayoutMode; label: string; icon: typeof Network }[]
 /* ──────────────────────────── 主页面 ──────────────────────────── */
 
 export default function Graph() {
+  // 数据切换(?data=)时通过 key 完全重挂,使图谱派生资产 / 仿真 / 状态基于新剧本重建
+  const { dataPath } = useScript()
+  return <GraphImpl key={dataPath ?? '__default__'} />
+}
+
+function GraphImpl() {
   const navigate = useNavigate()
+
+  /* 当前剧本数据(来自 ScriptDataContext:URL ?data= / localStorage / 默认) */
+  const script = useScript()
+  const assets = useMemo(() => buildGraphAssets(script), [script.data])
+  const {
+    WORK_NODES,
+    WORK_EDGES,
+    NODE_MAP,
+    ADJ,
+    DEGREE,
+    GRAPH_NODE_COUNT,
+    GRAPH_EDGE_COUNT,
+    GRAPH_DENSITY,
+    TOP_DEGREE,
+    BAILU_GAP,
+    COMMUNITIES,
+    lastSeenOf,
+    twoHopSet,
+    shortestPath,
+    crossEdges,
+  } = assets
+  const BEAT_COUNT = assets.beatCount
+  // 查询函数与原始数组直接取自当前剧本数据
+  const { getBeat, getScene, getCharacter, beats: BEATS } = script
 
   /* 画布状态 */
   const [size, setSize] = useState<Size>({ w: 960, h: 640 })
@@ -462,7 +512,7 @@ export default function Graph() {
   const [toolbarStuck, setToolbarStuck] = useState(false)
 
   /* 时间轴 */
-  const [currentBeat, setCurrentBeat] = useState(42)
+  const [currentBeat, setCurrentBeat] = useState(BEAT_COUNT)
   const [playing, setPlaying] = useState(false)
   const [popIds, setPopIds] = useState<Set<string>>(new Set())
 
@@ -478,7 +528,7 @@ export default function Graph() {
   const panRef = useRef<{ sx: number; sy: number; ox: number; oy: number; moved: boolean } | null>(null)
   const animRafRef = useRef(0)
   const trackRef = useRef<HTMLDivElement>(null)
-  const prevBeatRef = useRef(42)
+  const prevBeatRef = useRef(BEAT_COUNT)
 
   sizeRef.current = size
   transformRef.current = transform
@@ -587,11 +637,11 @@ export default function Graph() {
   /* ── 播放(600ms/场) ── */
   useEffect(() => {
     if (!playing) return
-    if (currentBeat >= 42) {
+    if (currentBeat >= BEAT_COUNT) {
       setPlaying(false)
       return
     }
-    const t = setTimeout(() => setCurrentBeat((b) => Math.min(42, b + 1)), 600)
+    const t = setTimeout(() => setCurrentBeat((b) => Math.min(BEAT_COUNT, b + 1)), 600)
     return () => clearTimeout(t)
   }, [playing, currentBeat])
 
@@ -919,7 +969,7 @@ export default function Graph() {
     const track = trackRef.current
     if (!track) return
     const r = track.getBoundingClientRect()
-    const beat = clamp(Math.round(((clientX - r.left) / r.width) * 41) + 1, 1, 42)
+    const beat = clamp(Math.round(((clientX - r.left) / r.width) * (BEAT_COUNT - 1)) + 1, 1, BEAT_COUNT)
     setCurrentBeat(beat)
   }, [])
 
@@ -1281,7 +1331,7 @@ export default function Graph() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.6 }}
             >
-              《夜航》全部 8 人物 · 6 道具 · 12 场景 · 9 事件,{GRAPH_NODE_COUNT} 个节点,{GRAPH_EDGE_COUNT} 条边。
+              {script.meta.title} · {script.characters.length} 人物 · {script.props.length} 道具 · {script.scenes.length} 场景 · {GRAPH_NODE_COUNT} 个节点 · {GRAPH_EDGE_COUNT} 条边。
               拖拽、缩放、聚焦、查径——整张情报板由你拆解。
             </motion.p>
           </div>
@@ -1674,7 +1724,7 @@ export default function Graph() {
             </div>
             <button
               onClick={() => {
-                if (!playing && currentBeat >= 42) setCurrentBeat(1)
+                if (!playing && currentBeat >= BEAT_COUNT) setCurrentBeat(1)
                 setPlaying((p) => !p)
               }}
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber text-ink-950 transition-shadow hover:shadow-glow-amber"
@@ -1719,7 +1769,7 @@ export default function Graph() {
                 {currentScene?.code} {currentScene?.name}
               </p>
               <p className="mono-tick mt-0.5 truncate">
-                第 {String(currentBeat).padStart(2, '0')} 场 / 42 · {currentBeatData.title}
+                第 {String(currentBeat).padStart(2, '0')} 场 / {BEAT_COUNT} · {currentBeatData.title}
               </p>
             </div>
           </div>
@@ -1740,6 +1790,7 @@ export default function Graph() {
             <DrawerContent
               key={selectedNode.id}
               node={selectedNode}
+              assets={assets}
               onClose={() => setSelectedId(null)}
               onFocusNode={focusNodeFromDrawer}
               onJumpEmotion={(beat) => navigate(`/emotion?beat=${beat}`)}
@@ -1807,17 +1858,25 @@ export default function Graph() {
                 <AlertTriangle className="h-4 w-4 text-rose" />
                 <p className="mono-label !text-rose">孤立要素提醒</p>
               </div>
-              <p className="mt-4 font-serif text-lg font-bold leading-7 text-paper">
-                白露自第 {BAILU_GAP.from} 场起连续 {BAILU_GAP.len} 场未出场
-              </p>
-              <p className="mt-2 text-sm leading-6 text-paper-dim">
-                第 {BAILU_GAP.back} 场她才在救生艇底被找回——ACT II 中段存在感断层,长线人物几乎脱网。
-                考虑回收戏份,或在前 12 场前置埋线。
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                <NodeChip kind="character" label="白露 · 线人" />
-                <NodeChip kind="event" label={`缺席 ${BAILU_GAP.len} 场`} />
-              </div>
+              {BAILU_GAP.len > 0 ? (
+                <>
+                  <p className="mt-4 font-serif text-lg font-bold leading-7 text-paper">
+                    白露自第 {BAILU_GAP.from} 场起连续 {BAILU_GAP.len} 场未出场
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-paper-dim">
+                    第 {BAILU_GAP.back} 场她才在救生艇底被找回——ACT II 中段存在感断层,长线人物几乎脱网。
+                    考虑回收戏份,或在前 12 场前置埋线。
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <NodeChip kind="character" label="白露 · 线人" />
+                    <NodeChip kind="event" label={`缺席 ${BAILU_GAP.len} 场`} />
+                  </div>
+                </>
+              ) : (
+                <p className="mt-4 text-sm leading-6 text-paper-dim">
+                  当前剧本未检测到长线人物的显著缺席断层。
+                </p>
+              )}
             </PanelCard>
           </motion.div>
 
@@ -1884,12 +1943,17 @@ function DrawerContent({
   onClose,
   onFocusNode,
   onJumpEmotion,
+  assets,
 }: {
   node: WorkNode
   onClose: () => void
   onFocusNode: (id: string) => void
   onJumpEmotion: (beat: number) => void
+  assets: GraphAssets
 }) {
+  const script = useScript()
+  const { getCharacter, getProp, getScene, getBeat, beats: BEATS, sceneBeats: SCENE_BEATS } = script
+  const { WORK_EDGES, NODE_MAP, monoIdOf, beatCount: BEAT_COUNT } = assets
   const character = node.kind === 'character' ? getCharacter(node.id) : undefined
   const prop = node.kind === 'prop' ? getProp(node.id) : undefined
   const scene = node.kind === 'scene' ? getScene(node.id) : undefined
@@ -2022,7 +2086,7 @@ function DrawerContent({
           <div className="mt-1.5 flex justify-between font-mono text-[0.5625rem] text-paper-dim/60">
             <span>01</span>
             <span>点击跳转到情绪曲线对应场</span>
-            <span>42</span>
+            <span>{BEAT_COUNT}</span>
           </div>
         </motion.div>
       )}

@@ -2,10 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, useInView } from 'framer-motion'
 import { scaleLinear } from 'd3-scale'
 import { line, curveMonotoneX, curveStepAfter } from 'd3-shape'
-import { CHARACTERS, EMOTION_SERIES } from '@/data/nightferry'
 import { PanelCard } from '@/components/common'
 import { cn } from '@/lib/utils'
-import { EVENT_MARKERS, beatCode, charMean, fmtVal } from './shared'
+import { useScript } from '@/context/ScriptDataContext'
+import { EVENT_MARKERS, beatCode, fmtVal, useEmotionHelpers } from './shared'
 
 const W = 1100
 const H = 480
@@ -13,14 +13,17 @@ const PAD = { l: 48, r: 24, t: 26, b: 38 }
 const X_TICKS = [1, 5, 10, 15, 20, 25, 30, 35, 40, 42]
 const Y_TICKS = [-5, -2.5, 0, 2.5, 5]
 const MAX_ACTIVE = 4
-const DEFAULT_ACTIVE = ['linwan', 'jiangli', 'shenque', 'suqiao']
 
 type Mode = 'smooth' | 'step'
 
 export default function CharacterLines() {
+  const { characters: CHARACTERS, emotionSeries: EMOTION_SERIES } = useScript()
+  const { charMean } = useEmotionHelpers()
   const wrapRef = useRef<HTMLDivElement>(null)
   const inView = useInView(wrapRef, { once: true, amount: 0.25 })
-  const [active, setActive] = useState<string[]>(DEFAULT_ACTIVE)
+  const [active, setActive] = useState<string[]>(() =>
+    CHARACTERS.slice(0, Math.min(MAX_ACTIVE, CHARACTERS.length)).map((c) => c.id),
+  )
   const [mode, setMode] = useState<Mode>('smooth')
   const [showEvents, setShowEvents] = useState(true)
   const [hoverLine, setHoverLine] = useState<string | null>(null)

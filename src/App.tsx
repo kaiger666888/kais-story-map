@@ -7,6 +7,7 @@ import Analysis from '@/pages/Analysis'
 import Agent from '@/pages/Agent'
 import Cases from '@/pages/Cases'
 import { useLenis } from '@/hooks/useLenis'
+import { useScriptData } from '@/context/ScriptDataContext'
 
 /**
  * Routing pattern: nested routes (pattern B) — Layout renders <Outlet/>,
@@ -15,9 +16,11 @@ import { useLenis } from '@/hooks/useLenis'
  */
 export default function App() {
   useLenis()
+  // 数据源(?data=)切换时整页重挂,使各页 useMemo / 状态基于新剧本重建
+  const { dataPath } = useScriptData()
 
   return (
-    <Routes>
+    <Routes key={dataPath ?? '__default__'}>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="graph" element={<Graph />} />

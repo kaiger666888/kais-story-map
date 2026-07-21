@@ -3,8 +3,8 @@ import { AnimatePresence, motion, useInView, useMotionValue, useSpring, useTrans
 import { scaleLinear } from 'd3-scale'
 import { area, line, curveCatmullRom } from 'd3-shape'
 import { X } from 'lucide-react'
-import { ACTS, EMOTION_SERIES, getBeat, getCharacter, getScene } from '@/data/nightferry'
 import { PanelCard } from '@/components/common'
+import { useScript } from '@/context/ScriptDataContext'
 import { EVENT_MARKERS, beatCode, fmtVal, valueColor } from './shared'
 import { BEAT_QUOTES } from './quotes'
 
@@ -22,6 +22,8 @@ export default function TensionChart({
   focusRange: [number, number] | null
   onClearFocus: () => void
 }) {
+  const { acts: ACTS, emotionSeries: EMOTION_SERIES, getBeat, getCharacter, getScene, beats } = useScript()
+  const beatCount = beats.length
   const wrapRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
   const inView = useInView(wrapRef, { once: true, amount: 0.25 })
@@ -34,7 +36,7 @@ export default function TensionChart({
   const tooltipLeft = useTransform(tx, (v) => `${v}%`)
 
   const { x, y, linePath, areaPath } = useMemo(() => {
-    const x = scaleLinear().domain([1, 42]).range([PAD.l, W - PAD.r])
+    const x = scaleLinear().domain([1, beatCount]).range([PAD.l, W - PAD.r])
     const y = scaleLinear().domain([-5, 5]).range([H - PAD.b, PAD.t])
     const lineGen = line<(typeof EMOTION_SERIES)[number]>()
       .x((d) => x(d.beat))

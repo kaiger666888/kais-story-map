@@ -4,20 +4,22 @@ import { scaleLinear } from 'd3-scale'
 import { line, curveMonotoneX } from 'd3-shape'
 import { ChevronDown, Quote } from 'lucide-react'
 import type { ActId, Beat } from '@/data/nightferry'
-import { ACTS, EMOTION_SERIES, beatsOfAct, getCharacter, getScene } from '@/data/nightferry'
 import { PanelCard } from '@/components/common'
 import { cn } from '@/lib/utils'
+import { useScript } from '@/context/ScriptDataContext'
 import { beatCode, fmtVal, valueColor } from './shared'
 import { BEAT_QUOTES } from './quotes'
 
 /* ── 60px 迷你 sparkline(本场前后各 3 场窗口) ── */
 function Sparkline({ center }: { center: number }) {
+  const { emotionSeries: EMOTION_SERIES, beats } = useScript()
+  const beatCount = beats.length
   const ref = useRef<SVGSVGElement>(null)
   const inView = useInView(ref, { once: true, margin: '-5% 0px' })
   const w = 60
   const h = 22
   const lo = Math.max(1, center - 3)
-  const hi = Math.min(42, center + 3)
+  const hi = Math.min(beatCount, center + 3)
   const data = EMOTION_SERIES.slice(lo - 1, hi)
   const sx = scaleLinear().domain([lo, hi]).range([2, w - 2])
   const sy = scaleLinear().domain([-5, 5]).range([h - 2, 2])
@@ -45,6 +47,7 @@ function Sparkline({ center }: { center: number }) {
 
 /* ── 在场人物情绪条(-5..+5 中心发散) ── */
 function EmotionBar({ charId, value }: { charId: string; value: number }) {
+  const { getCharacter } = useScript()
   const c = getCharacter(charId)
   if (!c) return null
   const pct = (Math.abs(value) / 5) * 50
@@ -75,6 +78,7 @@ function EmotionBar({ charId, value }: { charId: string; value: number }) {
 
 /* ── 单场行 ── */
 function BeatRow({ beat, open, onToggle, delay }: { beat: Beat; open: boolean; onToggle: () => void; delay: number }) {
+  const { getScene, getCharacter } = useScript()
   const scene = getScene(beat.sceneId)
   const quote = BEAT_QUOTES[beat.index]
   return (
@@ -192,6 +196,7 @@ function BeatRow({ beat, open, onToggle, delay }: { beat: Beat; open: boolean; o
 
 /* ── 手风琴:42 场按幕分三组(默认展开 ACT I) ── */
 export default function BeatAccordion() {
+  const { acts: ACTS, beatsOfAct } = useScript()
   const [openActs, setOpenActs] = useState<Set<ActId>>(new Set([1]))
   const [openRows, setOpenRows] = useState<Set<number>>(new Set([9]))
 

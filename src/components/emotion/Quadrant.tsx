@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { scaleLinear } from 'd3-scale'
-import { BEATS } from '@/data/nightferry'
 import { PanelCard } from '@/components/common'
+import { useScript } from '@/context/ScriptDataContext'
 import { beatArousal, beatCode, fmtVal } from './shared'
 
 const W = 560
@@ -17,6 +17,7 @@ const QUAD_LABELS = [
 ]
 
 export default function Quadrant({ onLocate }: { onLocate: (range: [number, number]) => void }) {
+  const { beats: BEATS } = useScript()
   const wrapRef = useRef<HTMLDivElement>(null)
   const inView = useInView(wrapRef, { once: true, amount: 0.3 })
   const [hover, setHover] = useState<number | null>(null)

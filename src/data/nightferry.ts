@@ -5,40 +5,52 @@
  *
  * 情绪标尺:-5(绝望)→ +5(狂喜)
  * 三幕切分:ACT I 场 1–12 / ACT II 场 13–34 / ACT III 场 35–42
+ *
+ * ── 架构说明 ──
+ * 类型与常量的单一真相源在 @/types/script-schema;本文件 re-export 它们,
+ * 保证现有 `import { CHARACTERS, type Beat } from '@/data/nightferry'` 完全不变。
+ * 派生数据(SCRIPT_STATS / GRAPH_NODES / EMOTION_SERIES / 查询函数)统一走
+ * buildDerived(DEFAULT_DATA),与 ScriptDataContext 动态加载的剧本共用同一套推导逻辑。
+ * DEFAULT_DATA 是聚合后的 ScriptData,作为前端无 ?data= 参数时的默认剧本。
  */
 
-export type NodeKind = 'character' | 'prop' | 'scene' | 'emotion' | 'event'
-export type ActId = 1 | 2 | 3
+// 类型 / 常量:从 schema re-export,保持现有 import 路径不变
+export type {
+  NodeKind,
+  ActId,
+  BeatType,
+  EdgeKind,
+  Character,
+  PropAppearance,
+  ScriptProp,
+  SceneLocation,
+  Beat,
+  Act,
+  RelationshipEdge,
+  GraphNode,
+  GraphLink,
+  ScriptStats,
+  EmotionPoint,
+  CaseEntry,
+  ScriptMeta,
+  ScriptData,
+  DerivedData,
+} from '@/types/script-schema'
+export { NODE_COLORS, EMOTION_MIN, EMOTION_MAX } from '@/types/script-schema'
 
-/** 图谱节点配色规范(全站统一) */
-export const NODE_COLORS: Record<NodeKind, string> = {
-  character: '#FFB347',
-  scene: '#4DD8FF',
-  prop: '#A78BFA',
-  emotion: '#FF4D6D',
-  event: '#7BE0A3',
-}
+import type {
+  Act,
+  Beat,
+  CaseEntry,
+  Character,
+  RelationshipEdge,
+  SceneLocation,
+  ScriptData,
+  ScriptProp,
+} from '@/types/script-schema'
+import { buildDerived } from './derived'
 
-export const EMOTION_MIN = -5
-export const EMOTION_MAX = 5
-
-export interface Character {
-  id: string
-  name: string
-  nameEn: string
-  role: string
-  age: number
-  gender: '女' | '男'
-  /** 个人代表色(情绪曲线 / 人物卡使用;图谱节点统一 amber) */
-  color: string
-  avatar: string
-  bio: string
-  /** 人物动机 */
-  desire: string
-  tags: string[]
-  /** 42 场逐场情绪值(-5..+5);null = 该场不在场 / 失联 / 死亡 */
-  arc: (number | null)[]
-}
+/* ──────────────────────────── 人物 ──────────────────────────── */
 
 export const CHARACTERS: Character[] = [
   {
@@ -197,28 +209,6 @@ export const CHARACTERS: Character[] = [
 
 /* ──────────────────────────── 道具 ──────────────────────────── */
 
-export interface PropAppearance {
-  /** 场号(1–42) */
-  beat: number
-  sceneId: string
-  note: string
-  /** 该时点持有人 */
-  holderId?: string
-}
-
-export interface ScriptProp {
-  id: string
-  name: string
-  nameEn: string
-  kind: '证据' | '工具' | '信物'
-  /** 图谱节点统一 violet */
-  color: string
-  description: string
-  /** 剧情重要性 1–5 */
-  significance: number
-  timeline: PropAppearance[]
-}
-
 export const PROPS: ScriptProp[] = [
   {
     id: 'recorder',
@@ -314,18 +304,6 @@ export const PROPS: ScriptProp[] = [
 
 /* ──────────────────────────── 场景 ──────────────────────────── */
 
-export interface SceneLocation {
-  id: string
-  code: string
-  name: string
-  nameEn: string
-  /** 图谱节点统一 cyan */
-  color: string
-  description: string
-  /** 场景氛围关键词 */
-  mood: string[]
-}
-
 export const SCENES: SceneLocation[] = [
   { id: 'S01', code: 'S01', name: '码头夜', nameEn: 'DOCK NIGHT', color: '#4DD8FF', description: '登船码头,雨夜,集装箱吊机的剪影。故事开始与信号中断的地方。', mood: ['雨', '启程', '失联'] },
   { id: 'S02', code: 'S02', name: '驾驶舱', nameEn: 'THE BRIDGE', color: '#4DD8FF', description: '全船制高点,海图桌与舵轮。权力与谎言都在这里转弯。', mood: ['权力', '对峙', '抉择'] },
@@ -342,27 +320,6 @@ export const SCENES: SceneLocation[] = [
 ]
 
 /* ──────────────────────────── 节拍(42 场) ──────────────────────────── */
-
-export type BeatType = 'setup' | 'inciting' | 'rising' | 'turning' | 'crisis' | 'climax' | 'resolution'
-
-export interface Beat {
-  /** 场号 1–42 */
-  index: number
-  act: ActId
-  /** 发生场景(S01–S12) */
-  sceneId: string
-  title: string
-  summary: string
-  /** 全剧情绪曲线值(-5..+5) */
-  emotion: number
-  /** 本场出场人物 id */
-  characters: string[]
-  /** 本场涉及道具 id */
-  props?: string[]
-  /** 是否 14 个关键节拍之一 */
-  key?: boolean
-  type: BeatType
-}
 
 export const BEATS: Beat[] = [
   /* ── ACT I(场 1–12)── */
@@ -389,9 +346,6 @@ export const BEATS: Beat[] = [
   { index: 20, act: 2, sceneId: 'S08', title: '夜吊货柜', summary: '阿灿夜巡,看见那只无编号集装箱在午夜被悄悄吊上救生艇甲板。', emotion: -2, characters: ['achan', 'shenque'], props: ['flare'], type: 'rising' },
   { index: 21, act: 2, sceneId: 'S09', title: '密室开启', summary: '钥匙转动的声音轻得像叹气。门后:空铺位、成排药瓶、一面钉满照片的墙。', emotion: -3.5, characters: ['linwan', 'suqiao'], props: ['key'], key: true, type: 'turning' },
   { index: 22, act: 2, sceneId: 'S09', title: '照片背面', summary: '照片墙上,林晚看见了姐姐——年轻的江离站在林霜身边,背面写着失踪前一周的日期。', emotion: -2, characters: ['linwan'], props: ['photo'], key: true, type: 'crisis' },
-]
-
-const BEATS_PART2: Beat[] = [
   { index: 23, act: 2, sceneId: 'S06', title: '白露失联', summary: '约定的接头时间,白露的座位空着,餐巾叠得整整齐齐——太整齐了。', emotion: -3.5, characters: ['linwan', 'suqiao'], type: 'crisis' },
   { index: 24, act: 2, sceneId: 'S06', title: '血色餐刀', summary: '林晚的餐盘下压着一把餐刀,刀柄缠着白露的丝巾。这是最后通牒。', emotion: -4, characters: ['linwan', 'hanchong'], type: 'crisis' },
   { index: 25, act: 2, sceneId: 'S10', title: '江离的独白', summary: '船长室里,江离第一次说出林霜的名字:三年前她是目击者,而他在日志上签了字。', emotion: 0, characters: ['jiangli', 'linwan'], props: ['photo'], key: true, type: 'turning' },
@@ -415,19 +369,7 @@ const BEATS_PART2: Beat[] = [
   { index: 42, act: 3, sceneId: 'S12', title: '尾声:新的航程', summary: '三个月后,林晚的报道付印;阿灿收到海事学校的录取信;江离以证人身份出庭。码头上,又有船要出海。', emotion: 4.2, characters: ['linwan', 'achan', 'suqiao', 'bailu'], key: true, type: 'resolution' },
 ]
 
-BEATS.push(...BEATS_PART2)
-
 /* ──────────────────────────── 三幕 ──────────────────────────── */
-
-export interface Act {
-  id: ActId
-  name: string
-  nameEn: string
-  /** 场号区间(闭区间) */
-  range: [number, number]
-  color: string
-  summary: string
-}
 
 export const ACTS: Act[] = [
   { id: 1, name: '第一幕 · 建置', nameEn: 'ACT I', range: [1, 12], color: '#F2EAD8', summary: '登船、布子、失联:每一个人都带着秘密上船,第一道裂缝出现在舱单第 9 栏。' },
@@ -437,25 +379,7 @@ export const ACTS: Act[] = [
 
 /* ──────────────────────────── 关系 / 边 ──────────────────────────── */
 
-export type EdgeKind = 'character-character' | 'character-prop' | 'character-scene' | 'prop-scene'
-
-export interface RelationshipEdge {
-  id: string
-  /** 节点 id(人物 id / 道具 id / 场景 id) */
-  source: string
-  target: string
-  kind: EdgeKind
-  /** 关系短语,如「猎手与猎物」 */
-  label: string
-  /** 关系情感倾向 -5(敌对)..+5(亲密);道具/场景边可为 0 */
-  sentiment: number
-  /** 关系强度 1–5(图谱边宽) */
-  strength: number
-  /** 关系建立场号 */
-  sinceBeat: number
-}
-
-/** 26 条人物关系(与首页 S2 数据点一致) */
+/** 人物-人物关系(26 条,与首页 S2 数据点一致) */
 export const RELATIONSHIPS: RelationshipEdge[] = [
   { id: 'r01', source: 'linwan', target: 'jiangli', kind: 'character-character', label: '追查与隐瞒', sentiment: -2, strength: 5, sinceBeat: 3 },
   { id: 'r02', source: 'linwan', target: 'shenque', kind: 'character-character', label: '互相提防', sentiment: -3, strength: 4, sinceBeat: 2 },
@@ -513,159 +437,58 @@ export const PROP_SCENE_EDGES: RelationshipEdge[] = [
   { id: 'ps08', source: 'photo', target: 'S09', kind: 'prop-scene', label: '照片墙', sentiment: 0, strength: 3, sinceBeat: 22 },
 ]
 
-/* ──────────────────────────── 全剧统计 ──────────────────────────── */
+/* ──────────────────────────── 聚合:默认剧本数据 ──────────────────────────── */
 
-export interface ScriptStats {
-  beats: number
-  characters: number
-  dialogueLines: number
-  acts: number
-  keyBeats: number
-  /** 节奏熵(节拍间隔的信息熵,0–1) */
-  paceEntropy: number
-  /** 人物关系数 */
-  relations: number
-  /** 流转道具数 */
-  propsFlow: number
-  /** 情绪振幅 = 峰值 − 谷值 */
-  emotionAmplitude: number
-  peakBeat: number
-  peakValue: number
-  valleyBeat: number
-  valleyValue: number
-  /** 平均张力(|emotion| 均值归一化到 0–1) */
-  avgTension: number
-}
-
-function computeStats(): ScriptStats {
-  const emotions = BEATS.map((b) => b.emotion)
-  const peakValue = Math.max(...emotions)
-  const valleyValue = Math.min(...emotions)
-  const peakBeat = BEATS[emotions.indexOf(peakValue)].index
-  const valleyBeat = BEATS[emotions.indexOf(valleyValue)].index
-  const avgTension = emotions.reduce((s, e) => s + Math.abs(e), 0) / emotions.length / EMOTION_MAX
-  return {
-    beats: BEATS.length,
-    characters: CHARACTERS.length,
+/**
+ * 夜航的完整 ScriptData。无 ?data= 参数时的默认剧本。
+ * relationships 聚合全部 kind(人物-人物 + 人物-道具 + 道具-场景),
+ * buildDerived 按 kind 分类使用。
+ */
+export const DEFAULT_DATA: ScriptData = {
+  meta: {
+    title: '夜航',
+    titleEn: 'NIGHT FERRY',
+    genre: '悬疑 · 剧情',
+    synopsis: '一名调查记者登上深夜渡轮,追查姐姐三年前在这条船上失踪的真相。',
     dialogueLines: 1204,
-    acts: ACTS.length,
-    keyBeats: BEATS.filter((b) => b.key).length,
     paceEntropy: 0.71,
-    relations: RELATIONSHIPS.length,
-    propsFlow: PROPS.length,
-    emotionAmplitude: Math.round((peakValue - valleyValue) * 10) / 10,
-    peakBeat,
-    peakValue,
-    valleyBeat,
-    valleyValue,
-    avgTension: Math.round(avgTension * 100) / 100,
-  }
+  },
+  characters: CHARACTERS,
+  props: PROPS,
+  scenes: SCENES,
+  beats: BEATS,
+  acts: ACTS,
+  relationships: [...RELATIONSHIPS, ...CHARACTER_PROP_EDGES, ...PROP_SCENE_EDGES],
 }
 
-export const SCRIPT_STATS: ScriptStats = computeStats()
+/* ──────────────────────────── 派生(走 buildDerived,与 Context 共用逻辑) ──────────────────────────── */
+
+const DERIVED = buildDerived(DEFAULT_DATA)
+
+export const SCRIPT_STATS = DERIVED.scriptStats
+/** 全剧整体情绪曲线 */
+export const EMOTION_SERIES = DERIVED.emotionSeries
+/** 场景 ↔ 出场人物映射 */
+export const SCENE_CHARACTERS = DERIVED.sceneCharacters
+/** 场景 ↔ 出场场次映射 */
+export const SCENE_BEATS = DERIVED.sceneBeats
+/** 人物-场景出现边(由出场记录推导) */
+export const CHARACTER_SCENE_EDGES = DERIVED.characterSceneEdges
+export const GRAPH_NODES = DERIVED.graphNodes
+export const GRAPH_LINKS = DERIVED.graphLinks
 
 /* ──────────────────────────── 查询辅助 ──────────────────────────── */
 
-export const getCharacter = (id: string): Character | undefined => CHARACTERS.find((c) => c.id === id)
-export const getProp = (id: string): ScriptProp | undefined => PROPS.find((p) => p.id === id)
-export const getScene = (id: string): SceneLocation | undefined => SCENES.find((s) => s.id === id)
-export const getBeat = (index: number): Beat | undefined => BEATS.find((b) => b.index === index)
-export const getAct = (id: ActId): Act | undefined => ACTS.find((a) => a.id === id)
-export const beatsOfAct = (id: ActId): Beat[] => BEATS.filter((b) => b.act === id)
+export const getCharacter = DERIVED.getCharacter
+export const getProp = DERIVED.getProp
+export const getScene = DERIVED.getScene
+export const getBeat = DERIVED.getBeat
+export const getAct = DERIVED.getAct
+export const beatsOfAct = DERIVED.beatsOfAct
+/** 单个人物的逐场情绪序列(含 null) */
+export const characterArc = DERIVED.characterArc
 
-/** 全剧整体情绪曲线(42 点) */
-export const EMOTION_SERIES: { beat: number; emotion: number; act: ActId; sceneId: string; title: string }[] =
-  BEATS.map((b) => ({ beat: b.index, emotion: b.emotion, act: b.act, sceneId: b.sceneId, title: b.title }))
-
-/** 单个人物的逐场情绪序列(42 点,含 null) */
-export function characterArc(id: string): (number | null)[] {
-  return getCharacter(id)?.arc ?? []
-}
-
-/** 场景 ↔ 出场人物映射 */
-export const SCENE_CHARACTERS: Record<string, string[]> = (() => {
-  const map: Record<string, Set<string>> = {}
-  for (const b of BEATS) {
-    if (!map[b.sceneId]) map[b.sceneId] = new Set()
-    b.characters.forEach((c) => map[b.sceneId].add(c))
-  }
-  return Object.fromEntries(Object.entries(map).map(([k, v]) => [k, [...v]]))
-})()
-
-/** 场景 ↔ 出场场次映射 */
-export const SCENE_BEATS: Record<string, number[]> = (() => {
-  const map: Record<string, number[]> = {}
-  for (const b of BEATS) {
-    if (!map[b.sceneId]) map[b.sceneId] = []
-    map[b.sceneId].push(b.index)
-  }
-  return map
-})()
-
-/* ──────────────────────────── 图谱数据构建 ──────────────────────────── */
-
-export interface GraphNode {
-  id: string
-  kind: NodeKind
-  label: string
-  labelEn: string
-  color: string
-  /** 建议半径(px) */
-  size: number
-  avatar?: string
-  meta?: string
-}
-
-export interface GraphLink {
-  source: string
-  target: string
-  label?: string
-  sentiment?: number
-  strength: number
-}
-
-/** 人物-场景出现边(由 42 场出场记录推导) */
-export const CHARACTER_SCENE_EDGES: RelationshipEdge[] = (() => {
-  const edges: RelationshipEdge[] = []
-  let n = 0
-  for (const scene of SCENES) {
-    for (const charId of SCENE_CHARACTERS[scene.id] ?? []) {
-      const firstBeat = Math.min(...BEATS.filter((b) => b.sceneId === scene.id && b.characters.includes(charId)).map((b) => b.index))
-      n += 1
-      edges.push({ id: `cs${String(n).padStart(2, '0')}`, source: charId, target: scene.id, kind: 'character-scene', label: '出场', sentiment: 0, strength: 1, sinceBeat: firstBeat })
-    }
-  }
-  return edges
-})()
-
-export const GRAPH_NODES: GraphNode[] = [
-  ...CHARACTERS.map<GraphNode>((c) => ({ id: c.id, kind: 'character', label: c.name, labelEn: c.nameEn, color: NODE_COLORS.character, size: 22, avatar: c.avatar, meta: c.role })),
-  ...PROPS.map<GraphNode>((p) => ({ id: p.id, kind: 'prop', label: p.name, labelEn: p.nameEn, color: NODE_COLORS.prop, size: 13, meta: p.kind })),
-  ...SCENES.map<GraphNode>((s) => ({ id: s.id, kind: 'scene', label: s.name, labelEn: s.nameEn, color: NODE_COLORS.scene, size: 15, meta: s.code })),
-]
-
-export const GRAPH_LINKS: GraphLink[] = [
-  ...RELATIONSHIPS.map<GraphLink>((e) => ({ source: e.source, target: e.target, label: e.label, sentiment: e.sentiment, strength: e.strength })),
-  ...CHARACTER_PROP_EDGES.map<GraphLink>((e) => ({ source: e.source, target: e.target, label: e.label, strength: e.strength })),
-  ...PROP_SCENE_EDGES.map<GraphLink>((e) => ({ source: e.source, target: e.target, label: e.label, strength: e.strength })),
-  ...CHARACTER_SCENE_EDGES.map<GraphLink>((e) => ({ source: e.source, target: e.target, strength: e.strength })),
-]
-
-/* ──────────────────────────── 案例库条目 ──────────────────────────── */
-
-export interface CaseEntry {
-  id: string
-  title: string
-  titleEn: string
-  genre: string
-  poster: string
-  beats: number
-  characters: number
-  amplitude: number
-  paceEntropy: number
-  oneLiner: string
-  isDemo: boolean
-}
+/* ──────────────────────────── 案例库条目(案例库专用,非动态) ──────────────────────────── */
 
 export const CASES: CaseEntry[] = [
   {

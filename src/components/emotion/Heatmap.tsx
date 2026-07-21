@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { BEATS, CHARACTERS, SCENES } from '@/data/nightferry'
 import { PanelCard } from '@/components/common'
 import { cn } from '@/lib/utils'
-import { beatCode, fmtVal, heatColor, sceneBeatRange, sceneCharAvg } from './shared'
+import { useScript } from '@/context/ScriptDataContext'
+import { beatCode, fmtVal, heatColor, useEmotionHelpers } from './shared'
 import { BEAT_QUOTES } from './quotes'
 
 interface Tip {
@@ -14,6 +14,8 @@ interface Tip {
 }
 
 export default function Heatmap({ onLocate }: { onLocate: (range: [number, number]) => void }) {
+  const { beats: BEATS, characters: CHARACTERS, scenes: SCENES } = useScript()
+  const { sceneCharAvg, sceneBeatRange } = useEmotionHelpers()
   const wrapRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const inView = useInView(wrapRef, { once: true, amount: 0.2 })
