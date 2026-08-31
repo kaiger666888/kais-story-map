@@ -1,0 +1,698 @@
+{
+  "meta": {
+    "title": "深夜快递",
+    "titleEn": "UNTITLED",
+    "genre": "未分类",
+    "synopsis": ""
+  },
+  "characters": [
+    {
+      "id": "linxiaoman",
+      "name": "林小满",
+      "nameEn": "LIN XIAOMAN",
+      "role": "主角·便利店夜班店员",
+      "age": 26,
+      "gender": "女",
+      "color": "#FF6B6B",
+      "avatar": "/avatar-linxiaoman.png",
+      "bio": "机灵但胆小的便利店夜班店员，梦想考注册会计师。",
+      "desire": "摆脱夜班工作，追求更好的生活",
+      "tags": [
+        "勇敢",
+        "善良",
+        "成长"
+      ],
+      "arc": [
+        0,
+        -2,
+        -4,
+        -3,
+        1,
+        -2,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "laozhou",
+      "name": "老周",
+      "nameEn": "LAO ZHOU",
+      "role": "配角·夜班快递员",
+      "age": 55,
+      "gender": "男",
+      "color": "#4ECDC4",
+      "avatar": "/avatar-laozhou.png",
+      "bio": "沉默寡言的夜班快递员，每天凌晨准时出现。",
+      "desire": "保护重要证据",
+      "tags": [
+        "忠诚",
+        "勇敢",
+        "神秘"
+      ],
+      "arc": [
+        1,
+        0,
+        -3,
+        -2,
+        null,
+        null,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "suqing",
+      "name": "苏晴",
+      "nameEn": "SU QING",
+      "role": "配角·神秘女顾客",
+      "age": 30,
+      "gender": "女",
+      "color": "#9B59B6",
+      "avatar": "/avatar-suqing.png",
+      "bio": "总在最晚时段买一包烟的神秘女顾客。",
+      "desire": "为丈夫复仇，寻求正义",
+      "tags": [
+        "悲伤",
+        "坚强",
+        "秘密"
+      ],
+      "arc": [
+        -1,
+        -2,
+        null,
+        null,
+        null,
+        -3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "chenjingguan",
+      "name": "陈警官",
+      "nameEn": "CHEN JINGGUAN",
+      "role": "配角·辖区刑警",
+      "age": 38,
+      "gender": "男",
+      "color": "#3498DB",
+      "avatar": "/avatar-chenjingguan.png",
+      "bio": "疲惫但敏锐的辖区刑警。",
+      "desire": "破案，维护正义",
+      "tags": [
+        "专业",
+        "执着",
+        "正义"
+      ],
+      "arc": [
+        null,
+        null,
+        null,
+        -1,
+        null,
+        null,
+        null,
+        2
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "blackPackage",
+      "name": "黑色包裹",
+      "nameEn": "Black Package",
+      "kind": "证据",
+      "color": "#A78BFA",
+      "description": "老周寄存在便利店的重要包裹，内含账本录音和现金",
+      "significance": 5,
+      "timeline": [
+        {
+          "beat": 1,
+          "sceneId": "S01",
+          "note": "老周将包裹寄存在便利店收银台下",
+          "holderId": "laozhou"
+        },
+        {
+          "beat": 1,
+          "sceneId": "S01",
+          "note": "包裹被林小满收下并藏在收银台下",
+          "holderId": "linxiaoman"
+        },
+        {
+          "beat": 1,
+          "sceneId": "S02",
+          "note": "苏晴注意到包裹并表现出异常",
+          "holderId": "linxiaoman"
+        },
+        {
+          "beat": 1,
+          "sceneId": "S04",
+          "note": "包裹从便利店消失",
+          "holderId": ""
+        },
+        {
+          "beat": 1,
+          "sceneId": "S06",
+          "note": "包裹被重新放置在废弃仓库17号",
+          "holderId": ""
+        }
+      ]
+    },
+    {
+      "id": "recorder",
+      "name": "录音笔",
+      "nameEn": "Recorder",
+      "kind": "证据",
+      "color": "#A78BFA",
+      "description": "苏晴丈夫留下的账本录音，揭露犯罪证据",
+      "significance": 5,
+      "timeline": [
+        {
+          "beat": 1,
+          "sceneId": "S06",
+          "note": "林小满在黑色包裹中发现录音笔",
+          "holderId": "linxiaoman"
+        },
+        {
+          "beat": 1,
+          "sceneId": "S07",
+          "note": "林小满将录音笔交给苏晴",
+          "holderId": "suqing"
+        },
+        {
+          "beat": 1,
+          "sceneId": "S08",
+          "note": "苏晴和林小满一起将录音笔交给陈警官",
+          "holderId": "chenjingguan"
+        }
+      ]
+    },
+    {
+      "id": "warehouseKey",
+      "name": "仓库钥匙",
+      "nameEn": "Warehouse Key",
+      "kind": "工具",
+      "color": "#A78BFA",
+      "description": "老周快递车上的钥匙，刻有\"临江仓17\"字样",
+      "significance": 4,
+      "timeline": [
+        {
+          "beat": 1,
+          "sceneId": "S05",
+          "note": "林小满在便利店门口捡到钥匙",
+          "holderId": "linxiaoman"
+        },
+        {
+          "beat": 1,
+          "sceneId": "S06",
+          "note": "钥匙用于打开废弃仓库17号",
+          "holderId": "linxiaoman"
+        }
+      ]
+    },
+    {
+      "id": "cash",
+      "name": "现金",
+      "nameEn": "Cash",
+      "kind": "证据",
+      "color": "#A78BFA",
+      "description": "黑色包裹中的成沓现金，与账本录音相关",
+      "significance": 3,
+      "timeline": [
+        {
+          "beat": 1,
+          "sceneId": "S06",
+          "note": "林小满在黑色包裹中发现现金",
+          "holderId": "linxiaoman"
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "code": "S01",
+      "name": "便利店",
+      "nameEn": "CONVENIENCE STORE",
+      "color": "#4DD8FF",
+      "description": "雨夜便利店，灯光昏暗，收银台后堆满教材",
+      "mood": [
+        "悬疑",
+        "紧张",
+        "孤独"
+      ]
+    },
+    {
+      "id": "S02",
+      "code": "S02",
+      "name": "便利店",
+      "nameEn": "CONVENIENCE STORE",
+      "color": "#4DD8FF",
+      "description": "深夜便利店，神秘女顾客出现",
+      "mood": [
+        "不安",
+        "神秘",
+        "警惕"
+      ]
+    },
+    {
+      "id": "S03",
+      "code": "S03",
+      "name": "后巷",
+      "nameEn": "BACK ALLEY",
+      "color": "#4DD8FF",
+      "description": "黑暗的后巷，传来压抑的争执声",
+      "mood": [
+        "危险",
+        "恐惧",
+        "紧张"
+      ]
+    },
+    {
+      "id": "S04",
+      "code": "S04",
+      "name": "便利店",
+      "nameEn": "CONVENIENCE STORE",
+      "color": "#4DD8FF",
+      "description": "警灯闪烁的便利店，包裹神秘消失",
+      "mood": [
+        "震惊",
+        "困惑",
+        "无助"
+      ]
+    },
+    {
+      "id": "S05",
+      "code": "S05",
+      "name": "废弃仓库外",
+      "nameEn": "ABANDONED WAREHOUSE OUTSIDE",
+      "color": "#4DD8FF",
+      "description": "清晨的废弃仓库外，小满寻找线索",
+      "mood": [
+        "决心",
+        "冒险",
+        "期待"
+      ]
+    },
+    {
+      "id": "S06",
+      "code": "S06",
+      "name": "废弃仓库内",
+      "nameEn": "ABANDONED WAREHOUSE INSIDE",
+      "color": "#4DD8FF",
+      "description": "灰尘弥漫的仓库内，发现神秘包裹",
+      "mood": [
+        "震惊",
+        "恐惧",
+        "好奇"
+      ]
+    },
+    {
+      "id": "S07",
+      "code": "S07",
+      "name": "废弃仓库门口",
+      "nameEn": "ABANDONED WAREHOUSE ENTRANCE",
+      "color": "#4DD8FF",
+      "description": "仓库门口，苏晴出现，对峙与和解",
+      "mood": [
+        "紧张",
+        "悲伤",
+        "希望"
+      ]
+    },
+    {
+      "id": "S08",
+      "code": "S08",
+      "name": "警局",
+      "nameEn": "POLICE STATION",
+      "color": "#4DD8FF",
+      "description": "明亮的警局，证据被接收，真相大白",
+      "mood": [
+        "释然",
+        "正义",
+        "温暖"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "index": 1,
+      "act": 1,
+      "sceneId": "S01",
+      "title": "雨夜包裹",
+      "summary": "老周委托林小满保管神秘黑色包裹",
+      "emotion": 0,
+      "characters": [
+        "linxiaoman",
+        "laozhou"
+      ],
+      "props": [
+        "blackPackage"
+      ],
+      "key": true,
+      "type": "setup"
+    },
+    {
+      "index": 2,
+      "act": 1,
+      "sceneId": "S02",
+      "title": "神秘顾客",
+      "summary": "苏晴注意到黑色包裹并表现出异常",
+      "emotion": -1,
+      "characters": [
+        "linxiaoman",
+        "suqing"
+      ],
+      "props": [
+        "blackPackage"
+      ],
+      "key": true,
+      "type": "rising"
+    },
+    {
+      "index": 3,
+      "act": 1,
+      "sceneId": "S03",
+      "title": "后巷袭击",
+      "summary": "老周在后巷被袭击，包裹下落不明",
+      "emotion": -4,
+      "characters": [
+        "linxiaoman",
+        "laozhou"
+      ],
+      "props": [],
+      "key": true,
+      "type": "turning"
+    },
+    {
+      "index": 4,
+      "act": 2,
+      "sceneId": "S04",
+      "title": "警局调查",
+      "summary": "陈警官调查包裹失窃，林小满隐瞒线索",
+      "emotion": -2,
+      "characters": [
+        "linxiaoman",
+        "chenjingguan"
+      ],
+      "props": [],
+      "key": false,
+      "type": "rising"
+    },
+    {
+      "index": 5,
+      "act": 2,
+      "sceneId": "S05",
+      "title": "仓库钥匙",
+      "summary": "林小满找到仓库钥匙，决定前往临江仓库",
+      "emotion": 1,
+      "characters": [
+        "linxiaoman"
+      ],
+      "props": [
+        "warehouseKey"
+      ],
+      "key": true,
+      "type": "rising"
+    },
+    {
+      "index": 6,
+      "act": 2,
+      "sceneId": "S06",
+      "title": "仓库发现",
+      "summary": "林小满在仓库找到包裹，发现现金和录音笔",
+      "emotion": 2,
+      "characters": [
+        "linxiaoman"
+      ],
+      "props": [
+        "blackPackage",
+        "recorder"
+      ],
+      "key": true,
+      "type": "rising"
+    },
+    {
+      "index": 7,
+      "act": 3,
+      "sceneId": "S07",
+      "title": "对峙与和解",
+      "summary": "苏晴出现争夺录音笔，最终与林小满和解",
+      "emotion": 3,
+      "characters": [
+        "linxiaoman",
+        "suqing"
+      ],
+      "props": [
+        "recorder"
+      ],
+      "key": true,
+      "type": "climax"
+    },
+    {
+      "index": 8,
+      "act": 3,
+      "sceneId": "S08",
+      "title": "真相大白",
+      "summary": "证据交给警方，事件解决，角色关系修复",
+      "emotion": 5,
+      "characters": [
+        "linxiaoman",
+        "suqing",
+        "chenjingguan",
+        "laozhou"
+      ],
+      "props": [
+        "recorder"
+      ],
+      "key": true,
+      "type": "resolution"
+    }
+  ],
+  "acts": [
+    {
+      "id": 1,
+      "name": "第一幕 · 建置",
+      "nameEn": "ACT I",
+      "range": [
+        1,
+        3
+      ],
+      "color": "#F2EAD8",
+      "summary": "林小满在便利店夜班时收到老周寄存的神秘包裹，随后苏晴出现引起注意，老周在后巷被打伤，包裹神秘消失。"
+    },
+    {
+      "id": 2,
+      "name": "第二幕 · 对抗",
+      "nameEn": "ACT II",
+      "range": [
+        4,
+        6
+      ],
+      "color": "#FFB347",
+      "summary": "林小满发现包裹丢失，与陈警官交谈后找到老周遗落的钥匙，前往废弃仓库发现包裹内是关键证据录音笔。"
+    },
+    {
+      "id": 3,
+      "name": "第三幕 · 解决",
+      "nameEn": "ACT III",
+      "range": [
+        7,
+        8
+      ],
+      "color": "#FF4D6D",
+      "summary": "林小满与苏晴在仓库相遇，苏晴坦白真相，两人决定将证据交给警方，最终案件解决，林小满继续追求自己的梦想。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r01",
+      "source": "linxiaoman",
+      "target": "laozhou",
+      "kind": "character-character",
+      "label": "店员与快递员",
+      "sentiment": 2,
+      "strength": 3,
+      "sinceBeat": 1
+    },
+    {
+      "id": "r02",
+      "source": "linxiaoman",
+      "target": "blackPackage",
+      "kind": "character-prop",
+      "label": "保管包裹",
+      "sentiment": 1,
+      "strength": 4,
+      "sinceBeat": 1
+    },
+    {
+      "id": "r03",
+      "source": "laozhou",
+      "target": "blackPackage",
+      "kind": "character-prop",
+      "label": "寄存包裹",
+      "sentiment": 3,
+      "strength": 5,
+      "sinceBeat": 1
+    },
+    {
+      "id": "r04",
+      "source": "suqing",
+      "target": "blackPackage",
+      "kind": "character-prop",
+      "label": "关注包裹",
+      "sentiment": -2,
+      "strength": 4,
+      "sinceBeat": 2
+    },
+    {
+      "id": "r05",
+      "source": "linxiaoman",
+      "target": "suqing",
+      "kind": "character-character",
+      "label": "店员与顾客",
+      "sentiment": 0,
+      "strength": 2,
+      "sinceBeat": 2
+    },
+    {
+      "id": "r06",
+      "source": "laozhou",
+      "target": "S03",
+      "kind": "character-scene",
+      "label": "后巷遇袭",
+      "sentiment": -3,
+      "strength": 5,
+      "sinceBeat": 3
+    },
+    {
+      "id": "r07",
+      "source": "linxiaoman",
+      "target": "chenjingguan",
+      "kind": "character-character",
+      "label": "店员与警察",
+      "sentiment": 2,
+      "strength": 3,
+      "sinceBeat": 4
+    },
+    {
+      "id": "r08",
+      "source": "linxiaoman",
+      "target": "warehouseKey",
+      "kind": "character-prop",
+      "label": "拾得钥匙",
+      "sentiment": 1,
+      "strength": 3,
+      "sinceBeat": 5
+    },
+    {
+      "id": "r09",
+      "source": "laozhou",
+      "target": "warehouseKey",
+      "kind": "character-prop",
+      "label": "钥匙主人",
+      "sentiment": 3,
+      "strength": 4,
+      "sinceBeat": 5
+    },
+    {
+      "id": "r10",
+      "source": "linxiaoman",
+      "target": "S06",
+      "kind": "character-scene",
+      "label": "探索仓库",
+      "sentiment": 2,
+      "strength": 3,
+      "sinceBeat": 6
+    },
+    {
+      "id": "r11",
+      "source": "linxiaoman",
+      "target": "recorder",
+      "kind": "character-prop",
+      "label": "发现证据",
+      "sentiment": 3,
+      "strength": 5,
+      "sinceBeat": 6
+    },
+    {
+      "id": "r12",
+      "source": "suqing",
+      "target": "recorder",
+      "kind": "character-prop",
+      "label": "录音主人",
+      "sentiment": -4,
+      "strength": 5,
+      "sinceBeat": 6
+    },
+    {
+      "id": "r13",
+      "source": "linxiaoman",
+      "target": "suqing",
+      "kind": "character-character",
+      "label": "对峙与和解",
+      "sentiment": 3,
+      "strength": 5,
+      "sinceBeat": 7
+    },
+    {
+      "id": "r14",
+      "source": "suqing",
+      "target": "laozhou",
+      "kind": "character-character",
+      "label": "战友关系",
+      "sentiment": 4,
+      "strength": 5,
+      "sinceBeat": 7
+    },
+    {
+      "id": "r15",
+      "source": "chenjingguan",
+      "target": "recorder",
+      "kind": "character-prop",
+      "label": "接收证据",
+      "sentiment": 4,
+      "strength": 5,
+      "sinceBeat": 8
+    },
+    {
+      "id": "r16",
+      "source": "laozhou",
+      "target": "chenjingguan",
+      "kind": "character-character",
+      "label": "警察与证人",
+      "sentiment": 3,
+      "strength": 3,
+      "sinceBeat": 8
+    },
+    {
+      "id": "r17",
+      "source": "linxiaoman",
+      "target": "suqing",
+      "kind": "character-character",
+      "label": "友谊建立",
+      "sentiment": 4,
+      "strength": 4,
+      "sinceBeat": 8
+    },
+    {
+      "id": "r18",
+      "source": "linxiaoman",
+      "target": "cash",
+      "kind": "character-prop",
+      "label": "发现现金",
+      "sentiment": 2,
+      "strength": 3,
+      "sinceBeat": 6
+    },
+    {
+      "id": "r19",
+      "source": "suqing",
+      "target": "cash",
+      "kind": "character-prop",
+      "label": "涉案资金",
+      "sentiment": -3,
+      "strength": 4,
+      "sinceBeat": 6
+    }
+  ]
+}
