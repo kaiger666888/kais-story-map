@@ -165,7 +165,7 @@ export class GLMClient extends OpenAICompatibleClient {
   constructor(opts: { apiKey: string; baseUrl?: string; model?: string }) {
     super({
       apiKey: opts.apiKey,
-      baseUrl: opts.baseUrl ?? 'https://open.bigmodel.cn/api/paas/v4',
+      baseUrl: opts.baseUrl ?? 'https://open.bigmodel.cn/api/coding/paas/v4',
       model: opts.model ?? 'glm-4-flash',
     })
   }
